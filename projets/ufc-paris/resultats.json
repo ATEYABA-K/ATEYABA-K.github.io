@@ -146,6 +146,101 @@
     "bilan_median": -53.4,
     "bilan_moyen": -52.4
   },
+  "marche_francais": {
+    "par_annee": {
+      "2010": {
+        "mises": 448,
+        "redistribue": 369,
+        "garde": 79
+      },
+      "2011": {
+        "mises": 592,
+        "redistribue": 477,
+        "garde": 115
+      },
+      "2012": {
+        "mises": 705,
+        "redistribue": 567,
+        "garde": 138
+      },
+      "2013": {
+        "mises": 848,
+        "redistribue": 684,
+        "garde": 164
+      },
+      "2014": {
+        "mises": 1109,
+        "redistribue": 881,
+        "garde": 228
+      },
+      "2015": {
+        "mises": 1440,
+        "redistribue": 1170,
+        "garde": 270
+      },
+      "2016": {
+        "mises": 2081,
+        "redistribue": 1732,
+        "garde": 349
+      },
+      "2017": {
+        "mises": 2510,
+        "redistribue": 2038,
+        "garde": 472
+      },
+      "2018": {
+        "mises": 3904,
+        "redistribue": 3213,
+        "garde": 691
+      },
+      "2019": {
+        "mises": 5049,
+        "redistribue": 4169,
+        "garde": 880
+      },
+      "2020": {
+        "mises": 5352,
+        "redistribue": 4412,
+        "garde": 940
+      },
+      "2021": {
+        "mises": 7890,
+        "redistribue": 6530,
+        "garde": 1360
+      },
+      "2022": {
+        "mises": 8300,
+        "redistribue": 6920,
+        "garde": 1380
+      },
+      "2023": {
+        "mises": 8490,
+        "redistribue": 7013,
+        "garde": 1477
+      },
+      "2024": {
+        "mises": 10282,
+        "redistribue": 8683,
+        "garde": 1599
+      },
+      "2025": {
+        "mises": 11517,
+        "redistribue": 9751,
+        "garde": 1766
+      }
+    },
+    "total_mises": 70517,
+    "total_redistribue": 58609,
+    "total_garde": 11908,
+    "part_gardee": 0.169,
+    "correlation_mises_garde": 0.997,
+    "correlation_annee_part_gardee": -0.78
+  },
+  "parieur": {
+    "correlation_nb_paris_bilan": -0.39,
+    "gagnants_10_50_paris": 0.38,
+    "gagnants_450_500_paris": 0.18
+  },
   "evenements_ufc_par_annee": {
     "1994": 3,
     "1995": 4,

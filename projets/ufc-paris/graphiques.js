@@ -44,6 +44,28 @@
     });
   }
 
+  // ---------- 1 bis. Où va l'argent : barres empilées par année ----------
+  {
+    const svg = document.getElementById('money');
+    const data = Object.entries(RES.marche_francais.par_annee);
+    const W = 640, H = 280, L = 52, T = 14, B = 28, max = 12000;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const bw = (W - L) / data.length, Y = (v) => T + (H - T - B) * (1 - v / max);
+    for (const t of [0, 3000, 6000, 9000, 12000]) {
+      el('line', { class: t ? 'grid' : 'base', x1: L, x2: W, y1: Y(t), y2: Y(t) }, svg);
+      el('text', { x: L - 8, y: Y(t) + 4, 'text-anchor': 'end' }, svg).textContent = t ? fr(t / 1000, 0) + ' Md€' : '0';
+    }
+    data.forEach(([y, v], i) => {
+      const x = L + i * bw + bw * .15, w = bw * .7;
+      const g = el('g', {}, svg);
+      el('rect', { class: 'bar strong', x, y: Y(v.redistribue), width: w, height: Y(0) - Y(v.redistribue), rx: 2 }, g);
+      el('rect', { class: 'bar hl', x, y: Y(v.mises), width: w, height: Y(v.redistribue) - Y(v.mises) - 1.5, rx: 2 }, g);
+      el('rect', { x: L + i * bw, y: T, width: bw, height: H - T - B, fill: 'transparent' }, g);
+      hover(g, `<b>${y}</b><br>Misé : ${fr(v.mises / 1000, 2)} Md€<br><i class="sw accent"></i>Revenu aux parieurs : ${fr(v.redistribue / 1000, 2)} Md€<br><i class="sw hot"></i>Gardé : ${fr(v.garde / 1000, 2)} Md€ (${pct(v.garde / v.mises, 1)})`);
+      if (+y % 3 === 1 || +y === 2025) el('text', { x: x + w / 2, y: H - 8, 'text-anchor': 'middle' }, svg).textContent = y;
+    });
+  }
+
   // ---------- 2. Calculatrice de marge ----------
   {
     const a = document.getElementById('cA'), b = document.getElementById('cB'), out = document.getElementById('cOut');

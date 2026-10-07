@@ -14,6 +14,15 @@ Cette étude reprend les cotes de 6 916 combats UFC (2010-2026) pour voir qui ga
 - Seuls les très gros favoris (cote < 1,30) sont légèrement positifs (+1,6 % ± 2,3 %) : biais favori-outsider, non significatif.
 - Sur 10 000 parieurs simulés (100 paris de 10 €, camp au hasard), 69 % finissent perdants.
 
+## L'argent du marché français (paris sportifs en ligne, 2010-2025)
+
+- 70,5 Md€ misés, 58,6 Md€ revenus aux parieurs, 11,9 Md€ gardés par les opérateurs (17 %).
+- Corrélation mises / argent gardé : r = 0,997 (en partie mécanique : gardé = mises − gains).
+- La part gardée baisse doucement avec le temps (r = −0,78), de ~20 % à 15,3 % en 2025.
+- Simulation : plus on parie, plus on perd (r = −0,39 entre nombre de paris et bilan).
+
+Sources : rapports ARJEL (2010-2018) et ANJ (2020-2025). Mises 2019 déduites ; PBJ 2024 révisé par l'ANJ.
+
 ## Reproduire
 
 ```bash

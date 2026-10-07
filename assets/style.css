@@ -447,3 +447,11 @@ svg.court rect{transition:fill-opacity .45s ease;}
 @media (max-width:640px){ .sim-res b{font-size:1.15rem;} }
 .sim-note{margin:12px 0 0 !important; font-size:.92rem !important; color:var(--ink); background:var(--hot-soft); border-radius:10px; padding:10px 14px;} .sim-note:empty{display:none;}
 @media (max-width:640px){ .sim-ctrl label{flex-basis:100%;} .sim-ctrl .btn{width:100%; justify-content:center;} }
+.legend-row{display:flex; gap:18px; flex-wrap:wrap; font-size:.84rem; color:var(--ink-soft); margin-top:8px;}
+.legend-row .sw{display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px;}
+.corr-tiles{display:grid; gap:12px; margin-top:22px;}
+.corr-tiles div{display:grid; grid-template-columns:130px 1fr; gap:16px; align-items:start; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px;}
+.corr-tiles b{font-size:1.25rem; color:var(--hot); letter-spacing:-.02em;}
+.corr-tiles span{font-size:.92rem; color:var(--ink-soft);}
+.corr-tiles strong{color:var(--ink);}
+@media (max-width:640px){ .corr-tiles div{grid-template-columns:1fr; gap:4px;} }

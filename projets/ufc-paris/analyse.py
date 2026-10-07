@@ -88,6 +88,36 @@ ev["annee"] = pd.to_datetime(ev.DATE.str.strip(), format="%B %d, %Y").dt.year
 en_france = ev[ev.LOCATION.str.contains("France", na=False)].sort_values("annee")
 ev = ev[ev.annee <= 2025]  # 2026 n'est pas terminée
 
+# 7. Le marché français : combien est misé, combien revient aux parieurs ? -----
+# Paris sportifs en ligne, en millions d'euros. Sources : rapports annuels ARJEL (2010-2018)
+# puis ANJ (2020-2025). 2010 : marché ouvert en juin. 2019 : mises déduites de la hausse
+# publiée pour 2020 (+6 %). 2024 : PBJ révisé dans le bilan 2025 (1 599 M€ au lieu de 1 759 M€).
+MISES = {2010: 448, 2011: 592, 2012: 705, 2013: 848, 2014: 1109, 2015: 1440, 2016: 2081, 2017: 2510,
+         2018: 3904, 2019: 5049, 2020: 5352, 2021: 7890, 2022: 8300, 2023: 8490, 2024: 10282, 2025: 11517}
+GARDE = {2010: 79, 2011: 115, 2012: 138, 2013: 164, 2014: 228, 2015: 270, 2016: 349, 2017: 472,
+         2018: 691, 2019: 880, 2020: 940, 2021: 1360, 2022: 1380, 2023: 1477, 2024: 1599, 2025: 1766}
+annees = sorted(MISES)
+mises = np.array([MISES[a] for a in annees])
+garde = np.array([GARDE[a] for a in annees])  # produit brut des jeux = mises - gains versés
+marche = {
+    "par_annee": {a: {"mises": MISES[a], "redistribue": MISES[a] - GARDE[a], "garde": GARDE[a]} for a in annees},
+    "total_mises": int(mises.sum()), "total_redistribue": int((mises - garde).sum()), "total_garde": int(garde.sum()),
+    "part_gardee": round(float(garde.sum() / mises.sum()), 3),
+    "correlation_mises_garde": round(float(np.corrcoef(mises, garde)[0, 1]), 3),
+    "correlation_annee_part_gardee": round(float(np.corrcoef(annees, garde / mises)[0, 1]), 2),
+}
+
+# 8. À l'échelle d'un parieur : plus on parie, plus on perd ? ---------------
+n_paris = rng.integers(10, 501, 5000)
+camps = paris[["cote", "gagne"]].to_numpy()
+bilans_n = np.array([np.where(camps[i, 1].astype(bool), MISE * (camps[i, 0] - 1), -MISE).sum()
+                     for i in (rng.integers(0, len(camps), n) for n in n_paris)])
+parieur = {
+    "correlation_nb_paris_bilan": round(float(np.corrcoef(n_paris, bilans_n)[0, 1]), 2),
+    "gagnants_10_50_paris": round(float((bilans_n[n_paris <= 50] > 0).mean()), 2),
+    "gagnants_450_500_paris": round(float((bilans_n[n_paris >= 450] > 0).mean()), 2),
+}
+
 sortie = {
     "periode": f"{c.annee.min()}-{c.annee.max()}",
     "combats": int(len(c)),
@@ -107,6 +137,8 @@ sortie = {
                    "part_gagnants": round(float((bilan > 0).mean()), 3),
                    "bilan_median": round(float(np.median(bilan)), 1),
                    "bilan_moyen": round(float(bilan.mean()), 1)},
+    "marche_francais": marche,
+    "parieur": parieur,
     "evenements_ufc_par_annee": ev.groupby("annee").size().to_dict(),
     "evenements_en_france": en_france[["EVENT", "DATE"]].apply(lambda r: f"{r.EVENT.strip()} ({r.DATE.strip()})", axis=1).tolist(),
 }
