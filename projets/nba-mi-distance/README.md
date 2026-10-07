@@ -17,7 +17,7 @@ et la façon dont les équipes ont réalloué leurs tirs.
 
 Tous les graphiques de l'étude sont faits dans Excel. Le tuto pas à pas est dans [TUTO.md](TUTO.md).
 
-- `excel/nba-mi-distance-exercice.xlsx` : les données, rien n'est fait — pour s'entraîner.
+- `excel/nba-mi-distance-exercice.xlsx` : les données, rien n'est fait, pour s'entraîner.
 - `excel/nba-mi-distance-corrige.xlsx` : la version finie (formules + graphiques).
 - `excel/graphiques/` : les graphiques exportés depuis le corrigé (ceux du site).
 - `excel/csv/` : les données pour Power BI.

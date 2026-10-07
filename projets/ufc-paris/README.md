@@ -27,7 +27,7 @@ Sources : rapports ARJEL (2010-2018) et ANJ (2020-2025). Mises 2019 déduites ; 
 
 Tous les graphiques de l'étude sont faits dans Excel. Le tuto pas à pas est dans [TUTO.md](TUTO.md).
 
-- `excel/ufc-paris-exercice.xlsx` : les données, rien n'est fait — pour s'entraîner.
+- `excel/ufc-paris-exercice.xlsx` : les données, rien n'est fait, pour s'entraîner.
 - `excel/ufc-paris-corrige.xlsx` : la version finie (formules + graphiques).
 - `excel/graphiques/` : les graphiques exportés depuis le corrigé (ceux du site).
 - `excel/csv/` : les données pour Power BI.

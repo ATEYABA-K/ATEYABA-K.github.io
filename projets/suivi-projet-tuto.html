@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuto Excel · Suivre un projet après l&#x27;avoir cadré · Alvin Kouadio</title>
+<meta name="description" content="Refaire pas à pas dans Excel tous les graphiques de l'étude « Suivre un projet après l&#x27;avoir cadré » : fichier exercice, corrigé, formules et Power BI.">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+<div class="wrap">
+<article class="article">
+  <a class="back" href="https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi">← Retour au projet sur GitHub</a>
+  <p class="eyebrow"><b>Tuto Excel</b> · 30 min</p>
+  <h1>Refaire le suivi du projet <em class="mark">dans Excel.</em></h1>
+  <p class="kicker">« Suivre un projet après l&#x27;avoir cadré » : chaque graphique de l'étude, clic par clic, avec les formules. Ouvrez l'exercice et suivez.</p>
+  <div class="tuto-files">
+      <a class="tool-file" href="suivi-projet/excel/suivi-projet-exercice.xlsx" download><b>Exercice</b><span>suivi-projet-exercice.xlsx, les données, rien n'est fait</span></a>
+      <a class="tool-file" href="suivi-projet/excel/suivi-projet-corrige.xlsx" download><b>Corrigé</b><span>suivi-projet-corrige.xlsx, la version finie, celle du site</span></a>
+      <a class="tool-file" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/suivi-projet/excel/csv" target="_blank" rel="noopener"><b>CSV pour Power BI</b><span>un fichier par graphique ↗</span></a>
+    </div>
+    <p class="tuto-learn"><b>Ce que vous allez pratiquer :</b> SI · NB.SI, NBVAL, SOMME.SI · indicateurs de pilotage · histogramme prévu / réel.</p>
+    <h2 class="h"><span class="step">00 · Avant de commencer</span>Trois réglages</h2>
+    <ul class="plain"><li>Téléchargez le fichier <strong>exercice</strong> et ouvrez-le dans Excel. Les cellules <strong>jaunes</strong> sont à remplir, les graphiques sont à construire.</li><li>Le fichier <strong>corrigé</strong> contient la version finie : c'est de là que viennent les graphiques du site. Ouvrez-le à côté pour comparer.</li><li>Les formules sont écrites pour Excel en français : les arguments sont séparés par <code>;</code>. En anglais, remplacez <code>;</code> par <code>,</code> et utilisez le nom entre parenthèses.</li><li>Recopier une formule vers le bas : sélectionnez la cellule, puis double-cliquez sur le petit carré en bas à droite.</li></ul>
+    <div class="callout"><p>Les couleurs du portfolio : bleu <code>#1F3864</code>, orange <code>#D9542B</code>, gris <code>#8FA0C2</code>. Pour les appliquer : clic droit sur une série → <strong>Mettre en forme une série de données</strong> → pot de peinture <strong>Remplissage et trait</strong> → <strong>Remplissage uni</strong> → <strong>Couleur</strong> → <strong>Autres couleurs</strong> → onglet <strong>Personnalisées</strong> → champ <strong>Hex</strong>.</p></div><h2 class="h" id="etape-1"><span class="step">01 · Onglet Suivi</span>Les indicateurs de la semaine 14</h2>
+<p>Où en est le projet ? Combien de jalons finis, en retard, et le budget tient-il ?</p>
+<h3 class="tuto-sub">1.1 L&#x27;écart par jalon</h3><ol class="tuto-steps"><li>En <strong>E5</strong>, recopiez jusqu'à <strong>E10</strong>. Si rien n'est encore dépensé, l'écart vaut 0.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">E5</td><td><code>=SI(D5=0;0;D5-C5)</code></td><td>IF</td></tr></tbody></table></div>
+<h3 class="tuto-sub">1.2 Les indicateurs</h3><ol class="tuto-steps"><li>De <strong>E14</strong> à <strong>E19</strong> :</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">E14</td><td><code>=NB.SI(B5:B10;&quot;Terminé&quot;)</code></td><td>COUNTIF</td></tr><tr><td class="mono">E15</td><td><code>=NB.SI(B5:B10;&quot;En retard&quot;)</code></td><td>—</td></tr><tr><td class="mono">E16</td><td><code>=NB.SI(B5:B10;&quot;Terminé&quot;)/NBVAL(B5:B10)</code></td><td>COUNTA</td></tr><tr><td class="mono">E17</td><td><code>=SOMME.SI(D5:D10;&quot;&gt;0&quot;;C5:C10)</code></td><td>SUMIF</td></tr><tr><td class="mono">E18</td><td><code>=SOMME(D5:D10)</code></td><td>SUM</td></tr><tr><td class="mono">E19</td><td><code>=E18/E17-1</code></td><td>—</td></tr></tbody></table></div>
+<p class="tuto-check">✅ <b>Vérifiez :</b> <strong>3</strong> jalons terminés, <strong>1</strong> en retard, avancement <strong>50 %</strong>, écart budgétaire <strong>−1,9 %</strong>.</p><h2 class="h" id="etape-2"><span class="step">02 · Onglet Suivi</span>Budget prévu contre réel</h2>
+<p>Le −1,9 % global cache un dépassement : le graphique le montre.</p>
+<h3 class="tuto-sub">2.1 Le graphique</h3><ol class="tuto-steps"><li><strong>A4:A10</strong> + <strong>C4:D10</strong> (Ctrl) → <strong>Histogramme groupé</strong>. Prévu en gris, réel en bleu.</li><li>La barre réelle de « Données consolidées » en orange : +15 % sur ce seul jalon.</li></ol>
+<p class="tuto-check">✅ <b>Vérifiez :</b> Données consolidées : <strong>9 200 €</strong> dépensés pour <strong>8 000 €</strong> prévus.</p>
+<figure class="chart xl"><img src="suivi-projet/excel/graphiques/G1-budget.png" alt="Résultat attendu : Budget prévu contre réel" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h"><span class="step">Bonus</span>Exporter un graphique</h2>
+    <ul class="plain"><li>Cliquez sur le bord du graphique pour le sélectionner, puis clic droit → <strong>Enregistrer en tant qu'image…</strong> → format <strong>PNG</strong>.</li><li>Pour une diapo : clic droit → <strong>Copier</strong>, puis <strong>Collage spécial → Image</strong> dans PowerPoint.</li></ul>
+    <h2 class="h"><span class="step">Bonus</span>La même chose dans Power BI</h2>
+    <p><strong>Accueil</strong> → <strong>Obtenir des données</strong> → <strong>Texte/CSV</strong> → choisissez le fichier → délimiteur <strong>Point-virgule</strong> → <strong>Charger</strong>.</p>
+    <div class="tuto-table"><table><thead><tr><th>Fichier</th><th>Visuel</th><th>Champs</th></tr></thead><tbody>
+    <tr><td><a href='suivi-projet/excel/csv/suivi_jalons.csv' download><code>suivi_jalons.csv</code></a></td><td>Histogramme groupé</td><td>Axe X : <code>jalon</code> · Axe Y : <code>budget_prevu</code> et <code>budget_reel</code></td></tr>
+    </tbody></table></div>
+    <p style="color:var(--ink-soft); font-size:.92rem">Si les décimales s'affichent mal : <strong>Transformer les données</strong> → colonne → <strong>Type de données</strong> → <strong>Nombre décimal</strong> → <strong>Utilisation des paramètres régionaux</strong> → Anglais (États-Unis).</p>
+</article>
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi">Retour au projet sur GitHub</a></span>
+  </footer>
+</div>
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

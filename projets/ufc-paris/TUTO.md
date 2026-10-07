@@ -1,4 +1,4 @@
-# Tuto — Le bookmaker gagne toujours. Même au MMA.
+# Tuto : Le bookmaker gagne toujours. Même au MMA.
 
 Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 1 h 30 environ.
 
@@ -20,7 +20,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 > Les couleurs du portfolio : bleu `#1F3864`, orange `#D9542B`, gris `#8FA0C2`. Pour les appliquer : clic droit sur une série → **Mettre en forme une série de données** → pot de peinture **Remplissage et trait** → **Remplissage uni** → **Couleur** → **Autres couleurs** → onglet **Personnalisées** → champ **Hex**.
 
-## Étape 1 — Où va l'argent des paris sportifs
+## Étape 1 : Où va l'argent des paris sportifs
 
 *Onglet : Argent.* Calculer ce qui revient aux parieurs et ce que gardent les opérateurs, puis le montrer en histogramme empilé.
 
@@ -72,7 +72,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G1-argent.png)
 
-## Étape 2 — La popularité du MMA
+## Étape 2 : La popularité du MMA
 
 *Onglet : Evenements.* Un histogramme simple, avec les années où le MMA est légal en France mises en avant.
 
@@ -90,7 +90,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G2-evenements.png)
 
-## Étape 3 — Les bookmakers voient-ils juste ?
+## Étape 3 : Les bookmakers voient-ils juste ?
 
 *Onglet : Calibration.* Comparer la probabilité annoncée par la cote au taux de victoire réel, avec une diagonale « cote parfaite ».
 
@@ -117,7 +117,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G3-calibration.png)
 
-## Étape 4 — Ce que rapporte 1 € misé
+## Étape 4 : Ce que rapporte 1 € misé
 
 *Onglet : Rendement.* Un histogramme avec des valeurs négatives, des couleurs selon le résultat, et la marge d'erreur.
 
@@ -140,7 +140,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G4-rendement.png)
 
-## Étape 5 — Le simulateur de parieur
+## Étape 5 : Le simulateur de parieur
 
 *Onglet : Simulateur.* Simuler 100 paris sur de vrais combats tirés au hasard. Chaque appui sur F9 crée un nouveau parieur.
 
@@ -188,6 +188,67 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 **✅ Vérifiez :** Sur 10 appuis sur F9, vous devriez finir positif environ 3 fois. C'est le chiffre de l'étude : 31 % de gagnants.
 
 ![Résultat attendu](excel/graphiques/G5-simulateur.png)
+
+## Étape 6 : La calculatrice de marge
+
+*Onglet : Calculatrice.* Retrouver la marge du bookmaker à partir de deux cotes. Une cote, c'est une probabilité déguisée : 1 / cote.
+
+### 6.1 Les formules
+
+- Les cellules **B4** et **B5** (jaunes vives) contiennent les deux cotes. Tout le reste en découle.
+
+| Cellule | Formule (Excel en français) | En anglais |
+|---|---|---|
+| B7 | `=1/B4` | — |
+| B8 | `=1/B5` | — |
+| B9 | `=B7+B8` | — |
+| B10 | `=B9-1` | — |
+| B11 | `=100*B10/B9` | — |
+
+### 6.2 Jouer avec
+
+- Mettez B7 à B10 au format **Pourcentage**. Changez les cotes : avec 1,90 et 1,90, la marge tombe à 5,3 %.
+
+**✅ Vérifiez :** Avec 1,77 et 2,02 : total **106,0 %**, marge **6,0 %**, le bookmaker garde **5,66 €** sur 100 €.
+
+![Résultat attendu](excel/graphiques/calculatrice.png)
+
+## Étape 7 : 1 000 parieurs simulés dans Excel
+
+*Onglet : Paris, 1000 parieurs, Distribution.* Simuler 1 000 parieurs qui font chacun 100 paris de 10 €, puis compter combien finissent gagnants. C'est une simulation de Monte-Carlo, entièrement en formules.
+
+### 7.1 Le gain de chaque pari possible
+
+- Onglet **Paris** : chaque camp de chaque combat est un pari possible (13 832 lignes). En **C5**, puis double-clic pour recopier :
+
+| Cellule | Formule (Excel en français) | En anglais |
+|---|---|---|
+| C5 | `=SI(B5=1;10*(A5-1);-10)` | IF |
+
+### 7.2 Tirer 100 paris par parieur
+
+- Onglet **1000 parieurs** : en **B5**, un pari tiré au hasard. Recopiez vers la droite jusqu'à **CW5** (100 colonnes), puis vers le bas jusqu'à la ligne **1004**.
+- En **CX5**, le bilan du parieur, recopié jusqu'en bas. Excel recalcule 100 000 tirages : c'est normal que ça prenne une seconde.
+
+| Cellule | Formule (Excel en français) | En anglais |
+|---|---|---|
+| B5 | `=INDEX(Paris!$C$5:$C$13836;ALEA.ENTRE.BORNES(1;13832))` | INDEX, RANDBETWEEN |
+| CX5 | `=SOMME(B5:CW5)` | SUM |
+
+### 7.3 Compter et tracer
+
+- Onglet **Distribution** : on compte les parieurs dans chaque tranche de 50 €. Recopiez C5 jusqu'à C26.
+- Puis l'histogramme : sélectionnez **A4:A26** et **C4:C26** (Ctrl) → **Histogramme groupé**. Tranches négatives en orange, positives en bleu (étape 2.2). Largeur de l'intervalle : 15 %.
+
+| Cellule | Formule (Excel en français) | En anglais |
+|---|---|---|
+| C5 | `=NB.SI.ENS('1000 parieurs'!$CX$5:$CX$1004;">="&A5;'1000 parieurs'!$CX$5:$CX$1004;"<"&B5)` | COUNTIFS |
+| C28 | `=NB.SI('1000 parieurs'!CX5:CX1004;">0")/1000` | COUNTIF |
+| C29 | `=MEDIANE('1000 parieurs'!CX5:CX1004)` | MEDIAN |
+
+**✅ Vérifiez :** Entre **27 et 35 %** de gagnants selon le tirage (F9 pour relancer). Le chiffre de l'étude, 31 %, est la moyenne sur 10 000 parieurs.
+
+![Résultat attendu](excel/graphiques/G6-distribution.png)
 
 ## Exporter un graphique
 

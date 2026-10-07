@@ -108,6 +108,17 @@ def a_faire(ws, plage):
             c.fill = JAUNE
 
 
+def page_image(ws, zone):
+    """Règle l'impression d'un onglet pour l'exporter en image (une page, paysage, sans marges)."""
+    ws.print_area = zone
+    ws.page_setup.orientation = "landscape"
+    ws.sheet_properties.pageSetUpPr.fitToPage = True
+    ws.page_setup.fitToWidth = ws.page_setup.fitToHeight = 1
+    m = ws.page_margins
+    m.left = m.right = m.top = m.bottom = 0.2
+    m.header = m.footer = 0
+
+
 def onglet_graphique(wb, nom, chart):
     g = wb.create_sheet(nom)
     g.add_chart(chart, "A1")
@@ -161,8 +172,9 @@ def exporter_graphiques(xlsx, dossier, noms):
                         "--outdir", str(tmp), str(tmp / "export.xlsx")], check=True, capture_output=True)
         subprocess.run(["pdftoppm", "-png", "-r", "170", str(tmp / "export.pdf"), str(tmp / "p")], check=True)
         pages = sorted(tmp.glob("p-*.png"))
-        assert len(pages) == len(noms), (len(pages), noms)
-        for page, fichier in zip(pages, noms.values()):
+        ordre = [ws.title for ws in wb.worksheets if ws.title in noms]
+        assert len(pages) == len(ordre), (len(pages), ordre)
+        for page, fichier in zip(pages, [noms[t] for t in ordre]):
             im = Image.open(page).convert("RGB")
             bbox = ImageChops.difference(im, Image.new("RGB", im.size, "white")).getbbox()
             im.crop(bbox).save(dossier / fichier, optimize=True)
@@ -176,7 +188,7 @@ def paris(exercice):
     CSV = D / "excel/csv"
     wb = Workbook()
     lisez_moi(wb, [
-        "Le bookmaker gagne toujours. Même au MMA. — " + ("EXERCICE" if exercice else "CORRIGÉ"),
+        "Le bookmaker gagne toujours. Même au MMA. · " + ("EXERCICE" if exercice else "CORRIGÉ"),
         "",
         "Exercice : les cellules jaunes sont à remplir, les graphiques à construire. Suivez TUTO.md (ou la page Tuto du site), étape par étape."
         if exercice else "Corrigé : toutes les formules sont en place, et chaque graphique a son onglet (G1 à G5). Ce sont ces graphiques qui sont sur le site.",
@@ -310,6 +322,30 @@ def paris(exercice):
         onglet_graphique(wb, "G4 Rendement", styler(ch, "Parier sur l'UFC : plus la cote est haute, plus on perd", "Cote du combattant",
                                                     "Rendement moyen d'un pari", legende=False, num="0%"))
 
+    # --- Calculatrice de marge
+    ws = wb.create_sheet("Calculatrice")
+    titre(ws, "Calculatrice : la marge cachée dans deux cotes", "Changez les deux cotes jaunes : tout le reste se recalcule.",
+          "À faire : les formules de B7 à B11 (étape 6)." if exercice else None)
+    lignes_calc = [(4, "Cote du combattant A", 1.77, "0.00"), (5, "Cote du combattant B", 2.02, "0.00"),
+                   (7, "Probabilité annoncée pour A", "=1/B4", "0.0%"), (8, "Probabilité annoncée pour B", "=1/B5", "0.0%"),
+                   (9, "Total des deux probabilités", "=B7+B8", "0.0%"), (10, "Marge du bookmaker", "=B9-1", "0.0%"),
+                   (11, "Sur 100 € misés, le bookmaker garde (€)", "=100*B10/B9", "0.00")]
+    for r, lab, v, fmt in lignes_calc:
+        ws[f"A{r}"], ws[f"A{r}"].font = lab, F(bold=r >= 9)
+        c = ws[f"B{r}"]
+        if r <= 5:
+            c.value, c.font, c.fill = v, F(bold=True, color="0000FF", size=12), PatternFill("solid", fgColor="FFFF00")
+        elif not exercice:
+            c.value = v
+        c.number_format = fmt
+        if r >= 9:
+            c.font = F(bold=True, size=12, color=ORANGE if r >= 10 else "1B1F27")
+    ws["A13"], ws["A13"].font = "Exemple : Adesanya vs Pyfer, mars 2026 (cotes américaines −130 / +102).", F(italic=True, color="666666")
+    ws.column_dimensions["A"].width, ws.column_dimensions["B"].width = 44, 14
+    if exercice:
+        a_faire(ws, "B7:B11")
+    page_image(ws, "A1:D13")
+
     # --- Combats + Simulateur
     ecrire_csv(CSV, "combats.csv", ["cote_rouge", "cote_bleu", "rouge_gagne", "annee"], C)
     wc = wb.create_sheet("Combats")
@@ -320,7 +356,7 @@ def paris(exercice):
             wc.cell(row=i, column=j, value=v)
     NB = len(C)
     ws = wb.create_sheet("Simulateur", 2)
-    titre(ws, "Simulateur : un parieur, 100 paris — touche F9 pour relancer",
+    titre(ws, "Simulateur : un parieur, 100 paris, touche F9 pour relancer",
           "Chaque ligne tire un vrai combat au hasard (onglet Combats), choisit un camp au hasard et applique la vraie cote et le vrai résultat.",
           "À faire : les formules des colonnes B à F et H (étape 5), puis la courbe de la cagnotte." if exercice else None)
     ws["A4"], ws["A4"].font = "Mise par pari (€) :", F(bold=True)
@@ -353,6 +389,65 @@ def paris(exercice):
         lc.x_axis.tickLblSkip = 10
         lc.x_axis.tickLblPos = "low"
         onglet_graphique(wb, "G5 Simulateur", styler(lc, "La cagnotte d'un parieur, pari après pari (F9 = un nouveau parieur)", "Pari n°", "€", legende=False))
+
+    # --- 1 000 parieurs : chaque côté de chaque combat devient un pari possible, avec son gain pour 10 €
+    wp = wb.create_sheet("Paris")
+    titre(wp, "Tous les paris possibles (les deux camps de chaque combat)", "Gain = ce que rapporte un pari de 10 € : 10 × (cote − 1) s'il gagne, −10 sinon.",
+          "À faire : la colonne C (étape 7.1)." if exercice else None)
+    entetes(wp, 4, ["Cote", "Gagné (1 = oui)", "Gain pour 10 € (€)"])
+    paris_possibles = [(cr, g) for cr, cb, g, _ in C] + [(cb, 1 - g) for cr, cb, g, _ in C]
+    for i, (cote, g) in enumerate(paris_possibles, 5):
+        wp.cell(row=i, column=1, value=cote); wp.cell(row=i, column=2, value=g)
+        if not exercice:
+            wp.cell(row=i, column=3, value=f"=IF(B{i}=1,10*(A{i}-1),-10)").number_format = "0.00"
+    NP = len(paris_possibles)
+    if exercice:
+        a_faire(wp, "C5:C12")
+    wm = wb.create_sheet("1000 parieurs")
+    titre(wm, "1 000 parieurs, 100 paris chacun (F9 = on recommence)", "Chaque case tire un pari au hasard dans l'onglet Paris. Colonne CX : le bilan de chaque parieur.",
+          "À faire : la formule de B5, recopiée sur 100 colonnes et 1 000 lignes, puis la colonne CX (étape 7.2)." if exercice else None)
+    wm["A4"], wm["CX4"] = "Parieur", "Bilan (€)"
+    for c in ("A4", "CX4"):
+        wm[c].font, wm[c].fill = F(bold=True, color="FFFFFF"), ENTETE
+    for j in range(2, 102):
+        wm.cell(row=4, column=j, value=j - 1).font = F(bold=True, size=8)
+    for i in range(5, 1005):
+        wm.cell(row=i, column=1, value=i - 4)
+        if not exercice:
+            for j in range(2, 102):
+                wm.cell(row=i, column=j, value=f"=INDEX(Paris!$C$5:$C${4 + NP},RANDBETWEEN(1,{NP}))")
+            wm.cell(row=i, column=102, value=f"=SUM(B{i}:CW{i})").number_format = "0"
+    if exercice:
+        a_faire(wm, "B5:F7"); a_faire(wm, "CX5:CX7")
+    wd = wb.create_sheet("Distribution")
+    titre(wd, "Combien de parieurs finissent gagnants ?", "On compte les bilans par tranche de 50 € (NB.SI.ENS).",
+          "À faire : les colonnes C et les indicateurs (étape 7.3), puis l'histogramme." if exercice else None)
+    entetes(wd, 4, ["De (€)", "À (€)", "Parieurs", "Tranche"], {4: 16})
+    bornes = list(range(-600, 551, 50))
+    for k, b in enumerate(bornes[:-1]):
+        i = 5 + k
+        wd.cell(row=i, column=1, value=b); wd.cell(row=i, column=2, value=bornes[k + 1])
+        wd.cell(row=i, column=4, value=f"{b} à {bornes[k + 1]}")
+        if not exercice:
+            wd.cell(row=i, column=3, value=f"=COUNTIFS('1000 parieurs'!$CX$5:$CX$1004,\">=\"&A{i},'1000 parieurs'!$CX$5:$CX$1004,\"<\"&B{i})")
+    fin_d = 4 + len(bornes) - 1
+    for r, lab, f, fmt in ((fin_d + 2, "Parieurs gagnants", "=COUNTIF('1000 parieurs'!CX5:CX1004,\">0\")/1000", "0%"),
+                           (fin_d + 3, "Bilan médian (€)", "=MEDIAN('1000 parieurs'!CX5:CX1004)", "0"),
+                           (fin_d + 4, "Le plus chanceux (€)", "=MAX('1000 parieurs'!CX5:CX1004)", "0")):
+        wd[f"A{r}"], wd[f"A{r}"].font = lab, F(bold=True)
+        wd[f"C{r}"].number_format = fmt
+        if not exercice:
+            wd[f"C{r}"] = f
+    if exercice:
+        a_faire(wd, f"C5:C{fin_d}"); a_faire(wd, f"C{fin_d + 2}:C{fin_d + 4}")
+    else:
+        ch = BarChart(); ch.gapWidth = 15
+        ch.add_data(Reference(wd, min_col=3, min_row=4, max_row=fin_d), titles_from_data=True)
+        ch.set_categories(Reference(wd, min_col=1, min_row=5, max_row=fin_d))
+        remplir(ch.series[0], BLEU)
+        ch.series[0].dPt += [point(k, ORANGE) for k, b in enumerate(bornes[:-1]) if bornes[k + 1] <= 0]
+        ch.x_axis.tickLblSkip = 2
+        onglet_graphique(wb, "G6 Distribution", styler(ch, "1 000 parieurs, 100 paris de 10 € : orange = perdants, bleu = gagnants", "Bilan final (€, début de tranche)", "Parieurs", legende=False))
     return wb
 
 
@@ -366,7 +461,7 @@ def nba(exercice):
     CSV = D / "excel/csv"
     wb = Workbook()
     lisez_moi(wb, [
-        "Le tir que la NBA a arrêté de financer — " + ("EXERCICE" if exercice else "CORRIGÉ"),
+        "Le tir que la NBA a arrêté de financer · " + ("EXERCICE" if exercice else "CORRIGÉ"),
         "",
         "Exercice : les cellules jaunes sont à remplir, les graphiques à construire. Suivez TUTO.md (ou la page Tuto du site), étape par étape."
         if exercice else "Corrigé : toutes les formules sont en place, et chaque graphique a son onglet (G1 à G3). Ce sont ces graphiques qui sont sur le site.",
@@ -504,7 +599,7 @@ def nba(exercice):
     for s_ in ("2004", "2025"):
         ws = wb.create_sheet(f"Terrain {s_}")
         titre(ws, f"Carte des tirs {int(s_) - 1}-{s_[2:]} : part des tirs (‰) par case de 2 × 2 pieds",
-              "Ligne du haut = au niveau du panier. Plus c'est rouge, plus on tire de là.",
+              "Ligne du haut = au niveau du panier. Plus c'est rouge, plus on tire de là. Même échelle de couleurs pour les deux saisons.",
               "À faire : la mise en forme conditionnelle (étape 5)." if exercice else None)
         grid = {(cy, cx): part for cy, cx, part, _ in T["saisons"][s_]}
         for cx in range(T["colonnes"]):
@@ -516,11 +611,12 @@ def nba(exercice):
                 v = grid.get((cy, cx))
                 c = ws.cell(row=5 + cy, column=2 + cx, value=round(v, 1) if v else None)
                 c.font, c.number_format = F(size=8), "0.0"
+        page_image(ws, f"A1:{get_column_letter(1 + T['colonnes'])}{4 + T['lignes']}")
         if not exercice:
             rng = f"B5:{get_column_letter(1 + T['colonnes'])}{4 + T['lignes']}"
             ws.conditional_formatting.add(rng, ColorScaleRule(start_type="num", start_value=0, start_color="FFFFFF",
                                                               mid_type="num", mid_value=10, mid_color="F4B183",
-                                                              end_type="max", end_color="C0392B"))
+                                                              end_type="num", end_value=40, end_color="C0392B"))  # même échelle les deux années
     return wb
 
 
@@ -530,8 +626,10 @@ RECALC = Path("/root/.claude/skills/synced/76f4f0b5-c16a-4277-a0bb-404ffdef9bac_
 if __name__ == "__main__":
     for nom, fab, graphes in (
         ("ufc-paris", paris, {"G1 Argent": "G1-argent.png", "G2 Evenements": "G2-evenements.png", "G3 Calibration": "G3-calibration.png",
-                              "G4 Rendement": "G4-rendement.png", "G5 Simulateur": "G5-simulateur.png"}),
-        ("nba-mi-distance", nba, {"G1 Parts": "G1-parts.png", "G2 Rendement": "G2-rendement.png", "G3 Correlation": "G3-correlation.png"}),
+                              "G4 Rendement": "G4-rendement.png", "G5 Simulateur": "G5-simulateur.png",
+                              "Calculatrice": "calculatrice.png", "G6 Distribution": "G6-distribution.png"}),
+        ("nba-mi-distance", nba, {"G1 Parts": "G1-parts.png", "G2 Rendement": "G2-rendement.png", "G3 Correlation": "G3-correlation.png",
+                                  "Terrain 2004": "terrain-2004.png", "Terrain 2025": "terrain-2025.png"}),
     ):
         dossier = RACINE / "projets" / nom / "excel"
         dossier.mkdir(parents=True, exist_ok=True)

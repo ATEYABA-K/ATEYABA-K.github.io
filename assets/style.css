@@ -563,3 +563,12 @@ svg.court rect{transition:fill-opacity .45s ease;}
 .made-in{display:inline-flex; align-items:center; gap:6px; font-size:.76rem; font-weight:600; color:#1d6f42; background:color-mix(in srgb, #1d6f42 12%, transparent); padding:3px 9px; border-radius:6px; margin-bottom:10px;}
 @media (max-width:640px){ .tuto-files{grid-template-columns:1fr;} }
 .made-in.web{color:var(--hot); background:var(--hot-soft);}
+.tuto-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:12px;}
+.tuto-card{display:flex; flex-direction:column; gap:4px; padding:16px 18px; border-radius:14px; border:1px solid var(--border); background:var(--card); text-decoration:none; color:var(--ink); box-shadow:var(--shadow); transition:border-color .2s, transform .2s;}
+.tuto-card:hover{border-color:var(--hot); transform:translateY(-2px);}
+.tuto-card .tool-name{font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; color:var(--hot); text-transform:uppercase; letter-spacing:.04em;}
+.tuto-card b{font-family:'Fraunces',serif; font-size:1.12rem; font-weight:600;}
+.tuto-card span:last-child{font-size:.88rem; color:var(--ink-soft);}
+.card-media img{object-fit:contain;}
+@media (max-width:640px){ .tuto-grid{grid-template-columns:1fr;} }
+.article p, .article li, .tuto-table td{overflow-wrap:anywhere;}

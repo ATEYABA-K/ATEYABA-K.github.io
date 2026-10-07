@@ -95,6 +95,28 @@ TUTOS = {
                                     "Appuyez sur **F9** : tout est retiré au hasard, la courbe change. Comptez combien de fois vous finissez au-dessus de zéro."], []),
              ],
              "verifier": "Sur 10 appuis sur F9, vous devriez finir positif environ 3 fois. C'est le chiffre de l'étude : 31 % de gagnants."},
+            {"titre": "La calculatrice de marge", "onglet": "Calculatrice", "image": "calculatrice.png",
+             "objectif": "Retrouver la marge du bookmaker à partir de deux cotes. Une cote, c'est une probabilité déguisée : 1 / cote.",
+             "points": [
+                 ("6.1 Les formules", ["Les cellules **B4** et **B5** (jaunes vives) contiennent les deux cotes. Tout le reste en découle."],
+                  [("B7", "=1/B4", None), ("B8", "=1/B5", None), ("B9", "=B7+B8", None), ("B10", "=B9-1", None), ("B11", "=100*B10/B9", None)]),
+                 ("6.2 Jouer avec", ["Mettez B7 à B10 au format **Pourcentage**. Changez les cotes : avec 1,90 et 1,90, la marge tombe à 5,3 %."], []),
+             ],
+             "verifier": "Avec 1,77 et 2,02 : total **106,0 %**, marge **6,0 %**, le bookmaker garde **5,66 €** sur 100 €."},
+            {"titre": "1 000 parieurs simulés dans Excel", "onglet": "Paris, 1000 parieurs, Distribution", "image": "G6-distribution.png",
+             "objectif": "Simuler 1 000 parieurs qui font chacun 100 paris de 10 €, puis compter combien finissent gagnants. C'est une simulation de Monte-Carlo, entièrement en formules.",
+             "points": [
+                 ("7.1 Le gain de chaque pari possible", ["Onglet **Paris** : chaque camp de chaque combat est un pari possible (13 832 lignes). En **C5**, puis double-clic pour recopier :"],
+                  [("C5", "=SI(B5=1;10*(A5-1);-10)", "IF")]),
+                 ("7.2 Tirer 100 paris par parieur", ["Onglet **1000 parieurs** : en **B5**, un pari tiré au hasard. Recopiez vers la droite jusqu'à **CW5** (100 colonnes), puis vers le bas jusqu'à la ligne **1004**.",
+                                                     "En **CX5**, le bilan du parieur, recopié jusqu'en bas. Excel recalcule 100 000 tirages : c'est normal que ça prenne une seconde."],
+                  [("B5", "=INDEX(Paris!$C$5:$C$13836;ALEA.ENTRE.BORNES(1;13832))", "INDEX, RANDBETWEEN"), ("CX5", "=SOMME(B5:CW5)", "SUM")]),
+                 ("7.3 Compter et tracer", ["Onglet **Distribution** : on compte les parieurs dans chaque tranche de 50 €. Recopiez C5 jusqu'à C26.",
+                                            "Puis l'histogramme : sélectionnez **A4:A26** et **C4:C26** (Ctrl) → **Histogramme groupé**. Tranches négatives en orange, positives en bleu (étape 2.2). Largeur de l'intervalle : 15 %."],
+                  [("C5", "=NB.SI.ENS('1000 parieurs'!$CX$5:$CX$1004;\">=\"&A5;'1000 parieurs'!$CX$5:$CX$1004;\"<\"&B5)", "COUNTIFS"),
+                   ("C28", "=NB.SI('1000 parieurs'!CX5:CX1004;\">0\")/1000", "COUNTIF"), ("C29", "=MEDIANE('1000 parieurs'!CX5:CX1004)", "MEDIAN")]),
+             ],
+             "verifier": "Entre **27 et 35 %** de gagnants selon le tirage (F9 pour relancer). Le chiffre de l'étude, 31 %, est la moyenne sur 10 000 parieurs."},
         ],
         "powerbi": [
             ("argent.csv", "Histogramme empilé", "Axe X : `annee` · Axe Y : `redistribue_meur` puis `garde_meur`"),
@@ -158,10 +180,12 @@ TUTOS = {
              "points": [
                  ("5.1 Mise en forme conditionnelle", ["Sélectionnez **B5:Z20**.",
                                                        "**Accueil** → **Mise en forme conditionnelle** → **Nuances de couleurs** → **Autres règles**.",
-                                                       "Style : **Échelle à trois couleurs**. Minimum : Nombre `0`, blanc. Point milieu : Nombre `10`, `#F4B183`. Maximum : Valeur la plus élevée, `#C0392B`.",
+                                                       "Style : **Échelle à trois couleurs**. Minimum : Nombre `0`, blanc. Point milieu : Nombre `10`, `#F4B183`. Maximum : Nombre `40`, `#C0392B`.",
+                                                       "Pourquoi un maximum fixe à 40 et pas « valeur la plus élevée » ? Pour que les deux saisons aient la même échelle de couleurs. Sinon, la comparaison ment.",
                                                        "Faites pareil sur l'autre onglet, puis comparez les deux : la zone entre la raquette et la ligne à 3 points se vide."], []),
              ],
-             "verifier": "En 2025, les cases rouges sont sous le panier et sur la ligne à 3 points. Presque plus rien entre les deux."},
+             "verifier": "En 2025, les cases rouges sont sous le panier et sur la ligne à 3 points. Presque plus rien entre les deux.",
+             "images": ["terrain-2004.png", "terrain-2025.png"]},
         ],
         "powerbi": [
             ("parts_par_zone.csv", "Graphique en courbes", "Axe X : `saison` · Axe Y : `Mi-distance`, `3 pts dans le coin`, `3 pts dans l'axe`"),
@@ -186,25 +210,26 @@ def html_inline(t):
 
 def ecrire_md(cle, T):
     x = f"excel/{T['fichier']}"
-    L = [f"# Tuto — {T['titre']}", "",
+    L = [f"# Tuto : {T['titre']}", "",
          f"Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : {T['duree']}.", "",
          "**Les fichiers**", "",
          f"- [`{x}-exercice.xlsx`]({x}-exercice.xlsx) : les données, rien n'est fait. C'est celui-là qu'on remplit.",
          f"- [`{x}-corrige.xlsx`]({x}-corrige.xlsx) : la version finie, celle des graphiques du site.",
          "- [`excel/csv/`](excel/csv) : les mêmes données en CSV, pour Power BI.",
          "- [`excel/graphiques/`](excel/graphiques) : les graphiques exportés depuis le corrigé.", "",
+         *([f"Le projet d'origine : {T['depot']}", ""] if T.get("depot") else []),
          "**Ce que vous allez pratiquer** : " + " · ".join(T["apprend"]) + ".", "",
          "## Avant de commencer", ""] + [f"- {l}" for l in COMMUN_DEBUT] + ["", f"> {COULEURS}", ""]
     for n, e in enumerate(T["etapes"], 1):
-        L += [f"## Étape {n} — {e['titre']}", "", f"*Onglet : {e['onglet']}.* {e['objectif']}", ""]
+        L += [f"## Étape {n} : {e['titre']}", "", f"*Onglet : {e['onglet']}.* {e['objectif']}", ""]
         for sous, lignes, formules in e["points"]:
             L += [f"### {sous}", ""] + [f"- {l}" for l in lignes] + [""]
             if formules:
                 L += ["| Cellule | Formule (Excel en français) | En anglais |", "|---|---|---|"]
                 L += [f"| {c} | `{f}` | {en or '—'} |" for c, f, en in formules] + [""]
         L += [f"**✅ Vérifiez :** {e['verifier']}", ""]
-        if e["image"]:
-            L += [f"![Résultat attendu](excel/graphiques/{e['image']})", ""]
+        for im in ([e["image"]] if e["image"] else []) + e.get("images", []):
+            L += [f"![Résultat attendu](excel/graphiques/{im})", ""]
     L += ["## Exporter un graphique", ""] + [f"- {l}" for l in COMMUN_EXPORT] + [""]
     L += ["## La même chose dans Power BI", "",
           "**Accueil** → **Obtenir des données** → **Texte/CSV** → choisissez le fichier → vérifiez que le délimiteur est **Point-virgule** → **Charger**.", "",
@@ -218,8 +243,8 @@ def ecrire_html(cle, T):
     x = f"{cle}/excel/{T['fichier']}"
     corps = []
     corps.append(f'''<div class="tuto-files">
-      <a class="tool-file" href="{x}-exercice.xlsx" download><b>Exercice</b><span>{T['fichier']}-exercice.xlsx — les données, rien n'est fait</span></a>
-      <a class="tool-file" href="{x}-corrige.xlsx" download><b>Corrigé</b><span>{T['fichier']}-corrige.xlsx — la version finie, celle du site</span></a>
+      <a class="tool-file" href="{x}-exercice.xlsx" download><b>Exercice</b><span>{T['fichier']}-exercice.xlsx, les données, rien n'est fait</span></a>
+      <a class="tool-file" href="{x}-corrige.xlsx" download><b>Corrigé</b><span>{T['fichier']}-corrige.xlsx, la version finie, celle du site</span></a>
       <a class="tool-file" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/{cle}/excel/csv" target="_blank" rel="noopener"><b>CSV pour Power BI</b><span>un fichier par graphique ↗</span></a>
     </div>
     <p class="tuto-learn"><b>Ce que vous allez pratiquer :</b> {html_inline(" · ".join(T["apprend"]))}.</p>
@@ -235,8 +260,10 @@ def ecrire_html(cle, T):
                 rows = "".join(f'<tr><td class="mono">{c}</td><td><code>{html.escape(f)}</code></td><td>{en or "—"}</td></tr>' for c, f, en in formules)
                 bloc.append(f'<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody>{rows}</tbody></table></div>')
         bloc.append(f'<p class="tuto-check">✅ <b>Vérifiez :</b> {html_inline(e["verifier"])}</p>')
+        for im in e.get("images", []):
+            bloc.append(f'<figure class="chart xl"><img src="{cle}/excel/graphiques/{im}" alt="Résultat attendu" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure>')
         if e["image"]:
-            bloc.append(f'<figure class="chart xl"><img src="{cle}/excel/graphiques/{e["image"]}" alt="Résultat attendu : {html.escape(e["titre"])}" loading="lazy"><p class="src">Résultat attendu — exporté du fichier corrigé.</p></figure>')
+            bloc.append(f'<figure class="chart xl"><img src="{cle}/excel/graphiques/{e["image"]}" alt="Résultat attendu : {html.escape(e["titre"])}" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure>')
         corps.append("\n".join(bloc))
     corps.append(f'''<h2 class="h"><span class="step">Bonus</span>Exporter un graphique</h2>
     <ul class="plain">{"".join(f"<li>{html_inline(l)}</li>" for l in COMMUN_EXPORT)}</ul>
@@ -251,7 +278,7 @@ def ecrire_html(cle, T):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tuto Excel — {html.escape(T["titre"])} — Alvin Kouadio</title>
+<title>Tuto Excel · {html.escape(T["titre"])} · Alvin Kouadio</title>
 <meta name="description" content="Refaire pas à pas dans Excel tous les graphiques de l'étude « {html.escape(T['titre'])} » : fichier exercice, corrigé, formules et Power BI.">
 <meta name="theme-color" content="#14171c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
@@ -277,15 +304,15 @@ def ecrire_html(cle, T):
 </div>
 <div class="wrap">
 <article class="article">
-  <a class="back" href="{cle}.html">← Retour à l'étude</a>
-  <p class="eyebrow"><b>Tuto Excel</b> — {T["duree"]}</p>
-  <h1>Refaire l'étude <em class="mark">dans Excel.</em></h1>
+  <a class="back" href="{T.get('retour', cle + '.html')}">← {T.get('retour_label', "Retour à l'étude")}</a>
+  <p class="eyebrow"><b>Tuto {T.get('outil', 'Excel')}</b> · {T["duree"]}</p>
+  <h1>Refaire {T.get('quoi', "l'étude")} <em class="mark">dans {T.get('outil', 'Excel')}.</em></h1>
   <p class="kicker">« {html.escape(T["titre"])} » : chaque graphique de l'étude, clic par clic, avec les formules. Ouvrez l'exercice et suivez.</p>
   {"".join(corps)}
 </article>
   <footer>
-    <span>Alvin Kouadio — Nanterre, Île-de-France</span>
-    <span><a href="{cle}.html">Retour à l'étude</a></span>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="{T.get('retour', cle + '.html')}">{T.get('retour_label', "Retour à l'étude")}</a></span>
   </footer>
 </div>
 <script src="../assets/fond.js"></script>
@@ -295,6 +322,10 @@ def ecrire_html(cle, T):
 '''
     (RACINE / "projets" / f"{cle}-tuto.html").write_text(page)
 
+
+from tutos_projets import TUTOS_PROJETS  # noqa: E402
+
+TUTOS.update(TUTOS_PROJETS)
 
 if __name__ == "__main__":
     for cle, T in TUTOS.items():

@@ -1,4 +1,4 @@
-# Tuto — Le tir que la NBA a arrêté de financer
+# Tuto : Le tir que la NBA a arrêté de financer
 
 Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 1 h environ.
 
@@ -20,7 +20,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 > Les couleurs du portfolio : bleu `#1F3864`, orange `#D9542B`, gris `#8FA0C2`. Pour les appliquer : clic droit sur une série → **Mettre en forme une série de données** → pot de peinture **Remplissage et trait** → **Remplissage uni** → **Couleur** → **Autres couleurs** → onglet **Personnalisées** → champ **Hex**.
 
-## Étape 1 — Le budget change de canal
+## Étape 1 : Le budget change de canal
 
 *Onglet : Parts.* Regrouper les 5 zones en 3 grandes zones, puis tracer leur évolution sur 22 saisons.
 
@@ -44,7 +44,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G1-parts.png)
 
-## Étape 2 — Cinq canaux, cinq rendements
+## Étape 2 : Cinq canaux, cinq rendements
 
 *Onglet : Rendement.* Comparer le rendement de chaque zone entre la première et la dernière saison.
 
@@ -70,7 +70,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G2-rendement.png)
 
-## Étape 3 — Mieux tirer, ou tirer au bon endroit ?
+## Étape 3 : Mieux tirer, ou tirer au bon endroit ?
 
 *Onglet : Decomposition.* Séparer deux effets : les joueurs sont plus adroits (effet adresse), ou ils tirent depuis de meilleures zones (effet mix). C'est la même méthode qu'en analyse de mix marketing.
 
@@ -110,7 +110,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 **✅ Vérifiez :** B15 (effet mix) ≈ **0,054** et B18 ≈ **37 %**. B19 doit afficher **0** : les trois effets additionnés redonnent la hausse totale.
 
-## Étape 4 — Quand tout le monde quitte un canal
+## Étape 4 : Quand tout le monde quitte un canal
 
 *Onglet : Correlation.* Un histogramme avec les valeurs négatives et positives de couleurs différentes, en une seule manipulation.
 
@@ -128,7 +128,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 ![Résultat attendu](excel/graphiques/G3-correlation.png)
 
-## Étape 5 — La carte du terrain
+## Étape 5 : La carte du terrain
 
 *Onglet : Terrain 2004 et Terrain 2025.* Transformer un tableau de chiffres en carte de chaleur : on voit d'où les joueurs tirent.
 
@@ -136,10 +136,15 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 - Sélectionnez **B5:Z20**.
 - **Accueil** → **Mise en forme conditionnelle** → **Nuances de couleurs** → **Autres règles**.
-- Style : **Échelle à trois couleurs**. Minimum : Nombre `0`, blanc. Point milieu : Nombre `10`, `#F4B183`. Maximum : Valeur la plus élevée, `#C0392B`.
+- Style : **Échelle à trois couleurs**. Minimum : Nombre `0`, blanc. Point milieu : Nombre `10`, `#F4B183`. Maximum : Nombre `40`, `#C0392B`.
+- Pourquoi un maximum fixe à 40 et pas « valeur la plus élevée » ? Pour que les deux saisons aient la même échelle de couleurs. Sinon, la comparaison ment.
 - Faites pareil sur l'autre onglet, puis comparez les deux : la zone entre la raquette et la ligne à 3 points se vide.
 
 **✅ Vérifiez :** En 2025, les cases rouges sont sous le panier et sur la ligne à 3 points. Presque plus rien entre les deux.
+
+![Résultat attendu](excel/graphiques/terrain-2004.png)
+
+![Résultat attendu](excel/graphiques/terrain-2025.png)
 
 ## Exporter un graphique
 
