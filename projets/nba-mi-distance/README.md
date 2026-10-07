@@ -13,14 +13,19 @@ et la façon dont les équipes ont réalloué leurs tirs.
 - Sur les +0,145 point par tir gagnés par la ligue, 0,053 (37 %) viennent du seul déplacement des tirs.
 - Jusqu'en 2015, moins de mi-distance = équipe plus efficace (corrélation ≈ −0,4). Depuis 2019, le lien a disparu.
 
-## Reproduire
+## Refaire les graphiques (Excel)
 
-```bash
-pip install pandas numpy
-python analyse.py   # télécharge les données (~80 Mo), écrit resultats.json et terrain.json
-```
+Tous les graphiques de l'étude sont faits dans Excel. Le tuto pas à pas est dans [TUTO.md](TUTO.md).
 
-`graphiques.js` dessine les graphiques de la page à partir de ces deux fichiers.
+- `excel/nba-mi-distance-exercice.xlsx` : les données, rien n'est fait — pour s'entraîner.
+- `excel/nba-mi-distance-corrige.xlsx` : la version finie (formules + graphiques).
+- `excel/graphiques/` : les graphiques exportés depuis le corrigé (ceux du site).
+- `excel/csv/` : les données pour Power BI.
+
+## Calcul des données
+
+`analyse.py` (Python) télécharge les données brutes et calcule `resultats.json`. `outils/excel.py` construit ensuite les fichiers Excel, et `outils/tutos.py` les tutos.
+
 
 ## Données
 

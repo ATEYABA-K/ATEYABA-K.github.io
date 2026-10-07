@@ -26,7 +26,7 @@
   const hover = (node, html) => { node.addEventListener('pointermove', (e) => showTip(html, e)); node.addEventListener('pointerleave', hideTip); };
 
   // ---------- 1. Événements UFC par an ----------
-  {
+  if (document.getElementById('events')) {
     const svg = document.getElementById('events');
     const data = Object.entries(RES.evenements_ufc_par_annee).filter(([y]) => +y >= 2001);
     const W = 640, H = 220, L = 30, T = 12, B = 28, max = Math.max(...data.map(([, v]) => v)) * 1.1;
@@ -45,7 +45,7 @@
   }
 
   // ---------- 1 bis. Où va l'argent : barres empilées par année ----------
-  {
+  if (document.getElementById('money')) {
     const svg = document.getElementById('money');
     const data = Object.entries(RES.marche_francais.par_annee);
     const W = 640, H = 280, L = 52, T = 14, B = 28, max = 12000;
@@ -85,7 +85,7 @@
   }
 
   // ---------- 3. Calibration ----------
-  {
+  if (document.getElementById('calib')) {
     const svg = document.getElementById('calib');
     const W = 640, H = 400, L = 48, R = 16, T = 12, B = 40;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
@@ -107,7 +107,7 @@
   }
 
   // ---------- 4. Rendement par tranche de cote ----------
-  {
+  if (document.getElementById('roi')) {
     const svg = document.getElementById('roi');
     const data = Object.entries(RES.rendement_par_cote), ic = RES.rendement_par_cote_ic95;
     const W = 640, H = 260, L = 48, T = 14, B = 34, lo = -.5, hi = .1;

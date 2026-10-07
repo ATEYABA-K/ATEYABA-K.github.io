@@ -121,7 +121,7 @@
   }
 
   // ---------- 2. Rendement par zone (barres + repère 2003-04) ----------
-  {
+  if (document.getElementById('roi')) {
     const svg = document.getElementById('roi');
     const zones = ['Sous le panier', '3 pts dans le coin', "3 pts dans l'axe", 'Raquette', 'Mi-distance'];
     const last = RES.rendement_par_zone[SAISONS.at(-1)], first = RES.rendement_par_zone[SAISONS[0]];
@@ -145,7 +145,7 @@
   }
 
   // ---------- 3. Répartition des tirs (lignes + réticule) ----------
-  {
+  if (document.getElementById('mix')) {
     const svg = document.getElementById('mix');
     const W = 640, H = 300, L = 36, R = 92, T = 12, B = 30;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
@@ -181,7 +181,7 @@
   }
 
   // ---------- 4. Corrélation par saison (barres divergentes) ----------
-  {
+  if (document.getElementById('corr')) {
     const svg = document.getElementById('corr');
     const W = 640, H = 240, L = 36, T = 10, B = 30;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
