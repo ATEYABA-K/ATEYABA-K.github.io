@@ -607,7 +607,7 @@ svg.court rect{transition:fill-opacity .45s ease;}
 @media (max-width:560px){ .facts{grid-template-columns:1fr;} .fact-inner{min-height:250px;} }
 
 /* ---------- badges de certification ---------- */
-.badges{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+.badges{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; max-width:820px;}
 .badge{position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; padding:26px 22px 24px; border-radius:var(--radius); background:var(--card); border:1px solid var(--border); box-shadow:var(--shadow); overflow:hidden; transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;}
 .badge::after{content:""; position:absolute; top:-60%; left:-60%; width:40%; height:220%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); transform:rotate(20deg) translateX(-120%); transition:transform .9s ease;}
 .badge:hover, .badge:focus-visible{transform:translateY(-6px); box-shadow:var(--shadow-hover);}
