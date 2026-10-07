@@ -110,6 +110,7 @@
     if (document.hidden) { cancelAnimationFrame(raf); raf = null; } else if (!reduce && !raf) raf = requestAnimationFrame(frame);
   });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); redrawIfStatic(); });
+  addEventListener('themechange', () => { readColors(); redrawIfStatic(); });
 
   readColors(); resize(); frame();
 })();
