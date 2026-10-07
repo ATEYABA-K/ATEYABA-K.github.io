@@ -3,62 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alvin Kouadio — Portfolio Data</title>
-<meta name="description" content="Pilotage de projets data en autonomie : scoring, segmentation, SQL, automatisation, gestion de projet — par Alvin Kouadio.">
-<meta property="og:title" content="Alvin Kouadio — Portfolio Data">
-<meta property="og:description" content="Pilotage de projets data en autonomie, du cadrage au résultat. Scoring, segmentation, SQL, automatisation.">
+<title>Alvin Kouadio — Data &amp; projets</title>
+<meta name="description" content="Alvin Kouadio. Les chiffres ne parlent pas tout seuls. Data, marketing et gestion de projet — en recherche d'alternance 12 mois.">
+<meta property="og:title" content="Alvin Kouadio — Les chiffres ne parlent pas tout seuls.">
+<meta property="og:description" content="Data, marketing, gestion de projet. Des projets qui commencent par une question et finissent par une réponse utilisable.">
 <meta property="og:image" content="https://ateyaba-k.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://ateyaba-k.github.io/">
 <meta name="theme-color" content="#14171c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1b1f27;
-    --ink-soft:#565d6b;
-    --paper:#faf9f6;
+    --ink-soft:#5a6170;
+    --paper:#faf8f3;
     --card:#ffffff;
-    --border:#e7e3da;
+    --border:#e6e1d6;
     --accent:#1F3864;
     --accent-soft:#eceff6;
-    --ring: rgba(31,56,100,.14);
-    --radius:16px;
-    --maxw:1000px;
+    --hot:#d9542b;
+    --hot-soft:rgba(217,84,43,.16);
+    --radius:18px;
+    --maxw:1080px;
     --shadow: 0 1px 2px rgba(20,20,20,.04), 0 10px 30px -14px rgba(20,20,20,.14);
     --shadow-hover: 0 1px 2px rgba(20,20,20,.05), 0 22px 44px -16px rgba(20,20,20,.22);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ink:#edeef1;
-      --ink-soft:#a2a9b6;
-      --paper:#121419;
-      --card:#191c22;
-      --border:#262b34;
-      --accent:#90a8de;
-      --accent-soft:#1d2433;
-      --ring: rgba(144,168,222,.18);
+      --ink:#eeeff2; --ink-soft:#a3aab7; --paper:#111318; --card:#181b21;
+      --border:#262b34; --accent:#9db2e6; --accent-soft:#1d2433;
+      --hot:#f07a52; --hot-soft:rgba(240,122,82,.2);
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
       --shadow-hover: 0 1px 2px rgba(0,0,0,.35), 0 22px 44px -16px rgba(0,0,0,.7);
     }
   }
   :root[data-theme="dark"]{
-    --ink:#edeef1; --ink-soft:#a2a9b6; --paper:#121419; --card:#191c22;
-    --border:#262b34; --accent:#90a8de; --accent-soft:#1d2433;
+    --ink:#eeeff2; --ink-soft:#a3aab7; --paper:#111318; --card:#181b21;
+    --border:#262b34; --accent:#9db2e6; --accent-soft:#1d2433;
+    --hot:#f07a52; --hot-soft:rgba(240,122,82,.2);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
     font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    color:var(--ink);
-    background:var(--paper);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+    color:var(--ink); background:var(--paper);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
   a{color:var(--accent);}
+  .serif{font-family:'Fraunces',serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
 
   /* top bar */
   .topbar{
@@ -67,118 +64,205 @@
     backdrop-filter:blur(10px) saturate(1.2);
     border-bottom:1px solid var(--border);
   }
-  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:56px;}
-  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink); letter-spacing:-.01em;}
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:58px;}
+  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink);}
+  .brand span{color:var(--hot);}
   .nav-links{display:flex; gap:22px; font-size:.88rem; font-weight:500;}
   .nav-links a{color:var(--ink-soft); text-decoration:none;}
-  .nav-links a:hover{color:var(--accent);}
+  .nav-links a:hover{color:var(--ink);}
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.74rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft); margin:0 0 14px;
+  }
+  .eyebrow b{color:var(--hot); font-weight:700;}
 
   /* hero */
-  header.hero{padding:72px 0 48px;}
-  .eyebrow{
-    font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--accent); margin:0 0 18px;
+  header.hero{padding:88px 0 72px;}
+  .status{
+    display:inline-flex; align-items:center; gap:9px;
+    font-size:.84rem; font-weight:500; color:var(--ink-soft);
+    border:1px solid var(--border); background:var(--card);
+    padding:6px 14px 6px 12px; border-radius:999px; margin-bottom:34px;
   }
-  .hero-row{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap;}
-  .photo{
-    width:112px; height:124px; border-radius:14px; object-fit:cover; flex-shrink:0;
-    box-shadow:var(--shadow);
-  }
-  .hero-text{flex:1; min-width:260px;}
+  .status i{width:8px; height:8px; border-radius:50%; background:#2fa36b; box-shadow:0 0 0 4px rgba(47,163,107,.18); animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(47,163,107,0);}}
   h1{
-    font-family:'Fraunces',serif; font-weight:600; font-size:2.6rem; margin:0 0 8px;
-    letter-spacing:-.02em; line-height:1.05;
+    font-family:'Fraunces',serif; font-weight:600;
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    line-height:1.0; letter-spacing:-.035em; margin:0; max-width:15ch;
   }
-  .role{font-weight:600; margin:0 0 14px; font-size:1.08rem; color:var(--ink-soft);}
-  .contact{font-size:.95rem;}
-  .contact a{text-decoration:none; border-bottom:1px solid var(--ring);}
-  .contact a:hover{border-bottom-color:var(--accent);}
-  .contact .dot{color:var(--border); margin:0 10px;}
-
-  .intro{font-size:1.08rem; color:var(--ink); max-width:680px; margin-top:28px;}
-  .intro strong{font-weight:600;}
-
-  .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
-  .pill{
-    font-size:.82rem; font-weight:500; padding:6px 13px; border-radius:999px;
-    background:var(--accent-soft); color:var(--accent); border:1px solid transparent;
+  h1 em{font-style:italic; font-weight:400;}
+  .mark{
+    background:linear-gradient(transparent 62%, var(--hot-soft) 62%);
+    padding:0 .08em;
   }
+  .hero-sub{
+    display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start;
+    margin-top:44px; max-width:720px;
+  }
+  .photo{
+    width:84px; height:84px; border-radius:50%; object-fit:cover;
+    box-shadow:var(--shadow); border:3px solid var(--card);
+  }
+  .hero-sub p{margin:0; font-size:1.14rem; line-height:1.65;}
+  .hero-sub p + p{margin-top:12px; color:var(--ink-soft); font-size:1rem;}
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:34px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:600; font-size:.95rem; text-decoration:none;
+    padding:12px 20px; border-radius:12px; transition:transform .2s ease, background .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-main{background:var(--ink); color:var(--paper);}
+  .btn-ghost{border:1px solid var(--border); color:var(--ink); background:var(--card);}
 
-  section{margin-top:28px;}
-  .section-head{margin-bottom:28px;}
+  /* quote band */
+  .quote{
+    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding:56px 0; text-align:center;
+  }
+  .quote blockquote{
+    margin:0 auto; max-width:760px;
+    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+    font-size:clamp(1.35rem, 3vw, 1.9rem); line-height:1.35; letter-spacing:-.01em;
+  }
+  .quote cite{display:block; margin-top:18px; font-style:normal; font-size:.86rem; color:var(--ink-soft);}
+  .quote .gloss{margin:22px auto 0; max-width:560px; color:var(--ink-soft); font-size:.98rem;}
+
+  section{padding-top:88px;}
+  .section-head{margin-bottom:36px; max-width:640px;}
   .section-head h2{
-    font-family:'Fraunces',serif; font-weight:600; font-size:1.7rem; margin:4px 0 0;
-    letter-spacing:-.01em;
+    font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.8rem, 4vw, 2.5rem);
+    margin:0; letter-spacing:-.02em; line-height:1.1;
   }
+  .section-head p{color:var(--ink-soft); margin:14px 0 0; font-size:1.02rem;}
 
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-    gap:24px;
-    margin-bottom:56px;
-  }
+  /* projects */
+  .grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
   .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    box-shadow:var(--shadow);
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow);
+    text-decoration:none; color:inherit;
     transition:transform .28s ease, box-shadow .28s ease;
-    opacity:0; transform:translateY(14px);
   }
-  .card.in{opacity:1; transform:translateY(0); transition:opacity .5s ease, transform .5s ease, box-shadow .28s ease;}
+  .reveal{opacity:0; transform:translateY(16px);}
+  .reveal.in{opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease, box-shadow .28s ease;}
   .card:hover{transform:translateY(-5px); box-shadow:var(--shadow-hover);}
-  .card-media{
-    aspect-ratio:16/10;
-    background:var(--accent-soft);
-    overflow:hidden;
-    position:relative;
-  }
-  .card-media img{
-    width:100%; height:100%; object-fit:cover; display:block;
-    transition:transform .5s cubic-bezier(.2,.8,.2,1);
-  }
-  .card:hover .card-media img{transform:scale(1.045);}
+  .card.featured{grid-column:1 / -1; display:grid; grid-template-columns:1.15fr 1fr;}
+  .card-media{aspect-ratio:16/10; background:var(--accent-soft); overflow:hidden;}
+  .card.featured .card-media{aspect-ratio:auto; min-height:100%; border-bottom:0; border-right:1px solid var(--border);}
+  .card.featured.flip{grid-template-columns:1fr 1.15fr;}
+  .card.featured.flip .card-media{order:2; border-right:0; border-left:1px solid var(--border);}
+  .card-media{background:#fff; border-bottom:1px solid var(--border);}
+  .card-media img{width:100%; height:100%; object-fit:contain; padding:10px; display:block; transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+  .card:hover .card-media img{transform:scale(1.04);}
   .card-media.placeholder{
-    display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px;
-    padding:18px; background:linear-gradient(135deg, var(--accent-soft), var(--card));
+    display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:18px;
+    background:
+      radial-gradient(circle at 20% 20%, var(--hot-soft), transparent 55%),
+      linear-gradient(135deg, var(--accent-soft), var(--card));
   }
   .stat-chip{
-    font-size:.78rem; font-weight:600; padding:7px 12px; border-radius:10px;
-    background:var(--card); color:var(--accent); border:1px solid var(--border);
-    box-shadow:0 1px 2px rgba(0,0,0,.04);
+    font-family:'JetBrains Mono',monospace; font-size:.76rem; font-weight:500;
+    padding:7px 12px; border-radius:10px; background:var(--card); color:var(--ink);
+    border:1px solid var(--border);
   }
-  .card-body{padding:20px 22px 24px; display:flex; flex-direction:column; gap:10px; flex:1;}
-  .card-tools{font-size:.74rem; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-soft); font-weight:600;}
-  .card-title{font-family:'Fraunces',serif; font-size:1.14rem; font-weight:600; margin:0; letter-spacing:-.01em;}
-  .card-result{font-size:.95rem; color:var(--ink-soft); flex:1;}
-  .card-link{
-    font-size:.9rem; font-weight:600; color:var(--accent); text-decoration:none;
-    display:inline-flex; align-items:center; gap:5px; margin-top:2px;
+  .card-body{padding:24px 26px 26px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .card.featured .card-body{padding:36px 36px 34px; justify-content:center;}
+  .big-num{
+    font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--hot);
+    font-size:2.1rem; line-height:1; letter-spacing:-.03em;
   }
+  .card.featured .big-num{font-size:3.4rem;}
+  .card-q{font-family:'Fraunces',serif; font-size:1.25rem; font-weight:600; margin:4px 0 0; letter-spacing:-.01em; line-height:1.25;}
+  .card.featured .card-q{font-size:1.65rem;}
+  .card-result{font-size:.95rem; color:var(--ink-soft); margin:0; flex:1;}
+  .card-foot{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:8px; flex-wrap:wrap;}
+  .card-tools{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--ink-soft);}
+  .card-link{font-size:.88rem; font-weight:600; color:var(--accent); display:inline-flex; align-items:center; gap:5px;}
   .card-link svg{transition:transform .2s ease;}
-  .card-link:hover svg{transform:translateX(3px);}
+  .card:hover .card-link svg{transform:translateX(3px);}
+
+  /* principles */
+  .principles{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; counter-reset:p;}
+  .principle{
+    border-top:2px solid var(--ink); padding-top:20px;
+  }
+  .principle::before{
+    counter-increment:p; content:"0" counter(p);
+    font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--hot); font-weight:700;
+  }
+  .principle h3{font-family:'Fraunces',serif; font-size:1.3rem; font-weight:600; margin:10px 0 10px; line-height:1.2; letter-spacing:-.01em;}
+  .principle p{margin:0; color:var(--ink-soft); font-size:.96rem;}
+  .principle p a{font-weight:500;}
+
+  /* now + path */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .panel{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow);}
+  .panel h3{font-family:'Fraunces',serif; font-size:1.35rem; margin:0 0 18px; font-weight:600;}
+  .now-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .now-list li{display:grid; grid-template-columns:22px 1fr; gap:8px; font-size:.98rem;}
+  .now-list li::before{content:"→"; color:var(--hot); font-weight:700;}
+  .timeline{list-style:none; margin:0; padding:0; position:relative;}
+  .timeline::before{content:""; position:absolute; left:6px; top:8px; bottom:8px; width:2px; background:var(--border);}
+  .timeline li{position:relative; padding-left:32px; margin-bottom:22px;}
+  .timeline li:last-child{margin-bottom:0;}
+  .timeline li::before{content:""; position:absolute; left:0; top:6px; width:14px; height:14px; border-radius:50%; background:var(--card); border:2px solid var(--ink-soft);}
+  .timeline li.next::before{border-color:var(--hot); background:var(--hot);}
+  .timeline .when{font-family:'JetBrains Mono',monospace; font-size:.74rem; color:var(--ink-soft);}
+  .timeline .what{font-weight:600; display:block;}
+  .timeline .where{color:var(--ink-soft); font-size:.92rem;}
+  .timeline li.next .what{color:var(--hot);}
+  .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
+  .pill{font-size:.8rem; font-weight:500; padding:5px 12px; border-radius:999px; background:var(--accent-soft); color:var(--accent);}
+
+  /* contact */
+  .contact-block{
+    margin-top:88px; padding:64px 40px; border-radius:24px; text-align:center;
+    background:var(--ink); color:var(--paper);
+  }
+  .contact-block h2{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2rem, 5vw, 3.2rem); margin:0; letter-spacing:-.03em; line-height:1.05;}
+  .contact-block h2 em{font-weight:400;}
+  .contact-block p{margin:18px auto 0; max-width:520px; opacity:.75;}
+  .contact-block .mail{
+    display:inline-block; margin-top:30px; font-family:'JetBrains Mono',monospace; font-weight:500;
+    font-size:clamp(.95rem, 2.6vw, 1.2rem); color:var(--paper); text-decoration:none;
+    border-bottom:2px solid var(--hot); padding-bottom:3px; word-break:break-all;
+  }
+  .contact-block .mail:hover{color:var(--hot);}
+  .contact-block .social{display:flex; justify-content:center; gap:22px; margin-top:26px;}
+  .contact-block .social a{color:var(--paper); opacity:.7; text-decoration:none; font-size:.9rem; font-weight:500;}
+  .contact-block .social a:hover{opacity:1;}
 
   footer{
-    border-top:1px solid var(--border);
-    margin-top:20px; padding:32px 0 64px;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    padding:30px 0 56px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-size:.84rem; color:var(--ink-soft);
   }
-  footer .who{font-size:.9rem; color:var(--ink-soft);}
-  .social{display:flex; gap:16px;}
-  .social a{color:var(--ink-soft); text-decoration:none; font-size:.9rem; font-weight:500; display:flex; align-items:center; gap:6px;}
-  .social a:hover{color:var(--accent);}
 
-  @media (max-width:640px){
-    header.hero{padding:48px 0 32px;}
-    h1{font-size:2rem;}
+  @media (max-width:820px){
+    .grid, .split, .principles{grid-template-columns:1fr;}
+    .card.featured{grid-template-columns:1fr;}
+    .card.featured, .card.featured.flip{grid-template-columns:1fr;}
+    .card.featured .card-media, .card.featured.flip .card-media{aspect-ratio:16/10; order:0; border:0; border-bottom:1px solid var(--border);}
+    .card.featured .card-body{padding:26px;}
+    .card.featured .big-num{font-size:2.6rem;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px;}
+    header.hero{padding:56px 0 48px;}
+    .hero-sub{grid-template-columns:1fr; gap:16px;}
     .nav-links{gap:14px;}
+    .nav-links .hide-sm{display:none;}
+    section{padding-top:64px;}
+    .contact-block{padding:48px 22px; margin-top:64px;}
+    .panel{padding:24px;}
   }
   @media (prefers-reduced-motion: reduce){
-    .card, .card-media img{transition:none !important;}
-    .card{opacity:1; transform:none;}
+    .reveal{opacity:1; transform:none;}
+    .card, .card-media img, .btn{transition:none !important;}
+    .status i{animation:none;}
   }
 </style>
 </head>
@@ -186,120 +270,103 @@
 
 <div class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">Alvin Kouadio</a>
+    <a class="brand" href="#top">Alvin Kouadio<span>.</span></a>
     <nav class="nav-links">
       <a href="#projets">Projets</a>
+      <a href="#methode" class="hide-sm">Méthode</a>
+      <a href="#parcours" class="hide-sm">Parcours</a>
       <a href="#contact">Contact</a>
-      <a href="https://github.com/ATEYABA-K" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </div>
 </div>
 
 <div class="wrap" id="top">
   <header class="hero">
-    <p class="eyebrow">Portfolio data</p>
-    <div class="hero-row">
+    <span class="status"><i></i>Dispo pour une alternance de 12 mois · Île-de-France</span>
+    <h1>Les chiffres ne parlent pas tout seuls. <em class="mark">Moi, si.</em></h1>
+    <div class="hero-sub">
       <img class="photo" src="assets/photo.jpg" alt="Photo d'Alvin Kouadio">
-      <div class="hero-text">
-        <h1>Alvin Kouadio</h1>
-        <p class="role">Analyste Data &amp; Chef de Projet Digital — Alternance 12 mois</p>
-        <p class="contact">
-          <a href="mailto:alvinkouadio1@icloud.com">alvinkouadio1@icloud.com</a>
-          <span class="dot">·</span>
-          <a href="https://www.linkedin.com/in/alvin-kouadio-4757281ba" target="_blank" rel="noopener">LinkedIn</a>
-          <span class="dot">·</span>
-          <a href="https://github.com/ATEYABA-K" target="_blank" rel="noopener">GitHub</a>
-        </p>
+      <div>
+        <p>Moi c'est Alvin. Je prends un tableau de données, je lui pose des questions jusqu'à trouver ce qui cloche, et je le raconte assez clairement pour que quelqu'un puisse en faire quelque chose lundi matin.</p>
+        <p>Entre le marketing et la data, en Master Big Data &amp; IA à l'INSEEC. Le genre à cadrer le projet avant d'ouvrir Python.</p>
       </div>
     </div>
-    <p class="intro">
-      <strong>Pilotage de projets data en toute autonomie</strong>, du cadrage au résultat, pour obtenir une
-      vision concrète des besoins métier et gagner en efficacité sur les tâches pratiques du poste. En Master
-      Marketing Digital, spécialisation Big Data &amp; IA à l'INSEEC PGE, après une Licence Économie et Gestion
-      à l'Université de Lille, j'apprends à transformer des jeux de données en réponse utilisable. Les projets
-      ci-dessous sont des exercices personnels, pas des mandats professionnels — chacun a sa méthode et ses
-      limites assumées, détaillées dans son dépôt.
-    </p>
-    <div class="pills">
-      <span class="pill">Python</span>
-      <span class="pill">SQL</span>
-      <span class="pill">Power BI</span>
-      <span class="pill">Excel</span>
-      <span class="pill">scikit-learn</span>
-      <span class="pill">GitHub Actions</span>
-      <span class="pill">Gestion de projet</span>
-      <span class="pill">RGPD</span>
+    <div class="cta-row">
+      <a class="btn btn-main" href="#projets">Voir ce que j'ai trouvé
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      <a class="btn btn-ghost" href="mailto:alvinkouadio1@icloud.com">M'écrire</a>
     </div>
   </header>
+</div>
 
+<div class="quote">
+  <div class="wrap">
+    <blockquote>« On ne peut pas comprendre le monde sans les chiffres. Mais on ne peut pas le comprendre avec les chiffres seuls. »</blockquote>
+    <cite>Hans Rosling, <i>Factfulness</i></cite>
+    <p class="gloss">C'est exactement pour ça que je fais de la data <strong>et</strong> du marketing. L'un trouve le chiffre, l'autre sait à qui il parle.</p>
+  </div>
+</div>
+
+<div class="wrap">
   <section id="projets">
     <div class="section-head">
-      <p class="eyebrow">Sélection</p>
-      <h2>Projets</h2>
+      <p class="eyebrow"><b>01</b> — Projets</p>
+      <h2>Chaque projet part d'une question. Voici les réponses.</h2>
+      <p>Tout ce qui suit, je l'ai fait seul, pour apprendre — pas pour un client. Chaque dépôt explique la méthode, et surtout ce qui ne marche pas.</p>
     </div>
     <div class="grid">
 
-      <div class="card">
+      <a class="card featured reveal" href="https://github.com/ATEYABA-K/analyse-churn-telco" target="_blank" rel="noopener">
         <div class="card-media"><img src="assets/portfolio-churn-telco.png" alt="Taux de résiliation par type de contrat"></div>
         <div class="card-body">
-          <div class="card-tools">Python · Pandas</div>
-          <h3 class="card-title">Segmentation du risque de résiliation client</h3>
-          <p class="card-result">Un client sans engagement résilie 15 fois plus souvent qu'un client engagé 2 ans : le type de contrat explique l'essentiel de l'écart, sur 7 000 clients télécom.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/analyse-churn-telco" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="big-num">×15</div>
+          <h3 class="card-q">Pourquoi les clients d'un opérateur télécom s'en vont ?</h3>
+          <p class="card-result">Sur 7 000 clients, ceux sans engagement résilient 15 fois plus que ceux engagés sur 2 ans. Le type de contrat explique presque tout l'écart — le reste, c'est surtout du bruit.</p>
+          <div class="card-foot"><span class="card-tools">Python · Pandas</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <div class="card-media"><img src="assets/portfolio-sql-ventes-musique.png" alt="Chiffre d'affaires par genre musical"></div>
-        <div class="card-body">
-          <div class="card-tools">SQL · Jointures · Fonctions fenêtre</div>
-          <h3 class="card-title">Analyse SQL des ventes d'un magasin de musique</h3>
-          <p class="card-result">Un seul genre musical (le Rock) concentre 35 % du chiffre d'affaires total — écrit en 5 requêtes, des agrégations simples aux fonctions fenêtre.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/analyse-sql-ventes-musique" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-
-      <div class="card">
+      <a class="card reveal" href="https://github.com/ATEYABA-K/scoring-prospects-b2b" target="_blank" rel="noopener">
         <div class="card-media"><img src="assets/portfolio-scoring-prospects-b2b.png" alt="Lift par décile de score"></div>
         <div class="card-body">
-          <div class="card-tools">Python · scikit-learn</div>
-          <h3 class="card-title">Scoring de propension B2B</h3>
-          <p class="card-result">Les 10 % de prospects les mieux notés par le modèle convertissent près de 5 fois plus que la moyenne du portefeuille — en excluant volontairement une variable qui aurait faussé le résultat.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/scoring-prospects-b2b" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="big-num">×5</div>
+          <h3 class="card-q">Quels prospects B2B appeler en premier ?</h3>
+          <p class="card-result">Les 10 % les mieux notés par le modèle convertissent près de 5 fois plus que la moyenne. Et j'ai viré une variable qui aurait rendu le score plus beau… mais faux.</p>
+          <div class="card-foot"><span class="card-tools">Python · scikit-learn</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
+      <a class="card reveal" href="https://github.com/ATEYABA-K/adoption-ia-pme-france" target="_blank" rel="noopener">
         <div class="card-media"><img src="assets/portfolio-orange-ddia.png" alt="Dashboard adoption de l'IA par taille d'entreprise"></div>
         <div class="card-body">
-          <div class="card-tools">Power BI · Données Insee</div>
-          <h3 class="card-title">Adoption de l'IA par les PME françaises</h3>
-          <p class="card-result">L'écart d'adoption entre grandes entreprises et PME est passé de 16 à 43 points entre 2023 et 2025 — il se creuse au lieu de se refermer.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/adoption-ia-pme-france" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="big-num">16 → 43 pts</div>
+          <h3 class="card-q">Les PME françaises rattrapent-elles les grands groupes sur l'IA ?</h3>
+          <p class="card-result">Non. Entre 2023 et 2025, l'écart d'adoption est passé de 16 à 43 points. Il se creuse au lieu de se refermer.</p>
+          <div class="card-foot"><span class="card-tools">Power BI · Données Insee</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
+      <a class="card reveal" href="https://github.com/ATEYABA-K/analyse-sql-ventes-musique" target="_blank" rel="noopener">
+        <div class="card-media"><img src="assets/portfolio-sql-ventes-musique.png" alt="Chiffre d'affaires par genre musical"></div>
+        <div class="card-body">
+          <div class="big-num">35 %</div>
+          <h3 class="card-q">D'où vient l'argent d'un magasin de musique ?</h3>
+          <p class="card-result">Du Rock, à 35 % du chiffre d'affaires à lui tout seul. Trouvé en 5 requêtes SQL, des agrégations de base aux fonctions fenêtre.</p>
+          <div class="card-foot"><span class="card-tools">SQL · Fonctions fenêtre</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" href="https://github.com/ATEYABA-K/automatisation-reporting-insee" target="_blank" rel="noopener">
         <div class="card-media"><img src="assets/portfolio-automatisation-reporting.png" alt="Pipeline de reporting automatisé"></div>
         <div class="card-body">
-          <div class="card-tools">Python · GitHub Actions</div>
-          <h3 class="card-title">Automatisation d'un pipeline de reporting</h3>
-          <p class="card-result">Le pipeline se relance seul chaque mois et vérifie le nombre de lignes attendu avant d'enregistrer un résultat — pour ne jamais laisser passer un fichier faux en silence.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/automatisation-reporting-insee" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="big-num">0 clic</div>
+          <h3 class="card-q">Et si le reporting mensuel se faisait tout seul ?</h3>
+          <p class="card-result">Le pipeline se relance chaque mois et vérifie le nombre de lignes avant d'enregistrer quoi que ce soit. Il préfère planter que laisser passer un fichier faux.</p>
+          <div class="card-foot"><span class="card-tools">Python · GitHub Actions</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <div class="card-media"><img src="assets/portfolio-ipc-france.png" alt="Évolution des prix à la consommation en France"></div>
-        <div class="card-body">
-          <div class="card-tools">Python · Données Insee</div>
-          <h3 class="card-title">Évolution des prix à la consommation en France</h3>
-          <p class="card-result">Suivi de l'inflation par poste de dépense (alimentation, énergie) depuis 2019 — mon tout premier projet data, repris avec un historique de commits complet.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/analyse-ipc-france-covid" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-
-      <div class="card">
+      <a class="card reveal" href="https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme" target="_blank" rel="noopener">
         <div class="card-media placeholder">
           <span class="stat-chip">6 jalons</span>
           <span class="stat-chip">Parties prenantes</span>
@@ -307,50 +374,117 @@
           <span class="stat-chip">Risques</span>
         </div>
         <div class="card-body">
-          <div class="card-tools">Gestion de projet · RGPD</div>
-          <h3 class="card-title">Note de cadrage — scoring IA</h3>
-          <p class="card-result">Objectifs mesurables, parties prenantes, périmètre, jalons et risques (dont la conformité RGPD) posés avant la première ligne de code, sur un cas fictif.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme" target="_blank" rel="noopener">Voir le document <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="big-num">J-0</div>
+          <h3 class="card-q">Qu'est-ce qu'on pose avant la première ligne de code ?</h3>
+          <p class="card-result">Une note de cadrage pour un projet de scoring IA (cas fictif) : objectifs mesurables, périmètre, jalons, et les risques — RGPD compris.</p>
+          <div class="card-foot"><span class="card-tools">Gestion de projet · RGPD</span><span class="card-link">Le document <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
+      <a class="card reveal" href="https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi" target="_blank" rel="noopener">
         <div class="card-media placeholder">
           <span class="stat-chip">S14 / 24</span>
           <span class="stat-chip">3 / 6 jalons</span>
           <span class="stat-chip">−1,9 % budget</span>
         </div>
         <div class="card-body">
-          <div class="card-tools">Suivi de projet · Power BI</div>
-          <h3 class="card-title">Suivre un projet après l'avoir cadré</h3>
-          <p class="card-result">Suite du projet ci-dessus : à la semaine 14 sur 24, un jalon en retard détecté et un dépassement budgétaire de 15 % isolé sur un seul lot grâce au tableau de suivi.</p>
-          <a class="card-link" href="https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="big-num">S14</div>
+          <h3 class="card-q">Le projet est cadré. Il dérape où ?</h3>
+          <p class="card-result">La suite du projet d'à côté : à la semaine 14 sur 24, le tableau de suivi repère un jalon en retard et isole un dépassement de 15 % sur un seul lot.</p>
+          <div class="card-foot"><span class="card-tools">Suivi de projet · Power BI</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
-      </div>
+      </a>
+
+      <a class="card featured flip reveal" href="https://github.com/ATEYABA-K/analyse-ipc-france-covid" target="_blank" rel="noopener">
+        <div class="card-media"><img src="assets/portfolio-ipc-france.png" alt="Évolution des prix à la consommation en France"></div>
+        <div class="card-body">
+          <div class="big-num">#1</div>
+          <h3 class="card-q">Qu'est-ce qui a vraiment augmenté depuis 2019 ?</h3>
+          <p class="card-result">L'inflation poste par poste — alimentation, énergie. Mon tout premier projet data. Je le laisse là exprès : on voit d'où je pars.</p>
+          <div class="card-foot"><span class="card-tools">Python · Données Insee</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
+      </a>
 
     </div>
   </section>
 
-  <footer id="contact">
-    <p class="who">Alvin Kouadio — Nanterre, Île-de-France</p>
-    <div class="social">
-      <a href="mailto:alvinkouadio1@icloud.com">Email</a>
-      <a href="https://www.linkedin.com/in/alvin-kouadio-4757281ba" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/ATEYABA-K" target="_blank" rel="noopener">GitHub</a>
+  <section id="methode">
+    <div class="section-head">
+      <p class="eyebrow"><b>02</b> — Méthode</p>
+      <h2>Trois règles que je ne lâche pas.</h2>
+      <p>Pas des valeurs écrites pour faire joli : chacune vient d'un projet au-dessus.</p>
     </div>
+    <div class="principles">
+      <div class="principle reveal">
+        <h3>Un résultat moins beau mais vrai, toujours.</h3>
+        <p>Dans le <a href="https://github.com/ATEYABA-K/scoring-prospects-b2b" target="_blank" rel="noopener">scoring B2B</a>, une variable gonflait les performances du modèle. Je l'ai sortie. Un chiffre flatteur qui s'écroule en production, ça ne sert à personne.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>Une erreur silencieuse est pire qu'un plantage.</h3>
+        <p>Mon <a href="https://github.com/ATEYABA-K/automatisation-reporting-insee" target="_blank" rel="noopener">pipeline de reporting</a> refuse d'enregistrer s'il manque des lignes. Je préfère qu'on m'appelle parce que ça a planté que parce que le chiffre était faux.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>On cadre avant de coder.</h3>
+        <p>Qui décide, ce qu'on mesure, ce qui peut mal tourner. Ma <a href="https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme" target="_blank" rel="noopener">note de cadrage</a> existe avant le code, et le <a href="https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi" target="_blank" rel="noopener">suivi</a> continue après.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="section-head">
+      <p class="eyebrow"><b>03</b> — En ce moment</p>
+      <h2>Où j'en suis, où je vais.</h2>
+    </div>
+    <div class="split">
+      <div class="panel reveal">
+        <h3>En ce moment</h3>
+        <ul class="now-list">
+          <li><span>Je cherche une <strong>alternance de 12 mois</strong> en analyse data ou en chef de projet digital, en Île-de-France.</span></li>
+          <li><span>En Master Marketing Digital, spécialisation <strong>Big Data &amp; IA</strong>, à l'INSEEC.</span></li>
+          <li><span>Je continue d'empiler des projets ici, un dépôt GitHub à la fois.</span></li>
+        </ul>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Power BI</span><span class="pill">Excel</span>
+          <span class="pill">scikit-learn</span><span class="pill">GitHub Actions</span><span class="pill">Gestion de projet</span><span class="pill">RGPD</span>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <h3>Le parcours</h3>
+        <ol class="timeline">
+          <li><span class="what">Licence Économie &amp; Gestion</span><span class="where">Université de Lille — là où j'ai compris que les chiffres racontent des histoires.</span></li>
+          <li><span class="what">Master Marketing Digital — Big Data &amp; IA</span><span class="where">INSEEC PGE — là où j'apprends à les faire parler.</span></li>
+          <li class="next"><span class="when">Prochaine étape</span><span class="what">Votre équipe ?</span><span class="where">12 mois d'alternance, pour passer des exercices aux vrais enjeux.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-block reveal" id="contact">
+    <h2>Un tableur qui dort dans un coin ? <em>Parlons-en.</em></h2>
+    <p>Une alternance, un projet, ou juste une question sur un de mes dépôts — je réponds.</p>
+    <a class="mail" href="mailto:alvinkouadio1@icloud.com">alvinkouadio1@icloud.com</a>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/alvin-kouadio-4757281ba" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/ATEYABA-K" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>Alvin Kouadio — Nanterre, Île-de-France</span>
+    <span>Fait main en HTML &amp; CSS, sans template. Hébergé sur GitHub Pages.</span>
   </footer>
 </div>
 
 <script>
-  // subtle fade-up on scroll for cards
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.card').forEach(c => io.observe(c));
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   } else {
-    document.querySelectorAll('.card').forEach(c => c.classList.add('in'));
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
+  console.log('%cTu lis le code source ? On va bien s\'entendre. → alvinkouadio1@icloud.com', 'font:600 14px Inter,sans-serif;color:#d9542b');
 </script>
 </body>
 </html>
