@@ -343,3 +343,4 @@ footer{
   .chart text, .chart text.lab{font-size:24px;}
   .chart text.val{font-size:22px;}
 }
+.pull + .principles{margin-top:40px;}
