@@ -635,3 +635,10 @@ svg.court rect{transition:fill-opacity .45s ease;}
   .fact-inner, .badge, .badge-face{transition:none;}
   .badge.reveal.in .badge-face{animation:none;}
 }
+
+/* ---------- perspective ---------- */
+.essay{max-width:700px;}
+.essay p{font-size:1.05rem; line-height:1.7; margin:0 0 18px;}
+.essay p:first-child{font-family:Fraunces, Georgia, serif; font-size:1.3rem; line-height:1.45;}
+.essay p:last-child{margin-bottom:0;}
+.card-links{display:flex; flex-wrap:wrap; gap:6px 16px;}
