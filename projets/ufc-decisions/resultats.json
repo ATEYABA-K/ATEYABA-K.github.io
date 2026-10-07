@@ -1,0 +1,56 @@
+{
+  "periode": "2001-2026",
+  "combats": 8656,
+  "decisions_analysees": 4026,
+  "part_des_combats_aux_decisions": {
+    "2001-2008": 0.317,
+    "2009-2016": 0.478,
+    "2017-2026": 0.493
+  },
+  "vainqueur_moins_de_frappes": 0.21,
+  "vainqueur_moins_de_frappes_n": 845,
+  "ce_qui_compense": {
+    "plus_de_controle": 0.715,
+    "plus_d_amenees": 0.632,
+    "controle_ou_amenees": 0.776,
+    "plus_de_knockdowns": 0.104,
+    "rien_de_tout_ca": 0.2
+  },
+  "selon_ecart_de_frappes": {
+    "moins de 5 %": {
+      "vainqueur_a_plus_frappe": 0.51,
+      "combats": 525
+    },
+    "5 à 10 %": {
+      "vainqueur_a_plus_frappe": 0.629,
+      "combats": 536
+    },
+    "10 à 20 %": {
+      "vainqueur_a_plus_frappe": 0.754,
+      "combats": 925
+    },
+    "plus de 20 %": {
+      "vainqueur_a_plus_frappe": 0.894,
+      "combats": 2039
+    }
+  },
+  "vainqueur_moins_de_frappes_par_methode": {
+    "Decision - Unanimous": 0.164,
+    "Decision - Split": 0.377
+  },
+  "precision_une_stat": {
+    "frappes": 0.783,
+    "amenees": 0.647,
+    "controle": 0.677,
+    "knockdowns": 0.545,
+    "soumissions": 0.52
+  },
+  "precision_cinq_stats": 0.844,
+  "poids_standardises": {
+    "frappes": 2.38,
+    "amenees": 0.46,
+    "controle": 1.15,
+    "knockdowns": 0.41,
+    "soumissions": 0.25
+  }
+}

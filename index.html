@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alvin Kouadio — Data &amp; projets</title>
-<meta name="description" content="Alvin Kouadio. Je ne cherche pas à faire du bruit, je cherche à faire bouger un chiffre. Data, marketing et gestion de projet — en recherche d'alternance 12 mois.">
-<meta property="og:title" content="Alvin Kouadio — Je cherche à faire bouger un chiffre.">
+<meta name="description" content="Alvin Kouadio. La data, c'est un sport de combat : on prépare, on encaisse, on s'adapte, et à la fin ce sont les points qui parlent. Data &amp; marketing — en recherche d'alternance 12 mois.">
+<meta property="og:title" content="Alvin Kouadio — La data, c'est un sport de combat.">
 <meta property="og:description" content="Data, marketing, gestion de projet. Des projets qui commencent par une question et finissent par une réponse utilisable.">
 <meta property="og:image" content="https://ateyaba-k.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://ateyaba-k.github.io/">
@@ -14,279 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#1b1f27;
-    --ink-soft:#5a6170;
-    --paper:#faf8f3;
-    --card:#ffffff;
-    --border:#e6e1d6;
-    --accent:#1F3864;
-    --accent-soft:#eceff6;
-    --hot:#d9542b;
-    --hot-soft:rgba(217,84,43,.16);
-    --radius:18px;
-    --maxw:1080px;
-    --shadow: 0 1px 2px rgba(20,20,20,.04), 0 10px 30px -14px rgba(20,20,20,.14);
-    --shadow-hover: 0 1px 2px rgba(20,20,20,.05), 0 22px 44px -16px rgba(20,20,20,.22);
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ink:#eeeff2; --ink-soft:#a3aab7; --paper:#111318; --card:#181b21;
-      --border:#262b34; --accent:#9db2e6; --accent-soft:#1d2433;
-      --hot:#f07a52; --hot-soft:rgba(240,122,82,.2);
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
-      --shadow-hover: 0 1px 2px rgba(0,0,0,.35), 0 22px 44px -16px rgba(0,0,0,.7);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ink:#eeeff2; --ink-soft:#a3aab7; --paper:#111318; --card:#181b21;
-    --border:#262b34; --accent:#9db2e6; --accent-soft:#1d2433;
-    --hot:#f07a52; --hot-soft:rgba(240,122,82,.2);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    color:var(--ink); background:var(--paper);
-    line-height:1.6; -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
-  a{color:var(--accent);}
-  .serif{font-family:'Fraunces',serif;}
-  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
-
-  /* top bar */
-  .topbar{
-    position:sticky; top:0; z-index:10;
-    background:color-mix(in srgb, var(--paper) 86%, transparent);
-    backdrop-filter:blur(10px) saturate(1.2);
-    border-bottom:1px solid var(--border);
-  }
-  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:58px;}
-  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink);}
-  .brand span{color:var(--hot);}
-  .nav-links{display:flex; gap:22px; font-size:.88rem; font-weight:500;}
-  .nav-links a{color:var(--ink-soft); text-decoration:none;}
-  .nav-links a:hover{color:var(--ink);}
-
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.74rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--ink-soft); margin:0 0 14px;
-  }
-  .eyebrow b{color:var(--hot); font-weight:700;}
-
-  /* hero */
-  header.hero{padding:88px 0 72px;}
-  .status{
-    display:inline-flex; align-items:center; gap:9px;
-    font-size:.84rem; font-weight:500; color:var(--ink-soft);
-    border:1px solid var(--border); background:var(--card);
-    padding:6px 14px 6px 12px; border-radius:999px; margin-bottom:34px;
-  }
-  .status i{width:8px; height:8px; border-radius:50%; background:#2fa36b; box-shadow:0 0 0 4px rgba(47,163,107,.18); animation:pulse 2.4s ease-in-out infinite;}
-  @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(47,163,107,0);}}
-  h1{
-    font-family:'Fraunces',serif; font-weight:600;
-    font-size:clamp(2.4rem, 6.4vw, 4.6rem);
-    line-height:1.0; letter-spacing:-.035em; margin:0; max-width:17ch;
-  }
-  h1 em{font-style:italic; font-weight:400;}
-  .mark{
-    background:linear-gradient(transparent 62%, var(--hot-soft) 62%);
-    padding:0 .08em;
-  }
-  .kicker{
-    font-family:'Fraunces',serif; font-size:clamp(1.15rem, 2.4vw, 1.5rem); font-weight:400;
-    color:var(--ink-soft); margin:22px 0 0; max-width:34ch; line-height:1.35;
-  }
-  .hero-sub{
-    display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start;
-    margin-top:44px; max-width:720px;
-  }
-  .photo{
-    width:84px; height:84px; border-radius:50%; object-fit:cover;
-    box-shadow:var(--shadow); border:3px solid var(--card);
-  }
-  .hero-sub p{margin:0; font-size:1.14rem; line-height:1.65;}
-  .hero-sub p + p{margin-top:12px; color:var(--ink-soft); font-size:1rem;}
-  .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:34px;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    font-weight:600; font-size:.95rem; text-decoration:none;
-    padding:12px 20px; border-radius:12px; transition:transform .2s ease, background .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-main{background:var(--ink); color:var(--paper);}
-  .btn-ghost{border:1px solid var(--border); color:var(--ink); background:var(--card);}
-
-  /* quote band */
-  .quote{
-    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-    padding:56px 0; text-align:center;
-  }
-  .quote blockquote{
-    margin:0 auto; max-width:760px;
-    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
-    font-size:clamp(1.35rem, 3vw, 1.9rem); line-height:1.35; letter-spacing:-.01em;
-  }
-  .quote cite{display:block; margin-top:18px; font-style:normal; font-size:.86rem; color:var(--ink-soft);}
-  .quote .gloss{margin:22px auto 0; max-width:560px; color:var(--ink-soft); font-size:.98rem;}
-
-  section{padding-top:88px;}
-  .section-head{margin-bottom:36px; max-width:640px;}
-  .section-head h2{
-    font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.8rem, 4vw, 2.5rem);
-    margin:0; letter-spacing:-.02em; line-height:1.1;
-  }
-  .section-head p{color:var(--ink-soft); margin:14px 0 0; font-size:1.02rem;}
-
-  /* projects */
-  .grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
-  .card{
-    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-    overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow);
-    text-decoration:none; color:inherit;
-    transition:transform .28s ease, box-shadow .28s ease;
-  }
-  .reveal{opacity:0; transform:translateY(16px);}
-  .reveal.in{opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease, box-shadow .28s ease;}
-  .card:hover{transform:translateY(-5px); box-shadow:var(--shadow-hover);}
-  .card.featured{grid-column:1 / -1; display:grid; grid-template-columns:1.15fr 1fr;}
-  .card-media{aspect-ratio:16/10; background:var(--accent-soft); overflow:hidden;}
-  .card.featured .card-media{aspect-ratio:auto; min-height:100%; border-bottom:0; border-right:1px solid var(--border);}
-  .card.featured.flip{grid-template-columns:1fr 1.15fr;}
-  .card.featured.flip .card-media{order:2; border-right:0; border-left:1px solid var(--border);}
-  .card-media{background:#fff; border-bottom:1px solid var(--border);}
-  .card-media img{width:100%; height:100%; object-fit:contain; padding:10px; display:block; transition:transform .5s cubic-bezier(.2,.8,.2,1);}
-  .card:hover .card-media img{transform:scale(1.04);}
-  .card-media.placeholder{
-    display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:18px;
-    background:
-      radial-gradient(circle at 20% 20%, var(--hot-soft), transparent 55%),
-      linear-gradient(135deg, var(--accent-soft), var(--card));
-  }
-  .stat-chip{
-    font-family:'JetBrains Mono',monospace; font-size:.76rem; font-weight:500;
-    padding:7px 12px; border-radius:10px; background:var(--card); color:var(--ink);
-    border:1px solid var(--border);
-  }
-  .card-body{padding:24px 26px 26px; display:flex; flex-direction:column; gap:10px; flex:1;}
-  .card.featured .card-body{padding:36px 36px 34px; justify-content:center;}
-  .big-num{
-    font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--hot);
-    font-size:2.1rem; line-height:1; letter-spacing:-.03em;
-  }
-  .card.featured .big-num{font-size:3.4rem;}
-  .card-q{font-family:'Fraunces',serif; font-size:1.25rem; font-weight:600; margin:4px 0 0; letter-spacing:-.01em; line-height:1.25;}
-  .card.featured .card-q{font-size:1.65rem;}
-  .card-result{font-size:.95rem; color:var(--ink-soft); margin:0; flex:1;}
-  .card-foot{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:8px; flex-wrap:wrap;}
-  .card-tools{font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--ink-soft);}
-  .card-link{font-size:.88rem; font-weight:600; color:var(--accent); display:inline-flex; align-items:center; gap:5px;}
-  .card-link svg{transition:transform .2s ease;}
-  .card:hover .card-link svg{transform:translateX(3px);}
-
-  /* principles */
-  .principles{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; counter-reset:p;}
-  .principle{
-    border-top:2px solid var(--ink); padding-top:20px;
-  }
-  .principle::before{
-    counter-increment:p; content:"0" counter(p);
-    font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--hot); font-weight:700;
-  }
-  .principle h3{font-family:'Fraunces',serif; font-size:1.3rem; font-weight:600; margin:10px 0 10px; line-height:1.2; letter-spacing:-.01em;}
-  .principle p{margin:0; color:var(--ink-soft); font-size:.96rem;}
-  .principle p a{font-weight:500;}
-
-  /* hors écran */
-  .offscreen{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
-  .off{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);}
-  .off-tag{display:inline-block; font-size:.74rem; font-weight:700; color:var(--hot); margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em;}
-  .off p{margin:0; font-size:.95rem; color:var(--ink-soft);}
-  .drive{
-    margin:36px 0 0; padding:26px 28px; border-left:4px solid var(--hot);
-    background:var(--hot-soft); border-radius:0 14px 14px 0;
-    font-family:'Fraunces',serif; font-size:clamp(1.15rem, 2.4vw, 1.45rem); line-height:1.4;
-  }
-  .drive strong{font-weight:600;}
-
-  /* now + path */
-  .split{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  .panel{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow);}
-  .panel h3{font-family:'Fraunces',serif; font-size:1.35rem; margin:0 0 18px; font-weight:600;}
-  .now-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
-  .now-list li{display:grid; grid-template-columns:22px 1fr; gap:8px; font-size:.98rem;}
-  .now-list li::before{content:"→"; color:var(--hot); font-weight:700;}
-  .timeline{list-style:none; margin:0; padding:0; position:relative;}
-  .timeline::before{content:""; position:absolute; left:6px; top:8px; bottom:8px; width:2px; background:var(--border);}
-  .timeline li{position:relative; padding-left:32px; margin-bottom:22px;}
-  .timeline li:last-child{margin-bottom:0;}
-  .timeline li::before{content:""; position:absolute; left:0; top:6px; width:14px; height:14px; border-radius:50%; background:var(--card); border:2px solid var(--ink-soft);}
-  .timeline li.next::before{border-color:var(--hot); background:var(--hot);}
-  .timeline .when{font-family:'JetBrains Mono',monospace; font-size:.74rem; color:var(--ink-soft);}
-  .timeline .what{font-weight:600; display:block;}
-  .timeline .where{color:var(--ink-soft); font-size:.92rem;}
-  .timeline li.next .what{color:var(--hot);}
-  .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
-  .pill{font-size:.8rem; font-weight:500; padding:5px 12px; border-radius:999px; background:var(--accent-soft); color:var(--accent);}
-
-  /* contact */
-  .contact-block{
-    margin-top:88px; padding:64px 40px; border-radius:24px; text-align:center;
-    background:var(--ink); color:var(--paper);
-  }
-  .contact-block h2{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(2rem, 5vw, 3.2rem); margin:0; letter-spacing:-.03em; line-height:1.05;}
-  .contact-block h2 em{font-weight:400;}
-  .contact-block p{margin:18px auto 0; max-width:520px; opacity:.75;}
-  .contact-block .mail{
-    display:inline-block; margin-top:30px; font-family:'JetBrains Mono',monospace; font-weight:500;
-    font-size:clamp(.95rem, 2.6vw, 1.2rem); color:var(--paper); text-decoration:none;
-    border-bottom:2px solid var(--hot); padding-bottom:3px; word-break:break-all;
-  }
-  .contact-block .mail:hover{color:var(--hot);}
-  .contact-block .social{display:flex; justify-content:center; gap:22px; margin-top:26px;}
-  .contact-block .social a{color:var(--paper); opacity:.7; text-decoration:none; font-size:.9rem; font-weight:500;}
-  .contact-block .social a:hover{opacity:1;}
-
-  footer{
-    padding:30px 0 56px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-    font-size:.84rem; color:var(--ink-soft);
-  }
-
-  @media (max-width:820px){
-    .grid, .split, .principles{grid-template-columns:1fr;}
-    .offscreen{grid-template-columns:1fr 1fr;}
-    .card.featured{grid-template-columns:1fr;}
-    .card.featured, .card.featured.flip{grid-template-columns:1fr;}
-    .card.featured .card-media, .card.featured.flip .card-media{aspect-ratio:16/10; order:0; border:0; border-bottom:1px solid var(--border);}
-    .card.featured .card-body{padding:26px;}
-    .card.featured .big-num{font-size:2.6rem;}
-  }
-  @media (max-width:560px){
-    .wrap{padding:0 16px;}
-    header.hero{padding:56px 0 48px;}
-    .kicker{
-    font-family:'Fraunces',serif; font-size:clamp(1.15rem, 2.4vw, 1.5rem); font-weight:400;
-    color:var(--ink-soft); margin:22px 0 0; max-width:34ch; line-height:1.35;
-  }
-  .hero-sub{grid-template-columns:1fr; gap:16px;}
-    .nav-links{gap:14px;}
-    .nav-links .hide-sm{display:none;}
-    section{padding-top:64px;}
-    .contact-block{padding:48px 22px; margin-top:64px;}
-    .panel{padding:24px;}
-    .offscreen{grid-template-columns:1fr;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1; transform:none;}
-    .card, .card-media img, .btn{transition:none !important;}
-    .status i{animation:none;}
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
@@ -297,7 +25,7 @@
       <a href="#projets">Projets</a>
       <a href="#methode" class="hide-sm">Méthode</a>
       <a href="#hors-ecran" class="hide-sm">Hors écran</a>
-      <a href="#parcours" class="hide-sm">Parcours</a>
+      <a href="maintenant.html">Maintenant</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -306,13 +34,13 @@
 <div class="wrap" id="top">
   <header class="hero">
     <span class="status"><i></i>Dispo pour une alternance de 12 mois · Île-de-France</span>
-    <h1>Je ne cherche pas à faire du bruit. <em class="mark">Je cherche à faire bouger un chiffre.</em></h1>
-    <p class="kicker">Même un petit. Tant que je peux prouver qu'il a bougé — et pourquoi.</p>
+    <h1>La data, c'est un <em class="mark" style="white-space:nowrap">sport de combat.</em></h1>
+    <p class="kicker">On prépare, on encaisse, on s'adapte. Et à la fin, ce sont les points qui parlent.</p>
     <div class="hero-sub">
       <img class="photo" src="assets/photo.jpg" alt="Photo d'Alvin Kouadio">
       <div>
-        <p>Moi c'est Alvin. Je prends un tableau de données, je lui pose des questions jusqu'à trouver ce qui cloche, et je le raconte assez clairement pour que quelqu'un puisse agir dessus lundi matin.</p>
-        <p>Entre le marketing et la data, en Master Big Data &amp; IA à l'INSEEC. Le genre à cadrer le projet avant d'ouvrir Python.</p>
+        <p>Moi c'est Alvin. Ce qui me fait avancer : avoir un impact, même à petite échelle — et pouvoir prouver qu'il est réel. Alors je prends des données, je cherche ce qui cloche, et je le raconte assez clairement pour qu'on puisse agir dessus lundi matin.</p>
+        <p>Master Marketing Digital, Big Data &amp; IA à l'INSEEC. Muscu, sports de combat et basket le reste du temps.</p>
       </div>
     </div>
     <div class="cta-row">
@@ -339,14 +67,14 @@
       <p>Tout ce qui suit, je l'ai fait seul, pour apprendre — pas pour un client. Chaque dépôt explique la méthode, et surtout ce qui ne marche pas.</p>
     </div>
     <div class="grid">
-
-      <a class="card featured reveal" href="https://github.com/ATEYABA-K/analyse-churn-telco" target="_blank" rel="noopener">
-        <div class="card-media"><img src="assets/portfolio-churn-telco.png" alt="Taux de résiliation par type de contrat"></div>
+      <a class="card featured reveal" href="projets/ufc-decisions.html">
+        <div class="card-media"><img src="assets/portfolio-ufc-decisions.png" alt="Part des décisions remportées par le combattant qui a porté le plus de frappes, selon l'écart"></div>
         <div class="card-body">
-          <div class="big-num">×15</div>
-          <h3 class="card-q">Pourquoi les clients d'un opérateur télécom s'en vont ?</h3>
-          <p class="card-result">Sur 7 000 clients, ceux sans engagement résilient 15 fois plus que ceux engagés sur 2 ans. Le type de contrat explique presque tout l'écart — le reste, c'est surtout du bruit.</p>
-          <div class="card-foot"><span class="card-tools">Python · Pandas</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <span class="new-tag mono">Nouveau · étude complète</span>
+          <div class="big-num">1 sur 5</div>
+          <h3 class="card-q">Sur un ring, on gagne aux points. Mais lesquels ?</h3>
+          <p class="card-result">Sur 4 026 décisions UFC, une sur cinq va au combattant qui a porté <em>moins</em> de frappes. J'ai cherché ce que les juges récompensent à la place — et ce que ça dit de tous les KPI trop visibles.</p>
+          <div class="card-foot"><span class="card-tools">Python · Pandas · scikit-learn</span><span class="card-link">Lire l'étude <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
 
@@ -390,6 +118,16 @@
         </div>
       </a>
 
+      <a class="card featured flip reveal" href="https://github.com/ATEYABA-K/analyse-churn-telco" target="_blank" rel="noopener">
+        <div class="card-media"><img src="assets/portfolio-churn-telco.png" alt="Taux de résiliation par type de contrat"></div>
+        <div class="card-body">
+          <div class="big-num">×15</div>
+          <h3 class="card-q">Pourquoi les clients d'un opérateur télécom s'en vont ?</h3>
+          <p class="card-result">Sur 7 000 clients, ceux sans engagement résilient 15 fois plus que ceux engagés sur 2 ans. Le type de contrat explique presque tout l'écart — le reste, c'est surtout du bruit.</p>
+          <div class="card-foot"><span class="card-tools">Python · Pandas</span><span class="card-link">Code &amp; méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
+      </a>
+
       <a class="card reveal" href="https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme" target="_blank" rel="noopener">
         <div class="card-media placeholder">
           <span class="stat-chip">6 jalons</span>
@@ -419,7 +157,7 @@
         </div>
       </a>
 
-      <a class="card featured flip reveal" href="https://github.com/ATEYABA-K/analyse-ipc-france-covid" target="_blank" rel="noopener">
+      <a class="card featured reveal" href="https://github.com/ATEYABA-K/analyse-ipc-france-covid" target="_blank" rel="noopener">
         <div class="card-media"><img src="assets/portfolio-ipc-france.png" alt="Évolution des prix à la consommation en France"></div>
         <div class="card-body">
           <div class="big-num">#1</div>
@@ -438,6 +176,10 @@
       <h2>Trois règles que je ne lâche pas.</h2>
       <p>Pas des valeurs écrites pour faire joli : chacune vient d'un projet au-dessus.</p>
     </div>
+    <figure class="pull reveal">
+      <blockquote>« Tout le monde a un plan, jusqu'au premier coup. »</blockquote>
+      <figcaption>Mike Tyson, 1987 — d'où la règle n°3.</figcaption>
+    </figure>
     <div class="principles">
       <div class="principle reveal">
         <h3>Un résultat moins beau mais vrai, toujours.</h3>
@@ -457,33 +199,44 @@
   <section id="hors-ecran">
     <div class="section-head">
       <p class="eyebrow"><b>03</b> — Hors écran</p>
-      <h2>Sur un ring, on ne gagne pas aux impressions. <em class="serif" style="font-weight:400">On gagne aux points.</em></h2>
-      <p>J'applique la même règle aux données. Le reste du temps :</p>
+      <h2>Ce que je fais quand je ne fais pas de data.</h2>
+      <p>Spoiler : je regarde quand même les chiffres.</p>
     </div>
     <div class="offscreen">
       <div class="off reveal">
-        <span class="off-tag mono">Muscu</span>
-        <p>La progression ne se raconte pas, elle se voit sur la barre. Pareil pour un projet.</p>
-      </div>
-      <div class="off reveal">
         <span class="off-tag mono">Sports de combat</span>
-        <p>On encaisse, on analyse, on corrige. Un plan qui ne survit pas au premier échange, ce n'était pas un plan.</p>
+        <div class="off-num mono">49 %</div>
+        <p class="off-stat">des combats UFC finissent aux points depuis 2017, contre 32 % au début des années 2000. Calculé moi-même → <a href="projets/ufc-decisions.html">l'étude</a>.</p>
+        <p class="off-me">Un plan qui ne survit pas au premier échange, ce n'était pas un plan.</p>
       </div>
       <div class="off reveal">
-        <span class="off-tag mono">Basket &amp; sport en général</span>
-        <p>Je pratique, je regarde, je suis à peu près tout ce qui touche au sport. Et le sport, c'est aussi des stats partout.</p>
+        <span class="off-tag mono">Basket</span>
+        <div class="off-num mono">×13</div>
+        <p class="off-stat">2,8 tirs à 3 points par match en NBA en 1979-80, environ 37 aujourd'hui. Le jeu a changé le jour où les équipes ont fait le calcul.</p>
+        <p class="off-me">La preuve qu'une analyse peut changer tout un sport.</p>
+      </div>
+      <div class="off reveal">
+        <span class="off-tag mono">Muscu</span>
+        <div class="off-num mono">6–7 M</div>
+        <p class="off-stat">d'abonnés en salle en France, selon les sources — qui ne sont pas d'accord entre elles. Je le note : c'est un réflexe.</p>
+        <p class="off-me">La progression ne se raconte pas, elle se voit sur la barre.</p>
       </div>
       <div class="off reveal">
         <span class="off-tag mono">Culture</span>
-        <p>Je me cultive sur à peu près tout. Un analyste qui ne connaît que ses tableaux pose de mauvaises questions.</p>
+        <div class="off-num mono">0</div>
+        <p class="off-stat">C'est le nombre de fois où Peter Drucker a écrit « ce qui se mesure se gère ». On lui attribue partout. Il ne l'a jamais dit.</p>
+        <p class="off-me">Je me cultive sur à peu près tout. Et je vérifie mes sources.</p>
       </div>
     </div>
-    <p class="drive reveal">Ce qui me fait avancer, au fond : <strong>avoir un impact, même à toute petite échelle — et pouvoir montrer qu'il est réel.</strong></p>
+    <figure class="pull reveal">
+      <blockquote>« Absorbe ce qui est utile, rejette ce qui ne l'est pas, ajoute ce qui t'est propre. »</blockquote>
+      <figcaption>Bruce Lee — valable sur un tatami comme devant un jeu de données.</figcaption>
+    </figure>
   </section>
 
   <section id="parcours">
     <div class="section-head">
-      <p class="eyebrow"><b>04</b> — En ce moment</p>
+      <p class="eyebrow"><b>04</b> — Parcours</p>
       <h2>Où j'en suis, où je vais.</h2>
     </div>
     <div class="split">
@@ -492,7 +245,8 @@
         <ul class="now-list">
           <li><span>Je cherche une <strong>alternance de 12 mois</strong> en analyse data ou en chef de projet digital, en Île-de-France.</span></li>
           <li><span>En Master Marketing Digital, spécialisation <strong>Big Data &amp; IA</strong>, à l'INSEEC.</span></li>
-          <li><span>Je continue d'empiler des projets ici, un dépôt GitHub à la fois.</span></li>
+          <li><span>Je viens de finir une <a href="projets/ufc-decisions.html">étude sur les décisions des juges UFC</a>.</span></li>
+          <li><span>Le détail, semaine par semaine : <a href="maintenant.html">la page Maintenant</a>.</span></li>
         </ul>
         <div class="pills">
           <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Power BI</span><span class="pill">Excel</span>
