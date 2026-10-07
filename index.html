@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
 
 <div class="topbar">
   <div class="wrap">
@@ -48,6 +49,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
       <a class="btn btn-ghost" href="mailto:alvinkouadio1@icloud.com">M'écrire</a>
     </div>
+    <p class="hint"><b>↖</b> Le fond est un nuage de points. Promenez la souris dessus : je calcule la tendance en direct. Cliquez pour voir.</p>
   </header>
 </div>
 
@@ -67,17 +69,16 @@
       <p>Tout ce qui suit, je l'ai fait seul, pour apprendre — pas pour un client. Chaque dépôt explique la méthode, et surtout ce qui ne marche pas.</p>
     </div>
     <div class="grid">
-      <a class="card featured reveal" href="projets/ufc-decisions.html">
-        <div class="card-media"><img src="assets/portfolio-ufc-decisions.png" alt="Part des décisions remportées par le combattant qui a porté le plus de frappes, selon l'écart"></div>
+      <a class="card featured reveal" href="projets/nba-mi-distance.html">
+        <div class="card-media"><img src="assets/portfolio-nba-mi-distance.png" alt="Part des tirs NBA à mi-distance et à 3 points, 2003-04 à 2024-25"></div>
         <div class="card-body">
-          <span class="new-tag mono">Nouveau · étude complète</span>
-          <div class="big-num">1 sur 5</div>
-          <h3 class="card-q">Sur un ring, on gagne aux points. Mais lesquels ?</h3>
-          <p class="card-result">Sur 4 026 décisions UFC, une sur cinq va au combattant qui a porté <em>moins</em> de frappes. J'ai cherché ce que les juges récompensent à la place — et ce que ça dit de tous les KPI trop visibles.</p>
-          <div class="card-foot"><span class="card-tools">Python · Pandas · scikit-learn</span><span class="card-link">Lire l'étude <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <span class="new-tag mono">Nouveau · étude interactive</span>
+          <div class="big-num">36 % → 10 %</div>
+          <h3 class="card-q">Le tir que la NBA a arrêté de financer.</h3>
+          <p class="card-result">4,4 millions de tirs, 22 saisons. Le mi-distance a toujours rapporté moins qu'un 3 points, et les équipes ont mis près de dix ans à couper le budget. Une étude d'allocation de ressources — au basket comme en marketing.</p>
+          <div class="card-foot"><span class="card-tools">Python · Pandas · SVG interactif</span><span class="card-link">Lire l'étude <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
-
       <a class="card reveal" href="https://github.com/ATEYABA-K/scoring-prospects-b2b" target="_blank" rel="noopener">
         <div class="card-media"><img src="assets/portfolio-scoring-prospects-b2b.png" alt="Lift par décile de score"></div>
         <div class="card-body">
@@ -206,13 +207,13 @@
       <div class="off reveal">
         <span class="off-tag mono">Sports de combat</span>
         <div class="off-num mono">49 %</div>
-        <p class="off-stat">des combats UFC finissent aux points depuis 2017, contre 32 % au début des années 2000. Calculé moi-même → <a href="projets/ufc-decisions.html">l'étude</a>.</p>
+        <p class="off-stat">des combats UFC finissent aux points depuis 2017, contre 32 % au début des années 2000. Calculé sur les stats officielles de l'UFC.</p>
         <p class="off-me">Un plan qui ne survit pas au premier échange, ce n'était pas un plan.</p>
       </div>
       <div class="off reveal">
         <span class="off-tag mono">Basket</span>
-        <div class="off-num mono">×13</div>
-        <p class="off-stat">2,8 tirs à 3 points par match en NBA en 1979-80, environ 37 aujourd'hui. Le jeu a changé le jour où les équipes ont fait le calcul.</p>
+        <div class="off-num mono">÷3,6</div>
+        <p class="off-stat">La part des tirs à mi-distance en NBA entre 2004 et 2025. Calculé moi-même sur 4,4 millions de tirs → <a href="projets/nba-mi-distance.html">l'étude</a>.</p>
         <p class="off-me">La preuve qu'une analyse peut changer tout un sport.</p>
       </div>
       <div class="off reveal">
@@ -245,7 +246,7 @@
         <ul class="now-list">
           <li><span>Je cherche une <strong>alternance de 12 mois</strong> en analyse data ou en chef de projet digital, en Île-de-France.</span></li>
           <li><span>En Master Marketing Digital, spécialisation <strong>Big Data &amp; IA</strong>, à l'INSEEC.</span></li>
-          <li><span>Je viens de finir une <a href="projets/ufc-decisions.html">étude sur les décisions des juges UFC</a>.</span></li>
+          <li><span>Je viens de finir une <a href="projets/nba-mi-distance.html">étude sur 4,4 millions de tirs NBA</a>.</span></li>
           <li><span>Le détail, semaine par semaine : <a href="maintenant.html">la page Maintenant</a>.</span></li>
         </ul>
         <div class="pills">
@@ -280,10 +281,24 @@
   </footer>
 </div>
 
+<script src="assets/fond.js"></script>
 <script>
+  // Les grands chiffres des projets "comptent" jusqu'à leur valeur quand ils apparaissent.
+  const countUp = (el) => {
+    const m = el.textContent.match(/^([^\d]*)(\d+(?:,\d+)?)(.*)$/s);
+    if (!m || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const [, pre, num, post] = m, target = parseFloat(num.replace(',', '.')), dec = (num.split(',')[1] || '').length;
+    const t0 = performance.now(), dur = 900;
+    const tick = (t) => {
+      const k = Math.min(1, (t - t0) / dur), v = target * (1 - Math.pow(1 - k, 3));
+      el.textContent = pre + v.toFixed(dec).replace('.', ',') + post;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); e.target.querySelectorAll('.big-num, .off-num').forEach(countUp); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   } else {
