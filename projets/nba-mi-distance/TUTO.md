@@ -30,9 +30,9 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| G5 | `=B5+C5` | — |
-| H5 | `=E5+F5` | — |
-| I5 | `=D5` | — |
+| G5 | `=B5+C5` | calcul simple |
+| H5 | `=E5+F5` | calcul simple |
+| I5 | `=D5` | calcul simple |
 
 ### 1.2 Le graphique
 
@@ -40,7 +40,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - **Insertion** → **Courbes**. Couleurs : « Près du panier » en gris pointillé, « 3 points » en bleu, « Mi-distance » en orange, épaisseur 2,75 pt.
 - Axe vertical : Minimum 0, Maximum 0,55, format %.
 
-**✅ Vérifiez :** Les courbes orange et bleue se croisent en 2014-15. Le mi-distance finit à **9,8 %**.
+**Vérifiez :** Les courbes orange et bleue se croisent en 2014-15. Le mi-distance finit à **9,8 %**.
 
 ![Résultat attendu](excel/graphiques/G1-parts.png)
 
@@ -55,10 +55,10 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| I5 | `=B5` | — |
-| J5 | `=B26` | — |
-| I6 | `=C5` | — |
-| J6 | `=C26` | — |
+| I5 | `=B5` | calcul simple |
+| J5 | `=B26` | calcul simple |
+| I6 | `=C5` | calcul simple |
+| J6 | `=C26` | calcul simple |
 
 ### 2.2 Le graphique
 
@@ -66,7 +66,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - Clic droit sur l'axe des zones → **Mettre en forme l'axe** → cochez **Catégories en ordre inverse**.
 - 2003-04 en gris, 2024-25 en orange. Sur la série orange : bouton **+** → **Étiquettes de données**.
 
-**✅ Vérifiez :** Mi-distance : **0,83** point par tir, contre **1,16** pour le 3 points dans le coin.
+**Vérifiez :** Mi-distance : **0,83** point par tir, contre **1,16** pour le 3 points dans le coin.
 
 ![Résultat attendu](excel/graphiques/G2-rendement.png)
 
@@ -81,10 +81,10 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| B5 | `=Parts!B5` | — |
-| C5 | `=Parts!B26` | — |
-| D5 | `=Rendement!B5` | — |
-| E5 | `=Rendement!B26` | — |
+| B5 | `=Parts!B5` | calcul simple |
+| C5 | `=Parts!B26` | calcul simple |
+| D5 | `=Rendement!B5` | calcul simple |
+| E5 | `=Rendement!B26` | calcul simple |
 
 ### 3.2 SOMMEPROD
 
@@ -93,8 +93,8 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
 | B12 | `=SOMMEPROD(B5:B9;D5:D9)` | SUMPRODUCT |
-| B13 | `=SOMMEPROD(C5:C9;E5:E9)` | — |
-| B14 | `=B13-B12` | — |
+| B13 | `=SOMMEPROD(C5:C9;E5:E9)` | calcul simple |
+| B14 | `=B13-B12` | calcul simple |
 
 ### 3.3 Les trois effets
 
@@ -102,13 +102,13 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| B15 | `=SOMMEPROD(C5:C9-B5:B9;D5:D9)` | — |
-| B16 | `=SOMMEPROD(B5:B9;E5:E9-D5:D9)` | — |
-| B17 | `=SOMMEPROD(C5:C9-B5:B9;E5:E9-D5:D9)` | — |
-| B18 | `=B15/B14` | — |
+| B15 | `=SOMMEPROD(C5:C9-B5:B9;D5:D9)` | calcul simple |
+| B16 | `=SOMMEPROD(B5:B9;E5:E9-D5:D9)` | calcul simple |
+| B17 | `=SOMMEPROD(C5:C9-B5:B9;E5:E9-D5:D9)` | calcul simple |
+| B18 | `=B15/B14` | calcul simple |
 | B19 | `=ARRONDI(B15+B16+B17-B14;10)` | ROUND |
 
-**✅ Vérifiez :** B15 (effet mix) ≈ **0,054** et B18 ≈ **37 %**. B19 doit afficher **0** : les trois effets additionnés redonnent la hausse totale.
+**Vérifiez :** B15 (effet mix) ≈ **0,054** et B18 ≈ **37 %**. B19 doit afficher **0** : les trois effets additionnés redonnent la hausse totale.
 
 ## Étape 4 : Quand tout le monde quitte un canal
 
@@ -124,7 +124,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - Clic droit sur les barres → **Mettre en forme une série de données** → **Remplissage uni**, couleur orange.
 - Cochez **Inverser si négatif** : une deuxième couleur apparaît, choisissez le bleu. Les barres sous zéro passent en bleu.
 
-**✅ Vérifiez :** Bleu jusqu'en 2019-20 environ, puis des barres orange : le lien s'inverse.
+**Vérifiez :** Bleu jusqu'en 2019-20 environ, puis des barres orange : le lien s'inverse.
 
 ![Résultat attendu](excel/graphiques/G3-correlation.png)
 
@@ -140,7 +140,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - Pourquoi un maximum fixe à 40 et pas « valeur la plus élevée » ? Pour que les deux saisons aient la même échelle de couleurs. Sinon, la comparaison ment.
 - Faites pareil sur l'autre onglet, puis comparez les deux : la zone entre la raquette et la ligne à 3 points se vide.
 
-**✅ Vérifiez :** En 2025, les cases rouges sont sous le panier et sur la ligne à 3 points. Presque plus rien entre les deux.
+**Vérifiez :** En 2025, les cases rouges sont sous le panier et sur la ligne à 3 points. Presque plus rien entre les deux.
 
 ![Résultat attendu](excel/graphiques/terrain-2004.png)
 

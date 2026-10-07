@@ -34,7 +34,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-churn-telco
 |---|---|---|
 | F5 | `=SI(B5<=12;"0-12 mois";SI(B5<=24;"13-24 mois";SI(B5<=48;"25-48 mois";"49 mois et +")))` | IF |
 
-**✅ Vérifiez :** Le client de la ligne 5 (ancienneté 1 mois) est en « 0-12 mois ».
+**Vérifiez :** Le client de la ligne 5 (ancienneté 1 mois) est en « 0-12 mois ».
 
 ## Étape 2 : Calculer les taux de départ
 
@@ -55,10 +55,10 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-churn-telco
 |---|---|---|
 | B5 | `=NB.SI(Clients!$D$5:$D$7047;A5)` | COUNTIF |
 | C5 | `=NB.SI.ENS(Clients!$D$5:$D$7047;A5;Clients!$E$5:$E$7047;"Yes")` | COUNTIFS |
-| D5 | `=C5/B5` | — |
+| D5 | `=C5/B5` | calcul simple |
 | D23 | `=NB.SI(Clients!$E$5:$E$7047;"Yes")/NBVAL(Clients!$E$5:$E$7047)` | COUNTA |
 
-**✅ Vérifiez :** Mensuel **42,7 %**, 1 an **11,3 %**, 2 ans **2,8 %** : 15 fois plus de départs sans engagement. Global : **26,5 %**.
+**Vérifiez :** Mensuel **42,7 %**, 1 an **11,3 %**, 2 ans **2,8 %** : 15 fois plus de départs sans engagement. Global : **26,5 %**.
 
 ## Étape 3 : Les trois graphiques
 
@@ -70,7 +70,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-churn-telco
 - Bouton **+** → **Étiquettes de données**. Supprimez la légende. Barre la plus risquée en orange (clic, puis deuxième clic sur la barre).
 - Recommencez avec **A10:A14 + D10:D14** (ancienneté) et **A17:A20 + D17:D20** (internet).
 
-**✅ Vérifiez :** Ancienneté : de **47,4 %** la première année à **9,5 %** au-delà de 4 ans. Fibre : **41,9 %**.
+**Vérifiez :** Ancienneté : de **47,4 %** la première année à **9,5 %** au-delà de 4 ans. Fibre : **41,9 %**.
 
 ![Résultat attendu](excel/graphiques/G1-contrat.png)
 

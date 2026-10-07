@@ -30,7 +30,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| D5 | `=B5-C5` | — |
+| D5 | `=B5-C5` | calcul simple |
 
 ### 1.2 Part gardée
 
@@ -47,8 +47,8 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| F5 | `=D5/1000` | — |
-| G5 | `=C5/1000` | — |
+| F5 | `=D5/1000` | calcul simple |
+| G5 | `=C5/1000` | calcul simple |
 
 ### 1.4 Les totaux et la corrélation
 
@@ -58,7 +58,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
 | B21 | `=SOMME(B5:B20)` | SUM |
-| E21 | `=C21/B21` | — |
+| E21 | `=C21/B21` | calcul simple |
 | E23 | `=COEFFICIENT.CORRELATION(B5:B20;C5:C20)` | CORREL |
 
 ### 1.5 Le graphique
@@ -68,7 +68,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - Couleurs : « Revenu » en bleu, « Gardé » en orange. Dans **Options des séries**, mettez **Largeur de l'intervalle** à 55 %.
 - Cliquez sur le titre pour l'écrire. Bouton **+** à côté du graphique → **Légende** → **En bas**.
 
-**✅ Vérifiez :** Total misé en B21 : **70 517** M€. Part gardée en E21 : **16,9 %**. Corrélation en E23 : **0,997**.
+**Vérifiez :** Total misé en B21 : **70 517** M€. Part gardée en E21 : **16,9 %**. Corrélation en E23 : **0,997**.
 
 ![Résultat attendu](excel/graphiques/G1-argent.png)
 
@@ -86,7 +86,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - Cliquez une fois sur une barre : toute la série est sélectionnée. **Cliquez une deuxième fois** sur la barre 2020 : elle seule reste sélectionnée.
 - Clic droit → **Mettre en forme le point de données** → orange `#D9542B`. Recommencez pour 2021 à 2025.
 
-**✅ Vérifiez :** Les barres 2020 à 2025 sont orange, toutes autour de 42 événements par an.
+**Vérifiez :** Les barres 2020 à 2025 sont orange, toutes autour de 42 événements par an.
 
 ![Résultat attendu](excel/graphiques/G2-evenements.png)
 
@@ -100,7 +100,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| D5 | `=A5` | — |
+| D5 | `=A5` | calcul simple |
 
 ### 3.2 Le nuage de points
 
@@ -113,7 +113,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - Mettez cette série en pointillés gris, sans marqueurs (**Remplissage et trait** → **Trait** → **Type de tiret**, puis **Marqueur** → **Aucun**).
 - Clic droit sur chaque axe → **Mettre en forme l'axe** → Minimum 0, Maximum 1, Nombre au format **Pourcentage**.
 
-**✅ Vérifiez :** Les points orange suivent la diagonale à quelques points près : les cotes sont justes.
+**Vérifiez :** Les points orange suivent la diagonale à quelques points près : les cotes sont justes.
 
 ![Résultat attendu](excel/graphiques/G3-calibration.png)
 
@@ -136,7 +136,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 - **Valeur d'erreur** → **Personnalisée** → **Spécifier une valeur**.
 - Valeur positive : sélectionnez **C5:C10**. Valeur négative : sélectionnez **C5:C10** aussi.
 
-**✅ Vérifiez :** La barre « > 5 » descend à **−30 %**. La barre « < 1,30 » est à +1,6 %, mais sa barre d'erreur passe sous zéro : le gain n'est pas sûr.
+**Vérifiez :** La barre « > 5 » descend à **−30 %**. La barre « < 1,30 » est à +1,6 %, mais sa barre d'erreur passe sous zéro : le gain n'est pas sûr.
 
 ![Résultat attendu](excel/graphiques/G4-rendement.png)
 
@@ -167,7 +167,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
 | D7 | `=SI(C7="rouge";INDEX(Combats!A:A;B7);INDEX(Combats!B:B;B7))` | INDEX |
-| E7 | `=SI(C7="rouge";INDEX(Combats!C:C;B7)=1;INDEX(Combats!C:C;B7)=0)` | — |
+| E7 | `=SI(C7="rouge";INDEX(Combats!C:C;B7)=1;INDEX(Combats!C:C;B7)=0)` | calcul simple |
 
 ### 5.4 Le gain et la cagnotte
 
@@ -176,16 +176,16 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| F7 | `=SI(E7;$C$4*(D7-1);-$C$4)` | — |
-| H7 | `=H6+F7` | — |
-| F4 | `=H106` | — |
+| F7 | `=SI(E7;$C$4*(D7-1);-$C$4)` | calcul simple |
+| H7 | `=H6+F7` | calcul simple |
+| F4 | `=H106` | calcul simple |
 
 ### 5.5 La courbe
 
 - Sélectionnez **H5:H106** → **Insertion** → **Courbes**. Couleur orange.
 - Appuyez sur **F9** : tout est retiré au hasard, la courbe change. Comptez combien de fois vous finissez au-dessus de zéro.
 
-**✅ Vérifiez :** Sur 10 appuis sur F9, vous devriez finir positif environ 3 fois. C'est le chiffre de l'étude : 31 % de gagnants.
+**Vérifiez :** Sur 10 appuis sur F9, vous devriez finir positif environ 3 fois. C'est le chiffre de l'étude : 31 % de gagnants.
 
 ![Résultat attendu](excel/graphiques/G5-simulateur.png)
 
@@ -199,17 +199,17 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| B7 | `=1/B4` | — |
-| B8 | `=1/B5` | — |
-| B9 | `=B7+B8` | — |
-| B10 | `=B9-1` | — |
-| B11 | `=100*B10/B9` | — |
+| B7 | `=1/B4` | calcul simple |
+| B8 | `=1/B5` | calcul simple |
+| B9 | `=B7+B8` | calcul simple |
+| B10 | `=B9-1` | calcul simple |
+| B11 | `=100*B10/B9` | calcul simple |
 
 ### 6.2 Jouer avec
 
 - Mettez B7 à B10 au format **Pourcentage**. Changez les cotes : avec 1,90 et 1,90, la marge tombe à 5,3 %.
 
-**✅ Vérifiez :** Avec 1,77 et 2,02 : total **106,0 %**, marge **6,0 %**, le bookmaker garde **5,66 €** sur 100 €.
+**Vérifiez :** Avec 1,77 et 2,02 : total **106,0 %**, marge **6,0 %**, le bookmaker garde **5,66 €** sur 100 €.
 
 ![Résultat attendu](excel/graphiques/calculatrice.png)
 
@@ -246,7 +246,7 @@ Refaire tous les graphiques de l'étude dans Excel, étape par étape. Durée : 
 | C28 | `=NB.SI('1000 parieurs'!CX5:CX1004;">0")/1000` | COUNTIF |
 | C29 | `=MEDIANE('1000 parieurs'!CX5:CX1004)` | MEDIAN |
 
-**✅ Vérifiez :** Entre **27 et 35 %** de gagnants selon le tirage (F9 pour relancer). Le chiffre de l'étude, 31 %, est la moyenne sur 10 000 parieurs.
+**Vérifiez :** Entre **27 et 35 %** de gagnants selon le tirage (F9 pour relancer). Le chiffre de l'étude, 31 %, est la moyenne sur 10 000 parieurs.
 
 ![Résultat attendu](excel/graphiques/G6-distribution.png)
 

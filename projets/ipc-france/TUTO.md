@@ -33,13 +33,13 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-ipc-france-covid
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| F5 | `=B5/B$17*100` | — |
+| F5 | `=B5/B$17*100` | calcul simple |
 
 ### 1.2 Le graphique
 
 - **A4:A95** + **F4:H95** (Ctrl) → **Courbes**. Axe vertical : minimum 80.
 
-**✅ Vérifiez :** Ligne 17 : les trois valent **100**. En juillet 2026 : global **117,8**, alimentation **125,7**, énergie **143,3**.
+**Vérifiez :** Ligne 17 : les trois valent **100**. En juillet 2026 : global **117,8**, alimentation **125,7**, énergie **143,3**.
 
 ![Résultat attendu](excel/graphiques/G1-prix.png)
 
@@ -53,13 +53,13 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-ipc-france-covid
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| I5 | `=(E5/E$17)/(B5/B$17)*100` | — |
+| I5 | `=(E5/E$17)/(B5/B$17)*100` | calcul simple |
 
 ### 2.2 Le graphique
 
 - **A4:A95** + **I4:I95** → **Courbes**. Axe vertical : de 96 à 106.
 
-**✅ Vérifiez :** De **100,3** en janvier 2019 à **103,0** en juillet 2026 : le Smic a un peu gagné sur les prix.
+**Vérifiez :** De **100,3** en janvier 2019 à **103,0** en juillet 2026 : le Smic a un peu gagné sur les prix.
 
 ![Résultat attendu](excel/graphiques/G2-smic.png)
 

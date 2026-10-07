@@ -4,7 +4,7 @@ Le MMA est légal en compétition en France depuis 2020, l'UFC passe par Paris c
 et les paris sportifs en ligne ont atteint 10,3 milliards d'euros de mises en 2024 (ANJ).
 Cette étude reprend les cotes de 6 916 combats UFC (2010-2026) pour voir qui gagne vraiment.
 
-**L'étude, avec le simulateur interactif :** https://ateyaba-k.github.io/projets/ufc-paris.html
+**L'étude complète :** https://ateyaba-k.github.io/projets/ufc-paris.html
 
 ## Résultats
 
@@ -18,7 +18,7 @@ Cette étude reprend les cotes de 6 916 combats UFC (2010-2026) pour voir qui ga
 
 - 70,5 Md€ misés, 58,6 Md€ revenus aux parieurs, 11,9 Md€ gardés par les opérateurs (17 %).
 - Corrélation mises / argent gardé : r = 0,997 (en partie mécanique : gardé = mises − gains).
-- La part gardée baisse doucement avec le temps (r = −0,78), de ~20 % à 15,3 % en 2025.
+- La part gardée baisse doucement avec le temps (r = −0,78), de environ 20 % à 15,3 % en 2025.
 - Simulation : plus on parie, plus on perd (r = −0,39 entre nombre de paris et bilan).
 
 Sources : rapports ARJEL (2010-2018) et ANJ (2020-2025). Mises 2019 déduites ; PBJ 2024 révisé par l'ANJ.

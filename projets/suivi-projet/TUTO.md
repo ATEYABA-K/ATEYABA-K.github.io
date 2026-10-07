@@ -41,13 +41,13 @@ Le projet d'origine : https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
 | E14 | `=NB.SI(B5:B10;"Terminé")` | COUNTIF |
-| E15 | `=NB.SI(B5:B10;"En retard")` | — |
+| E15 | `=NB.SI(B5:B10;"En retard")` | calcul simple |
 | E16 | `=NB.SI(B5:B10;"Terminé")/NBVAL(B5:B10)` | COUNTA |
 | E17 | `=SOMME.SI(D5:D10;">0";C5:C10)` | SUMIF |
 | E18 | `=SOMME(D5:D10)` | SUM |
-| E19 | `=E18/E17-1` | — |
+| E19 | `=E18/E17-1` | calcul simple |
 
-**✅ Vérifiez :** **3** jalons terminés, **1** en retard, avancement **50 %**, écart budgétaire **−1,9 %**.
+**Vérifiez :** **3** jalons terminés, **1** en retard, avancement **50 %**, écart budgétaire **−1,9 %**.
 
 ## Étape 2 : Budget prévu contre réel
 
@@ -58,7 +58,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/suivi-projet-dashboard-kpi
 - **A4:A10** + **C4:D10** (Ctrl) → **Histogramme groupé**. Prévu en gris, réel en bleu.
 - La barre réelle de « Données consolidées » en orange : +15 % sur ce seul jalon.
 
-**✅ Vérifiez :** Données consolidées : **9 200 €** dépensés pour **8 000 €** prévus.
+**Vérifiez :** Données consolidées : **9 200 €** dépensés pour **8 000 €** prévus.
 
 ![Résultat attendu](excel/graphiques/G1-budget.png)
 

@@ -40,13 +40,13 @@ Le projet d'origine : https://github.com/ATEYABA-K/scoring-prospects-b2b
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| D5 | `=B5/$E$2` | — |
+| D5 | `=B5/$E$2` | calcul simple |
 
 ### 1.3 Le graphique
 
 - **A4:A14** + **D4:D14** (Ctrl) → **Histogramme groupé**. D1 et D2 en bleu (au-dessus de 1), le reste en gris. Étiquettes de données.
 
-**✅ Vérifiez :** Taux moyen **11,3 %**. D1 : lift **4,7** (les 10 % les mieux notés convertissent 4,7 fois plus). Dès D3, on passe sous 1.
+**Vérifiez :** Taux moyen **11,3 %**. D1 : lift **4,7** (les 10 % les mieux notés convertissent 4,7 fois plus). Dès D3, on passe sous 1.
 
 ![Résultat attendu](excel/graphiques/G1-lift.png)
 

@@ -32,7 +32,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| D5 | `=C5-B5+1` | — |
+| D5 | `=C5-B5+1` | calcul simple |
 
 ### 1.2 Les barres
 
@@ -44,7 +44,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme
 - Axe des jalons : **Catégories en ordre inverse**. Axe des semaines : minimum 0, maximum 26, unité principale 2.
 - Le bilan à 3 mois en orange : c'est le jalon isolé, loin après les autres.
 
-**✅ Vérifiez :** « Données consolidées » dure **3** semaines (S1 à S3). Le projet s'étale de S0 à S24.
+**Vérifiez :** « Données consolidées » dure **3** semaines (S1 à S3). Le projet s'étale de S0 à S24.
 
 ![Résultat attendu](excel/graphiques/G1-gantt.png)
 

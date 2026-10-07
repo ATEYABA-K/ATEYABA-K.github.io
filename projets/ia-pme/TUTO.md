@@ -32,14 +32,14 @@ Le projet d'origine : https://github.com/ATEYABA-K/adoption-ia-pme-france
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| B9 | `=(B7-B5)*100` | — |
+| B9 | `=(B7-B5)*100` | calcul simple |
 
 ### 1.2 Le graphique
 
 - Sélectionnez **A4:D7** → **Insertion** → **Histogramme groupé**. Excel fait une série par année.
 - Couleurs du plus clair (2023) au plus foncé (2025). Étiquettes de données.
 
-**✅ Vérifiez :** Écart : **16** points en 2023, **24** en 2024, **43** en 2025. Il se creuse.
+**Vérifiez :** Écart : **16** points en 2023, **24** en 2024, **43** en 2025. Il se creuse.
 
 ![Résultat attendu](excel/graphiques/G1-adoption.png)
 
@@ -53,7 +53,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/adoption-ia-pme-france
 - **Ajouter un graphique** → **Histogramme**. Dimension : `taille`. Dimension de répartition : `annee`. Métrique : `part` (format %).
 - Le tableau de bord d'origine : datastudio.google.com/reporting/80b607fa-71f1-461c-b5ae-30e91c213f86
 
-**✅ Vérifiez :** Le même histogramme qu'Excel, partageable par un simple lien.
+**Vérifiez :** Le même histogramme qu'Excel, partageable par un simple lien.
 
 ## Exporter un graphique
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Le bookmaker gagne toujours · Alvin Kouadio</title>
-<meta name="description" content="Le MMA est légal en France depuis 2020, les paris sportifs battent des records. Étude sur les cotes de 6 916 combats UFC : qui gagne vraiment ? Avec un simulateur interactif.">
+<meta name="description" content="Le MMA est légal en France depuis 2020, les paris sportifs battent des records. Étude sur les cotes de 6 916 combats UFC : qui gagne vraiment ? Avec les fichiers Excel pour refaire chaque graphique.">
 <meta property="og:title" content="Le bookmaker gagne toujours. Même au MMA.">
 <meta property="og:description" content="6 916 combats UFC, leurs cotes, et 10 000 parieurs simulés : 69 % finissent perdants. Étude de données par Alvin Kouadio.">
 <meta property="og:image" content="https://ateyaba-k.github.io/projets/ufc-paris/excel/graphiques/G4-rendement.png">
@@ -40,7 +40,7 @@
   <h1>Le bookmaker gagne toujours. <em class="mark">Même au MMA.</em></h1>
   <p class="kicker">Le MMA est légal en France depuis 2020, les paris sportifs battent des records chaque année. J'ai repris les cotes de 6 916 combats UFC pour voir qui gagne vraiment.</p>
   <div class="studybox"><span><b>Graphiques :</b> faits dans Excel, refaisables avec <a href="ufc-paris-tuto.html">le tuto pas à pas</a></span><span><b>Fichiers :</b> <a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>exercice</a> · <a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>corrigé</a> · <a href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/ufc-paris/excel/csv" target="_blank" rel="noopener">CSV pour Power BI</a></span><span><b>Calcul des données :</b> Python (<a href="ufc-paris/analyse.py">analyse.py</a>)</span></div>
-  <div class="meta-row"><span>6 916 combats</span><span>2010–2026</span><span>1 000 parieurs simulés dans Excel</span><span>Excel · Power BI · Python pour le calcul</span></div>
+  <div class="meta-row"><span>6 916 combats</span><span>2010 à 2026</span><span>1 000 parieurs simulés dans Excel</span><span>Excel · Power BI · Python pour le calcul</span></div>
 
   <div class="kpis">
     <div class="kpi"><b>2 sur 3</b><span>combats gagnés par le favori des bookmakers</span></div>
@@ -101,7 +101,7 @@
   <figure class="chart">
     <span class="made-in">▦ Fait dans Excel</span>
     <img class="xl" src="ufc-paris/excel/graphiques/G3-calibration.png" alt="Probabilité annoncée par la cote contre taux de victoire réel" loading="lazy">
-    <p class="src">Source : Ultimate UFC Dataset · 6 916 combats, 2010–2026 · marge retirée</p>
+    <p class="src">Source : Ultimate UFC Dataset · 6 916 combats, 2010 à 2026 · marge retirée</p>
     <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-3">Tuto étape 3</a><a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>Exercice .xlsx</a><a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Corrigé .xlsx</a></div>
   </figure>
   <p>Les points collent à la diagonale. Le favori gagne <strong>66,6 %</strong> des combats, presque exactement ce que les cotes annoncent. Pour battre le bookmaker, il faudrait voir mieux que lui. Les données disent que c'est très rare.</p>
@@ -118,7 +118,7 @@
   <div class="strat"><div><b>−2,9 %</b><span>Toujours le favori : rendement moyen par pari</span></div><div><b>−7,6 %</b><span>Toujours l'outsider : rendement moyen par pari</span></div><div><b>−5,2 %</b><span>Au hasard : rendement moyen par pari</span></div></div>
 
   <h2 class="h"><span class="step">06 · La simulation</span>1 000 parieurs, dans Excel</h2>
-  <p>Dans le fichier Excel, 1 000 parieurs font chacun 100 paris de 10 € sur de vrais combats tirés au hasard, avec leurs vraies cotes et leurs vrais résultats. 100 000 tirages, rien que des formules (ALEA.ENTRE.BORNES et INDEX). Chaque appui sur F9 relance tout.</p>
+  <p>Dans le fichier Excel, 1 000 parieurs font chacun 100 paris de 10 € sur de vrais combats tirés au hasard, avec leurs vraies cotes et leurs vrais résultats. 100 000 tirages, rien que des formules (ALEA.ENTRE.BORNES et INDEX). Chaque appui sur F9 relance tout. Le chiffre de 69 % vient d'une simulation plus large (10 000 parieurs, dans le script Python) ; dans Excel, le résultat bouge un peu à chaque F9 mais reste du même ordre.</p>
   <figure class="chart">
     <span class="made-in">▦ Fait dans Excel</span>
     <img class="xl" src="ufc-paris/excel/graphiques/G6-distribution.png" alt="Simulation de 1 000 parieurs dans Excel" loading="lazy">

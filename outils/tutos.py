@@ -226,8 +226,8 @@ def ecrire_md(cle, T):
             L += [f"### {sous}", ""] + [f"- {l}" for l in lignes] + [""]
             if formules:
                 L += ["| Cellule | Formule (Excel en français) | En anglais |", "|---|---|---|"]
-                L += [f"| {c} | `{f}` | {en or '—'} |" for c, f, en in formules] + [""]
-        L += [f"**✅ Vérifiez :** {e['verifier']}", ""]
+                L += [f"| {c} | `{f}` | {en or 'calcul simple'} |" for c, f, en in formules] + [""]
+        L += [f"**Vérifiez :** {e['verifier']}", ""]
         for im in ([e["image"]] if e["image"] else []) + e.get("images", []):
             L += [f"![Résultat attendu](excel/graphiques/{im})", ""]
     L += ["## Exporter un graphique", ""] + [f"- {l}" for l in COMMUN_EXPORT] + [""]
@@ -257,9 +257,9 @@ def ecrire_html(cle, T):
         for sous, lignes, formules in e["points"]:
             bloc.append(f'<h3 class="tuto-sub">{html.escape(sous)}</h3><ol class="tuto-steps">{"".join(f"<li>{html_inline(l)}</li>" for l in lignes)}</ol>')
             if formules:
-                rows = "".join(f'<tr><td class="mono">{c}</td><td><code>{html.escape(f)}</code></td><td>{en or "—"}</td></tr>' for c, f, en in formules)
+                rows = "".join(f'<tr><td class="mono">{c}</td><td><code>{html.escape(f)}</code></td><td>{en or "calcul simple"}</td></tr>' for c, f, en in formules)
                 bloc.append(f'<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody>{rows}</tbody></table></div>')
-        bloc.append(f'<p class="tuto-check">✅ <b>Vérifiez :</b> {html_inline(e["verifier"])}</p>')
+        bloc.append(f'<p class="tuto-check"><b>Vérifiez :</b> {html_inline(e["verifier"])}</p>')
         for im in e.get("images", []):
             bloc.append(f'<figure class="chart xl"><img src="{cle}/excel/graphiques/{im}" alt="Résultat attendu" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure>')
         if e["image"]:

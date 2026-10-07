@@ -37,7 +37,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-sql-ventes-musique
 - Dans le résultat : **Ctrl + A** puis **Ctrl + C**. Dans Excel, cliquez en **A5** de l'onglet correspondant (Genres, Cumul, Clients) → **Ctrl + V**.
 - Pour le total du magasin, lancez aussi : `SELECT ROUND(SUM(Total), 2) FROM Invoice;` et collez le résultat en **G2** de l'onglet Genres.
 
-**✅ Vérifiez :** Onglet Genres : 10 lignes, le Rock en premier avec **826,65 €**. Total en G2 : **2 328,60 €**.
+**Vérifiez :** Onglet Genres : 10 lignes, le Rock en premier avec **826,65 €**. Total en G2 : **2 328,60 €**.
 
 ## Étape 2 : Le poids du Rock
 
@@ -49,7 +49,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-sql-ventes-musique
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| D5 | `=B5/$G$2` | — |
+| D5 | `=B5/$G$2` | calcul simple |
 
 ### 2.2 Le graphique
 
@@ -57,7 +57,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-sql-ventes-musique
 - Clic droit sur l'axe des genres → **Mettre en forme l'axe** → **Catégories en ordre inverse** (le Rock passe en haut).
 - Rock en orange, le reste en gris. Étiquettes de données.
 
-**✅ Vérifiez :** Le Rock pèse **35,5 %** du chiffre d'affaires à lui seul.
+**Vérifiez :** Le Rock pèse **35,5 %** du chiffre d'affaires à lui seul.
 
 ![Résultat attendu](excel/graphiques/G1-genres.png)
 
@@ -74,7 +74,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/analyse-sql-ventes-musique
 - Onglet **Clients** : **A4:A14** + **C4:C14** → **Barres groupées**, catégories en ordre inverse.
 - Excel fait partir l'axe à 38 € : les écarts paraissent énormes alors qu'ils sont de quelques euros. Clic droit sur l'axe → **Minimum** = `0`.
 
-**✅ Vérifiez :** Cumul final : **2 328,60 €**. Avec l'axe à 0, on voit que les 10 meilleurs clients pèsent presque pareil (42 à 50 €).
+**Vérifiez :** Cumul final : **2 328,60 €**. Avec l'axe à 0, on voit que les 10 meilleurs clients pèsent presque pareil (42 à 50 €).
 
 ![Résultat attendu](excel/graphiques/G2-cumul.png)
 

@@ -4,7 +4,7 @@ Chaque tir est traité comme un investissement : une possession dépensée, des 
 Sur 4,4 millions de tirs (2003-04 à 2024-25), je mesure le rendement de chaque zone du terrain
 et la façon dont les équipes ont réalloué leurs tirs.
 
-**L'étude interactive :** https://ateyaba-k.github.io/projets/nba-mi-distance.html
+**L'étude complète :** https://ateyaba-k.github.io/projets/nba-mi-distance.html
 
 ## Résultats
 

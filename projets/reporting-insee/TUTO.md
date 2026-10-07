@@ -32,13 +32,13 @@ Le projet d'origine : https://github.com/ATEYABA-K/automatisation-reporting-inse
 
 | Cellule | Formule (Excel en français) | En anglais |
 |---|---|---|
-| B9 | `=(B7-B5)*100` | — |
+| B9 | `=(B7-B5)*100` | calcul simple |
 
 ### 1.2 Le graphique
 
 - **A4:D7** → **Insertion** → **Courbes avec marqueurs**. 250+ en orange. Étiquettes de données.
 
-**✅ Vérifiez :** Progression : **+10** points (10-49), **+21** (50-249), **+37** (250 et plus).
+**Vérifiez :** Progression : **+10** points (10-49), **+21** (50-249), **+37** (250 et plus).
 
 ![Résultat attendu](excel/graphiques/G1-evolution.png)
 
@@ -56,7 +56,7 @@ Le projet d'origine : https://github.com/ATEYABA-K/automatisation-reporting-inse
 - Remplacez le CSV par une version plus récente, même nom, même dossier.
 - **Données** → **Actualiser tout** : le tableau et le graphique se mettent à jour seuls.
 
-**✅ Vérifiez :** Modifiez une valeur dans le CSV, actualisez : le graphique bouge sans rien refaire.
+**Vérifiez :** Modifiez une valeur dans le CSV, actualisez : le graphique bouge sans rien refaire.
 
 ## Exporter un graphique
 
