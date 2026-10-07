@@ -66,6 +66,12 @@
     });
   }));
 
+  // ---------- Cartes « chiffres » : retourner au clic ----------
+  document.querySelectorAll('.fact-inner').forEach((b) => b.addEventListener('click', () => {
+    const on = b.classList.toggle('flipped');
+    b.setAttribute('aria-pressed', on);
+  }));
+
   // ---------- Copier l'e-mail ----------
   document.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
     const txt = b.dataset.copy, label = b.textContent;
