@@ -411,3 +411,39 @@ svg.court rect{transition:fill-opacity .45s ease;}
   .decomp > div:not(.eq){min-width:calc(50% - 5px);}
   .chart text.end{font-size:20px;}
 }
+
+/* ---------- étude paris sportifs ---------- */
+.timeline-h{list-style:none; margin:26px 0 0; padding:0; display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;}
+.timeline-h li{background:var(--card); border:1px solid var(--border); border-top:3px solid var(--hot); border-radius:12px; padding:14px 14px 16px;}
+.timeline-h .when{display:block; font-size:.74rem; color:var(--hot); font-weight:700; margin-bottom:6px;}
+.timeline-h b{display:block; font-size:.98rem; line-height:1.3; margin-bottom:4px;}
+.timeline-h li > span:last-child{font-size:.86rem; color:var(--ink-soft);}
+.calc-in{display:flex; gap:16px; flex-wrap:wrap;}
+.calc-in label, .sim-ctrl label{display:flex; flex-direction:column; gap:6px; font-size:.84rem; font-weight:600; color:var(--ink-soft); flex:1; min-width:150px;}
+.calc-in input, .sim-ctrl select{font:inherit; font-size:1.05rem; font-family:'JetBrains Mono',monospace; color:var(--ink); background:var(--paper); border:1px solid var(--border); border-radius:10px; padding:9px 12px;}
+.sim-ctrl select{font-family:'Inter',sans-serif; font-size:.95rem;}
+.calc-bar{display:flex; height:34px; margin-top:18px; border-radius:9px; overflow:hidden; background:var(--accent-soft);}
+.calc-bar i{display:flex; align-items:center; justify-content:center; font-style:normal; font-family:'JetBrains Mono',monospace; font-size:.8rem; font-weight:700; color:#fff; transition:width .3s ease; white-space:nowrap; overflow:hidden;}
+#bA{background:var(--accent);} #bB{background:color-mix(in srgb, var(--accent) 60%, var(--paper)); color:var(--ink);}
+#bM{background:var(--hot);}
+.calc-out{margin:14px 0 0 !important; font-size:.98rem !important;}
+.strat{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:22px;}
+.strat div{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px;}
+.strat b{display:block; font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--hot); letter-spacing:-.02em;}
+.strat span{font-size:.86rem; color:var(--ink-soft);}
+.sim-ctrl{display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;}
+.sim-ctrl input[type=range]{accent-color:var(--hot); margin-top:8px;}
+.sim-ctrl .btn{border:0; cursor:pointer; font-family:inherit;}
+.sim-res{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin:20px 0 14px; padding-top:14px; border-top:1px solid var(--border);}
+.sim-res b{display:block; font-size:1.5rem; letter-spacing:-.02em;}
+.sim-res div:first-child b{color:var(--hot);}
+.sim-res span{font-size:.8rem; color:var(--ink-soft);}
+#hist, #path{margin-top:10px;}
+.warn{margin-top:26px !important; font-size:.86rem !important; color:var(--ink-soft); border:1px dashed var(--border); border-radius:10px; padding:12px 14px;}
+@media (max-width:760px){
+  .timeline-h{grid-template-columns:1fr 1fr;}
+  .strat{grid-template-columns:1fr;}
+}
+@media (max-width:640px){ .sim-res b{font-size:1.15rem;} }
+.sim-note{margin:12px 0 0 !important; font-size:.92rem !important; color:var(--ink); background:var(--hot-soft); border-radius:10px; padding:10px 14px;} .sim-note:empty{display:none;}
+@media (max-width:640px){ .sim-ctrl label{flex-basis:100%;} .sim-ctrl .btn{width:100%; justify-content:center;} }

@@ -1,0 +1,32 @@
+# Le bookmaker gagne toujours. Même au MMA.
+
+Le MMA est légal en compétition en France depuis 2020, l'UFC passe par Paris chaque année depuis 2022,
+et les paris sportifs en ligne ont atteint 10,3 milliards d'euros de mises en 2024 (ANJ).
+Cette étude reprend les cotes de 6 916 combats UFC (2010-2026) pour voir qui gagne vraiment.
+
+**L'étude, avec le simulateur interactif :** https://ateyaba-k.github.io/projets/ufc-paris.html
+
+## Résultats
+
+- Le favori gagne 66,6 % des combats ; les cotes sont très bien calibrées.
+- Marge médiane du bookmaker : 3,7 % par combat.
+- Rendement moyen : −2,9 % en jouant toujours le favori, −7,6 % toujours l'outsider, −30 % sur les cotes au-dessus de 5.
+- Seuls les très gros favoris (cote < 1,30) sont légèrement positifs (+1,6 % ± 2,3 %) : biais favori-outsider, non significatif.
+- Sur 10 000 parieurs simulés (100 paris de 10 €, camp au hasard), 69 % finissent perdants.
+
+## Reproduire
+
+```bash
+pip install pandas numpy
+python analyse.py   # écrit resultats.json et combats.json
+```
+
+`graphiques.js` dessine les graphiques et fait tourner le simulateur de la page.
+
+## Données
+
+- Cotes et résultats : [shortlikeafox/ultimate_ufc_dataset](https://github.com/shortlikeafox/ultimate_ufc_dataset) (Ultimate UFC Dataset, Kaggle).
+- Événements : [Greco1899/scrape_ufc_stats](https://github.com/Greco1899/scrape_ufc_stats) (ufcstats.com).
+- Contexte : ANJ, bilan du marché des jeux d'argent 2024 ; ministère des Sports (légalisation du MMA, 2020).
+
+Jouer comporte des risques : endettement, dépendance… Appelez le 09 74 75 13 13 (appel non surtaxé).
