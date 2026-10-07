@@ -99,6 +99,14 @@
   .intro strong{font-weight:600;}
 
   .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px;}
+  .certs{display:flex; flex-wrap:wrap; gap:14px; margin-top:18px;}
+  .cert{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:.84rem; color:var(--ink-soft); font-weight:500;
+  }
+  .cert-dot{width:7px; height:7px; border-radius:50%; flex-shrink:0;}
+  .cert-done .cert-dot{background:#3f8a5c;}
+  .cert-progress .cert-dot{background:transparent; border:1.5px solid var(--ink-soft);}
   .pill{
     font-size:.82rem; font-weight:500; padding:6px 13px; border-radius:999px;
     background:var(--accent-soft); color:var(--accent); border:1px solid transparent;
@@ -109,6 +117,27 @@
   .section-head h2{
     font-family:'Fraunces',serif; font-weight:600; font-size:1.7rem; margin:4px 0 0;
     letter-spacing:-.01em;
+  }
+
+  .timeline{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    padding:22px 0 8px;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .tl-step{
+    position:relative; padding-left:18px; display:flex; flex-direction:column; gap:4px;
+  }
+  .tl-step::before{
+    content:""; position:absolute; left:0; top:4px; width:8px; height:8px;
+    border-radius:50%; background:var(--accent);
+  }
+  .tl-date{font-size:.78rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.04em;}
+  .tl-label{font-size:.9rem; color:var(--ink-soft);}
+  @media (max-width:700px){
+    .timeline{grid-template-columns:1fr;}
   }
 
   .grid{
@@ -162,6 +191,10 @@
   .card-link:hover svg{transform:translateX(3px);}
   .card-links{display:flex; flex-direction:column; gap:6px;}
 
+  .essay{max-width:700px;}
+  .essay p{font-size:1.02rem; color:var(--ink); margin:0 0 18px;}
+  .essay p:last-child{margin-bottom:0;}
+
   footer{
     border-top:1px solid var(--border);
     margin-top:20px; padding:32px 0 64px;
@@ -190,6 +223,7 @@
     <a class="brand" href="#top">Alvin Kouadio</a>
     <nav class="nav-links">
       <a href="#projets">Projets</a>
+      <a href="#perspective">Perspective</a>
       <a href="#contact">Contact</a>
       <a href="https://github.com/ATEYABA-K" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -203,7 +237,7 @@
       <img class="photo" src="assets/photo.jpg" alt="Photo d'Alvin Kouadio">
       <div class="hero-text">
         <h1>Alvin Kouadio</h1>
-        <p class="role">Analyste Data &amp; Chef de Projet Digital — Alternance 12 mois</p>
+        <p class="role">Analyste Data &amp; Chef de Projet Digital, Alternance 12 mois</p>
         <p class="contact">
           <a href="mailto:alvinkouadio1@icloud.com">alvinkouadio1@icloud.com</a>
           <span class="dot">·</span>
@@ -218,7 +252,7 @@
       vision concrète des besoins métier et gagner en efficacité sur les tâches pratiques du poste. En Master
       Marketing Digital, spécialisation Big Data &amp; IA à l'INSEEC PGE, après une Licence Économie et Gestion
       à l'Université de Lille, j'apprends à transformer des jeux de données en réponse utilisable. Les projets
-      ci-dessous sont des exercices personnels, pas des mandats professionnels — chacun a sa méthode et ses
+      ci-dessous sont des exercices personnels, pas des mandats professionnels : chacun a sa méthode et ses
       limites assumées, détaillées dans son dépôt.
     </p>
     <div class="pills">
@@ -231,12 +265,36 @@
       <span class="pill">Gestion de projet</span>
       <span class="pill">RGPD</span>
     </div>
+    <div class="certs">
+      <span class="cert cert-done"><span class="cert-dot"></span>PIX niveau 5, obtenu</span>
+      <span class="cert cert-done"><span class="cert-dot"></span>Excel (TOSA), obtenu</span>
+      <span class="cert cert-progress"><span class="cert-dot"></span>Power BI (PL-300), en préparation</span>
+    </div>
   </header>
 
   <section id="projets">
     <div class="section-head">
       <p class="eyebrow">Sélection</p>
       <h2>Projets</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-step">
+        <span class="tl-date">11 septembre</span>
+        <span class="tl-label">Premier projet, en autonomie</span>
+      </div>
+      <div class="tl-step">
+        <span class="tl-date">12 septembre</span>
+        <span class="tl-label">Quatre projets pour couvrir scoring, cadrage, dashboard et automatisation</span>
+      </div>
+      <div class="tl-step">
+        <span class="tl-date">21 septembre</span>
+        <span class="tl-label">Trois projets complémentaires, pour aller plus loin en SQL et en suivi de projet</span>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:36px;">
+      <h2 style="font-size:1.2rem;">Le détail</h2>
     </div>
     <div class="grid">
 
@@ -255,7 +313,7 @@
         <div class="card-body">
           <div class="card-tools">SQL · Jointures · Fonctions fenêtre</div>
           <h3 class="card-title">Analyse SQL des ventes d'un magasin de musique</h3>
-          <p class="card-result">Un seul genre musical (le Rock) concentre 35 % du chiffre d'affaires total — écrit en 5 requêtes, des agrégations simples aux fonctions fenêtre.</p>
+          <p class="card-result">Un seul genre musical (le Rock) concentre 35 % du chiffre d'affaires total, écrit en 5 requêtes, des agrégations simples aux fonctions fenêtre.</p>
           <a class="card-link" href="https://github.com/ATEYABA-K/analyse-sql-ventes-musique" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -265,7 +323,7 @@
         <div class="card-body">
           <div class="card-tools">Python · scikit-learn</div>
           <h3 class="card-title">Scoring de propension B2B</h3>
-          <p class="card-result">Les 10 % de prospects les mieux notés par le modèle convertissent près de 5 fois plus que la moyenne du portefeuille — en excluant volontairement une variable qui aurait faussé le résultat.</p>
+          <p class="card-result">Les 10 % de prospects les mieux notés par le modèle convertissent près de 5 fois plus que la moyenne du portefeuille, en excluant volontairement une variable qui aurait faussé le résultat.</p>
           <a class="card-link" href="https://github.com/ATEYABA-K/scoring-prospects-b2b" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -275,7 +333,7 @@
         <div class="card-body">
           <div class="card-tools">Power BI · Données Insee</div>
           <h3 class="card-title">Adoption de l'IA par les PME françaises</h3>
-          <p class="card-result">L'écart d'adoption entre grandes entreprises et PME est passé de 16 à 43 points entre 2023 et 2025 — il se creuse au lieu de se refermer.</p>
+          <p class="card-result">L'écart d'adoption entre grandes entreprises et PME est passé de 16 à 43 points entre 2023 et 2025. L'écart se creuse au lieu de se refermer.</p>
           <div class="card-links">
             <a class="card-link" href="https://lookerstudio.google.com/reporting/80b607fa-71f1-461c-b5ae-30e91c213f86" target="_blank" rel="noopener">Dashboard interactif <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="card-link" href="https://github.com/ATEYABA-K/adoption-ia-pme-france" target="_blank" rel="noopener">Code et méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -288,7 +346,7 @@
         <div class="card-body">
           <div class="card-tools">Python · GitHub Actions</div>
           <h3 class="card-title">Automatisation d'un pipeline de reporting</h3>
-          <p class="card-result">Le pipeline se relance seul chaque mois et vérifie le nombre de lignes attendu avant d'enregistrer un résultat — pour ne jamais laisser passer un fichier faux en silence.</p>
+          <p class="card-result">Le pipeline se relance seul chaque mois et vérifie le nombre de lignes attendu avant d'enregistrer un résultat, pour ne jamais laisser passer un fichier faux en silence.</p>
           <a class="card-link" href="https://github.com/ATEYABA-K/automatisation-reporting-insee" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -298,7 +356,7 @@
         <div class="card-body">
           <div class="card-tools">Python · Données Insee</div>
           <h3 class="card-title">Évolution des prix à la consommation en France</h3>
-          <p class="card-result">Suivi de l'inflation par poste de dépense (alimentation, énergie) depuis 2019 — mon tout premier projet data, repris avec un historique de commits complet.</p>
+          <p class="card-result">Suivi de l'inflation par poste de dépense (alimentation, énergie) depuis 2019 : mon tout premier projet data, repris avec un historique de commits complet.</p>
           <a class="card-link" href="https://github.com/ATEYABA-K/analyse-ipc-france-covid" target="_blank" rel="noopener">Voir le code et la méthode <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -312,7 +370,7 @@
         </div>
         <div class="card-body">
           <div class="card-tools">Gestion de projet · RGPD</div>
-          <h3 class="card-title">Note de cadrage — scoring IA</h3>
+          <h3 class="card-title">Note de cadrage : scoring IA</h3>
           <p class="card-result">Objectifs mesurables, parties prenantes, périmètre, jalons et risques (dont la conformité RGPD) posés avant la première ligne de code, sur un cas fictif.</p>
           <a class="card-link" href="https://github.com/ATEYABA-K/note-cadrage-scoring-ia-pme" target="_blank" rel="noopener">Voir le document <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -335,8 +393,22 @@
     </div>
   </section>
 
+  <section id="perspective">
+    <div class="section-head">
+      <p class="eyebrow">Perspective</p>
+      <h2>L'IA et la data : deux forces qui se renforcent</h2>
+    </div>
+    <div class="essay">
+      <p>Pour moi, la data et l'IA ne sont pas deux sujets séparés. L'une alimente l'autre, et c'est dans leur association que le travail devient vraiment solide.</p>
+      <p>La data, c'est la matière première. Mes études en économie, en statistiques et en économétrie m'ont appris à poser les bonnes questions, à vérifier la qualité d'une donnée, à me méfier d'une corrélation qui ressemble à une explication. Sans cette rigueur, une analyse ne vaut pas grand-chose, aussi brillante soit-elle en apparence.</p>
+      <p>L'IA, elle, apporte la vitesse et l'échelle. Elle sait explorer des volumes que je ne pourrais pas traiter à la main, repérer des structures cachées, automatiser un nettoyage fastidieux ou produire un premier prototype en quelques minutes. Utilisée seule, elle peut pourtant se tromper avec beaucoup d'assurance. C'est là que la data change tout : des données propres et bien comprises donnent à l'IA quelque chose de fiable sur lequel travailler, et un regard statistique permet de contrôler ce qu'elle propose.</p>
+      <p>Quand les deux travaillent ensemble, je gagne sur tous les plans. Je passe moins de temps sur le répétitif et davantage sur l'interprétation, la décision et la communication des résultats, c'est la partie où l'on apporte vraiment de la valeur. Une analyse devient plus rapide, mais aussi plus claire et plus facile à partager avec des personnes qui ne sont pas techniques.</p>
+      <p>C'est cette combinaison que je veux construire dans mon parcours : savoir manipuler la donnée avec Python et SQL, comprendre les méthodes pour ne pas utiliser un modèle comme une boîte noire, et m'appuyer sur l'IA pour aller plus loin et plus vite. Mon objectif est de produire un travail dont je comprends chaque étape, et qui aide concrètement à décider ou à résoudre un problème réel.</p>
+    </div>
+  </section>
+
   <footer id="contact">
-    <p class="who">Alvin Kouadio — Nanterre, Île-de-France</p>
+    <p class="who">Alvin Kouadio, Nanterre, Île-de-France</p>
     <div class="social">
       <a href="mailto:alvinkouadio1@icloud.com">Email</a>
       <a href="https://www.linkedin.com/in/alvin-kouadio-4757281ba" target="_blank" rel="noopener">LinkedIn</a>
