@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alvin Kouadio — Data &amp; projets</title>
-<meta name="description" content="Alvin Kouadio. Les chiffres ne parlent pas tout seuls. Data, marketing et gestion de projet — en recherche d'alternance 12 mois.">
-<meta property="og:title" content="Alvin Kouadio — Les chiffres ne parlent pas tout seuls.">
+<meta name="description" content="Alvin Kouadio. Je ne cherche pas à faire du bruit, je cherche à faire bouger un chiffre. Data, marketing et gestion de projet — en recherche d'alternance 12 mois.">
+<meta property="og:title" content="Alvin Kouadio — Je cherche à faire bouger un chiffre.">
 <meta property="og:description" content="Data, marketing, gestion de projet. Des projets qui commencent par une question et finissent par une réponse utilisable.">
 <meta property="og:image" content="https://ateyaba-k.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://ateyaba-k.github.io/">
@@ -90,13 +90,17 @@
   @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(47,163,107,0);}}
   h1{
     font-family:'Fraunces',serif; font-weight:600;
-    font-size:clamp(2.6rem, 7vw, 5.2rem);
-    line-height:1.0; letter-spacing:-.035em; margin:0; max-width:15ch;
+    font-size:clamp(2.4rem, 6.4vw, 4.6rem);
+    line-height:1.0; letter-spacing:-.035em; margin:0; max-width:17ch;
   }
   h1 em{font-style:italic; font-weight:400;}
   .mark{
     background:linear-gradient(transparent 62%, var(--hot-soft) 62%);
     padding:0 .08em;
+  }
+  .kicker{
+    font-family:'Fraunces',serif; font-size:clamp(1.15rem, 2.4vw, 1.5rem); font-weight:400;
+    color:var(--ink-soft); margin:22px 0 0; max-width:34ch; line-height:1.35;
   }
   .hero-sub{
     display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start;
@@ -198,6 +202,18 @@
   .principle p{margin:0; color:var(--ink-soft); font-size:.96rem;}
   .principle p a{font-weight:500;}
 
+  /* hors écran */
+  .offscreen{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
+  .off{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);}
+  .off-tag{display:inline-block; font-size:.74rem; font-weight:700; color:var(--hot); margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em;}
+  .off p{margin:0; font-size:.95rem; color:var(--ink-soft);}
+  .drive{
+    margin:36px 0 0; padding:26px 28px; border-left:4px solid var(--hot);
+    background:var(--hot-soft); border-radius:0 14px 14px 0;
+    font-family:'Fraunces',serif; font-size:clamp(1.15rem, 2.4vw, 1.45rem); line-height:1.4;
+  }
+  .drive strong{font-weight:600;}
+
   /* now + path */
   .split{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
   .panel{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow);}
@@ -243,6 +259,7 @@
 
   @media (max-width:820px){
     .grid, .split, .principles{grid-template-columns:1fr;}
+    .offscreen{grid-template-columns:1fr 1fr;}
     .card.featured{grid-template-columns:1fr;}
     .card.featured, .card.featured.flip{grid-template-columns:1fr;}
     .card.featured .card-media, .card.featured.flip .card-media{aspect-ratio:16/10; order:0; border:0; border-bottom:1px solid var(--border);}
@@ -252,12 +269,17 @@
   @media (max-width:560px){
     .wrap{padding:0 16px;}
     header.hero{padding:56px 0 48px;}
-    .hero-sub{grid-template-columns:1fr; gap:16px;}
+    .kicker{
+    font-family:'Fraunces',serif; font-size:clamp(1.15rem, 2.4vw, 1.5rem); font-weight:400;
+    color:var(--ink-soft); margin:22px 0 0; max-width:34ch; line-height:1.35;
+  }
+  .hero-sub{grid-template-columns:1fr; gap:16px;}
     .nav-links{gap:14px;}
     .nav-links .hide-sm{display:none;}
     section{padding-top:64px;}
     .contact-block{padding:48px 22px; margin-top:64px;}
     .panel{padding:24px;}
+    .offscreen{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1; transform:none;}
@@ -274,6 +296,7 @@
     <nav class="nav-links">
       <a href="#projets">Projets</a>
       <a href="#methode" class="hide-sm">Méthode</a>
+      <a href="#hors-ecran" class="hide-sm">Hors écran</a>
       <a href="#parcours" class="hide-sm">Parcours</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -283,11 +306,12 @@
 <div class="wrap" id="top">
   <header class="hero">
     <span class="status"><i></i>Dispo pour une alternance de 12 mois · Île-de-France</span>
-    <h1>Les chiffres ne parlent pas tout seuls. <em class="mark">Moi, si.</em></h1>
+    <h1>Je ne cherche pas à faire du bruit. <em class="mark">Je cherche à faire bouger un chiffre.</em></h1>
+    <p class="kicker">Même un petit. Tant que je peux prouver qu'il a bougé — et pourquoi.</p>
     <div class="hero-sub">
       <img class="photo" src="assets/photo.jpg" alt="Photo d'Alvin Kouadio">
       <div>
-        <p>Moi c'est Alvin. Je prends un tableau de données, je lui pose des questions jusqu'à trouver ce qui cloche, et je le raconte assez clairement pour que quelqu'un puisse en faire quelque chose lundi matin.</p>
+        <p>Moi c'est Alvin. Je prends un tableau de données, je lui pose des questions jusqu'à trouver ce qui cloche, et je le raconte assez clairement pour que quelqu'un puisse agir dessus lundi matin.</p>
         <p>Entre le marketing et la data, en Master Big Data &amp; IA à l'INSEEC. Le genre à cadrer le projet avant d'ouvrir Python.</p>
       </div>
     </div>
@@ -430,9 +454,36 @@
     </div>
   </section>
 
+  <section id="hors-ecran">
+    <div class="section-head">
+      <p class="eyebrow"><b>03</b> — Hors écran</p>
+      <h2>Sur un ring, on ne gagne pas aux impressions. <em class="serif" style="font-weight:400">On gagne aux points.</em></h2>
+      <p>J'applique la même règle aux données. Le reste du temps :</p>
+    </div>
+    <div class="offscreen">
+      <div class="off reveal">
+        <span class="off-tag mono">Muscu</span>
+        <p>La progression ne se raconte pas, elle se voit sur la barre. Pareil pour un projet.</p>
+      </div>
+      <div class="off reveal">
+        <span class="off-tag mono">Sports de combat</span>
+        <p>On encaisse, on analyse, on corrige. Un plan qui ne survit pas au premier échange, ce n'était pas un plan.</p>
+      </div>
+      <div class="off reveal">
+        <span class="off-tag mono">Basket &amp; sport en général</span>
+        <p>Je pratique, je regarde, je suis à peu près tout ce qui touche au sport. Et le sport, c'est aussi des stats partout.</p>
+      </div>
+      <div class="off reveal">
+        <span class="off-tag mono">Culture</span>
+        <p>Je me cultive sur à peu près tout. Un analyste qui ne connaît que ses tableaux pose de mauvaises questions.</p>
+      </div>
+    </div>
+    <p class="drive reveal">Ce qui me fait avancer, au fond : <strong>avoir un impact, même à toute petite échelle — et pouvoir montrer qu'il est réel.</strong></p>
+  </section>
+
   <section id="parcours">
     <div class="section-head">
-      <p class="eyebrow"><b>03</b> — En ce moment</p>
+      <p class="eyebrow"><b>04</b> — En ce moment</p>
       <h2>Où j'en suis, où je vais.</h2>
     </div>
     <div class="split">
@@ -484,7 +535,7 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
-  console.log('%cTu lis le code source ? On va bien s\'entendre. → alvinkouadio1@icloud.com', 'font:600 14px Inter,sans-serif;color:#d9542b');
+  console.log('%cVous lisez le code source ? On va bien s\'entendre. → alvinkouadio1@icloud.com', 'font:600 14px Inter,sans-serif;color:#d9542b');
 </script>
 </body>
 </html>
