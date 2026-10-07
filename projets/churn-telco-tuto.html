@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuto Excel · Où se concentre le risque de départ client ? · Alvin Kouadio</title>
+<meta name="description" content="Refaire pas à pas dans Excel tous les graphiques de l'étude « Où se concentre le risque de départ client ? » : fichier exercice, corrigé, formules et Power BI.">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+<div class="wrap">
+<article class="article">
+  <a class="back" href="https://github.com/ATEYABA-K/analyse-churn-telco">← Retour au projet sur GitHub</a>
+  <p class="eyebrow"><b>Tuto Excel</b> · 45 min</p>
+  <h1>Refaire les graphiques du projet <em class="mark">dans Excel.</em></h1>
+  <p class="kicker">« Où se concentre le risque de départ client ? » : chaque graphique de l'étude, clic par clic, avec les formules. Ouvrez l'exercice et suivez.</p>
+  <div class="tuto-files">
+      <a class="tool-file" href="churn-telco/excel/churn-telco-exercice.xlsx" download><b>Exercice</b><span>churn-telco-exercice.xlsx, les données, rien n'est fait</span></a>
+      <a class="tool-file" href="churn-telco/excel/churn-telco-corrige.xlsx" download><b>Corrigé</b><span>churn-telco-corrige.xlsx, la version finie, celle du site</span></a>
+      <a class="tool-file" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/churn-telco/excel/csv" target="_blank" rel="noopener"><b>CSV pour Power BI</b><span>un fichier par graphique ↗</span></a>
+    </div>
+    <p class="tuto-learn"><b>Ce que vous allez pratiquer :</b> SI imbriqués · tableau croisé dynamique · NB.SI et NB.SI.ENS · histogramme avec étiquettes.</p>
+    <h2 class="h"><span class="step">00 · Avant de commencer</span>Trois réglages</h2>
+    <ul class="plain"><li>Téléchargez le fichier <strong>exercice</strong> et ouvrez-le dans Excel. Les cellules <strong>jaunes</strong> sont à remplir, les graphiques sont à construire.</li><li>Le fichier <strong>corrigé</strong> contient la version finie : c'est de là que viennent les graphiques du site. Ouvrez-le à côté pour comparer.</li><li>Les formules sont écrites pour Excel en français : les arguments sont séparés par <code>;</code>. En anglais, remplacez <code>;</code> par <code>,</code> et utilisez le nom entre parenthèses.</li><li>Recopier une formule vers le bas : sélectionnez la cellule, puis double-cliquez sur le petit carré en bas à droite.</li></ul>
+    <div class="callout"><p>Les couleurs du portfolio : bleu <code>#1F3864</code>, orange <code>#D9542B</code>, gris <code>#8FA0C2</code>. Pour les appliquer : clic droit sur une série → <strong>Mettre en forme une série de données</strong> → pot de peinture <strong>Remplissage et trait</strong> → <strong>Remplissage uni</strong> → <strong>Couleur</strong> → <strong>Autres couleurs</strong> → onglet <strong>Personnalisées</strong> → champ <strong>Hex</strong>.</p></div><h2 class="h" id="etape-1"><span class="step">01 · Onglet Clients</span>Classer les clients par ancienneté</h2>
+<p>7 043 clients. On range chacun dans une tranche d'ancienneté pour pouvoir comparer.</p>
+<h3 class="tuto-sub">1.1 La tranche</h3><ol class="tuto-steps"><li>En <strong>F5</strong>, puis double-clic sur la poignée : Excel recopie jusqu'à la ligne 7047.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">F5</td><td><code>=SI(B5&lt;=12;&quot;0-12 mois&quot;;SI(B5&lt;=24;&quot;13-24 mois&quot;;SI(B5&lt;=48;&quot;25-48 mois&quot;;&quot;49 mois et +&quot;)))</code></td><td>IF</td></tr></tbody></table></div>
+<p class="tuto-check"><b>Vérifiez :</b> Le client de la ligne 5 (ancienneté 1 mois) est en « 0-12 mois ».</p><h2 class="h" id="etape-2"><span class="step">02 · Onglet Analyse</span>Calculer les taux de départ</h2>
+<p>Deux méthodes, au choix. La première est la plus rapide, la seconde se met à jour toute seule.</p>
+<h3 class="tuto-sub">2.1 Méthode rapide : le tableau croisé dynamique</h3><ol class="tuto-steps"><li>Onglet <strong>Clients</strong> : cliquez dans le tableau → <strong>Insertion</strong> → <strong>Tableau croisé dynamique</strong> → <strong>Nouvelle feuille de calcul</strong>.</li><li>Glissez <strong>Contrat</strong> dans <strong>Lignes</strong>, <strong>Churn</strong> dans <strong>Colonnes</strong>, <strong>Client</strong> dans <strong>Valeurs</strong> (Excel compte les clients).</li><li>Clic droit sur un nombre → <strong>Afficher les valeurs</strong> → <strong>% du total de la ligne</strong>. La colonne « Yes » donne le taux de départ.</li></ol>
+<h3 class="tuto-sub">2.2 Méthode formules (celle du corrigé)</h3><ol class="tuto-steps"><li>Onglet <strong>Analyse</strong>, tableau du contrat (lignes 5 à 7). Recopiez vers le bas.</li><li>Même chose pour l'ancienneté (lignes 11 à 14, colonne <strong>F</strong> des clients) et l'internet (lignes 18 à 20, colonne <strong>C</strong>).</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">B5</td><td><code>=NB.SI(Clients!$D$5:$D$7047;A5)</code></td><td>COUNTIF</td></tr><tr><td class="mono">C5</td><td><code>=NB.SI.ENS(Clients!$D$5:$D$7047;A5;Clients!$E$5:$E$7047;&quot;Yes&quot;)</code></td><td>COUNTIFS</td></tr><tr><td class="mono">D5</td><td><code>=C5/B5</code></td><td>calcul simple</td></tr><tr><td class="mono">D23</td><td><code>=NB.SI(Clients!$E$5:$E$7047;&quot;Yes&quot;)/NBVAL(Clients!$E$5:$E$7047)</code></td><td>COUNTA</td></tr></tbody></table></div>
+<p class="tuto-check"><b>Vérifiez :</b> Mensuel <strong>42,7 %</strong>, 1 an <strong>11,3 %</strong>, 2 ans <strong>2,8 %</strong> : 15 fois plus de départs sans engagement. Global : <strong>26,5 %</strong>.</p><h2 class="h" id="etape-3"><span class="step">03 · Onglet Analyse</span>Les trois graphiques</h2>
+<p>Un histogramme par segment, avec le taux affiché sur chaque barre.</p>
+<h3 class="tuto-sub">3.1 Le graphique</h3><ol class="tuto-steps"><li>Sélectionnez <strong>A4:A7</strong>, maintenez <strong>Ctrl</strong>, sélectionnez <strong>D4:D7</strong> → <strong>Insertion</strong> → <strong>Histogramme groupé</strong>.</li><li>Bouton <strong>+</strong> → <strong>Étiquettes de données</strong>. Supprimez la légende. Barre la plus risquée en orange (clic, puis deuxième clic sur la barre).</li><li>Recommencez avec <strong>A10:A14 + D10:D14</strong> (ancienneté) et <strong>A17:A20 + D17:D20</strong> (internet).</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Ancienneté : de <strong>47,4 %</strong> la première année à <strong>9,5 %</strong> au-delà de 4 ans. Fibre : <strong>41,9 %</strong>.</p>
+<figure class="chart xl"><img src="churn-telco/excel/graphiques/G2-anciennete.png" alt="Résultat attendu" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure>
+<figure class="chart xl"><img src="churn-telco/excel/graphiques/G3-internet.png" alt="Résultat attendu" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure>
+<figure class="chart xl"><img src="churn-telco/excel/graphiques/G1-contrat.png" alt="Résultat attendu : Les trois graphiques" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h"><span class="step">Bonus</span>Exporter un graphique</h2>
+    <ul class="plain"><li>Cliquez sur le bord du graphique pour le sélectionner, puis clic droit → <strong>Enregistrer en tant qu'image…</strong> → format <strong>PNG</strong>.</li><li>Pour une diapo : clic droit → <strong>Copier</strong>, puis <strong>Collage spécial → Image</strong> dans PowerPoint.</li></ul>
+    <h2 class="h"><span class="step">Bonus</span>La même chose dans Power BI</h2>
+    <p><strong>Accueil</strong> → <strong>Obtenir des données</strong> → <strong>Texte/CSV</strong> → choisissez le fichier → délimiteur <strong>Point-virgule</strong> → <strong>Charger</strong>.</p>
+    <div class="tuto-table"><table><thead><tr><th>Fichier</th><th>Visuel</th><th>Champs</th></tr></thead><tbody>
+    <tr><td><a href='churn-telco/excel/csv/clients.csv' download><code>clients.csv</code></a></td><td>Histogramme groupé</td><td>Axe X : <code>contrat</code> · Valeurs : <code>client</code> (Nombre) · Légende : <code>churn</code>, puis « Afficher en % du total de la catégorie »</td></tr>
+    </tbody></table></div>
+    <p style="color:var(--ink-soft); font-size:.92rem">Si les décimales s'affichent mal : <strong>Transformer les données</strong> → colonne → <strong>Type de données</strong> → <strong>Nombre décimal</strong> → <strong>Utilisation des paramètres régionaux</strong> → Anglais (États-Unis).</p>
+</article>
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="https://github.com/ATEYABA-K/analyse-churn-telco">Retour au projet sur GitHub</a></span>
+  </footer>
+</div>
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

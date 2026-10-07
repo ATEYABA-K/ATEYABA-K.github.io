@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuto Excel · Évolution des prix à la consommation en France · Alvin Kouadio</title>
+<meta name="description" content="Refaire pas à pas dans Excel tous les graphiques de l'étude « Évolution des prix à la consommation en France » : fichier exercice, corrigé, formules et Power BI.">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+<div class="wrap">
+<article class="article">
+  <a class="back" href="https://github.com/ATEYABA-K/analyse-ipc-france-covid">← Retour au projet sur GitHub</a>
+  <p class="eyebrow"><b>Tuto Excel</b> · 40 min</p>
+  <h1>Refaire les graphiques du projet <em class="mark">dans Excel.</em></h1>
+  <p class="kicker">« Évolution des prix à la consommation en France » : chaque graphique de l'étude, clic par clic, avec les formules. Ouvrez l'exercice et suivez.</p>
+  <div class="tuto-files">
+      <a class="tool-file" href="ipc-france/excel/ipc-france-exercice.xlsx" download><b>Exercice</b><span>ipc-france-exercice.xlsx, les données, rien n'est fait</span></a>
+      <a class="tool-file" href="ipc-france/excel/ipc-france-corrige.xlsx" download><b>Corrigé</b><span>ipc-france-corrige.xlsx, la version finie, celle du site</span></a>
+      <a class="tool-file" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/ipc-france/excel/csv" target="_blank" rel="noopener"><b>CSV pour Power BI</b><span>un fichier par graphique ↗</span></a>
+    </div>
+    <p class="tuto-learn"><b>Ce que vous allez pratiquer :</b> rebaser une série à 100 · référence mixte (B$17) · déflater un salaire · courbes sur 91 mois.</p>
+    <h2 class="h"><span class="step">00 · Avant de commencer</span>Trois réglages</h2>
+    <ul class="plain"><li>Téléchargez le fichier <strong>exercice</strong> et ouvrez-le dans Excel. Les cellules <strong>jaunes</strong> sont à remplir, les graphiques sont à construire.</li><li>Le fichier <strong>corrigé</strong> contient la version finie : c'est de là que viennent les graphiques du site. Ouvrez-le à côté pour comparer.</li><li>Les formules sont écrites pour Excel en français : les arguments sont séparés par <code>;</code>. En anglais, remplacez <code>;</code> par <code>,</code> et utilisez le nom entre parenthèses.</li><li>Recopier une formule vers le bas : sélectionnez la cellule, puis double-cliquez sur le petit carré en bas à droite.</li></ul>
+    <div class="callout"><p>Les couleurs du portfolio : bleu <code>#1F3864</code>, orange <code>#D9542B</code>, gris <code>#8FA0C2</code>. Pour les appliquer : clic droit sur une série → <strong>Mettre en forme une série de données</strong> → pot de peinture <strong>Remplissage et trait</strong> → <strong>Remplissage uni</strong> → <strong>Couleur</strong> → <strong>Autres couleurs</strong> → onglet <strong>Personnalisées</strong> → champ <strong>Hex</strong>.</p></div><h2 class="h" id="etape-1"><span class="step">01 · Onglet Donnees</span>Rebaser les prix à 100 en janvier 2020</h2>
+<p>Les indices n'ont pas le même point de départ. On les ramène tous à 100 en janvier 2020 (ligne 17, en bleu clair) pour comparer leur évolution.</p>
+<h3 class="tuto-sub">1.1 La formule</h3><ol class="tuto-steps"><li>En <strong>F5</strong>. Le <code>$</code> devant 17 bloque la ligne de janvier 2020, mais laisse la colonne libre.</li><li>Recopiez vers la droite jusqu'à <strong>H5</strong> (alimentation, énergie), puis tout vers le bas jusqu'à la ligne 95.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">F5</td><td><code>=B5/B$17*100</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">1.2 Le graphique</h3><ol class="tuto-steps"><li><strong>A4:A95</strong> + <strong>F4:H95</strong> (Ctrl) → <strong>Courbes</strong>. Axe vertical : minimum 80.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Ligne 17 : les trois valent <strong>100</strong>. En juillet 2026 : global <strong>117,8</strong>, alimentation <strong>125,7</strong>, énergie <strong>143,3</strong>.</p>
+<figure class="chart xl"><img src="ipc-france/excel/graphiques/G1-prix.png" alt="Résultat attendu : Rebaser les prix à 100 en janvier 2020" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-2"><span class="step">02 · Onglet Donnees</span>Le Smic a-t-il suivi les prix ?</h2>
+<p>Pouvoir d'achat = évolution du Smic divisée par évolution des prix. Au-dessus de 100, le Smic a gagné sur les prix.</p>
+<h3 class="tuto-sub">2.1 La formule</h3><ol class="tuto-steps"><li>En <strong>I5</strong>, recopiez jusqu'à la ligne 95.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">I5</td><td><code>=(E5/E$17)/(B5/B$17)*100</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">2.2 Le graphique</h3><ol class="tuto-steps"><li><strong>A4:A95</strong> + <strong>I4:I95</strong> → <strong>Courbes</strong>. Axe vertical : de 96 à 106.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> De <strong>100,3</strong> en janvier 2019 à <strong>103,0</strong> en juillet 2026 : le Smic a un peu gagné sur les prix.</p>
+<figure class="chart xl"><img src="ipc-france/excel/graphiques/G2-smic.png" alt="Résultat attendu : Le Smic a-t-il suivi les prix ?" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h"><span class="step">Bonus</span>Exporter un graphique</h2>
+    <ul class="plain"><li>Cliquez sur le bord du graphique pour le sélectionner, puis clic droit → <strong>Enregistrer en tant qu'image…</strong> → format <strong>PNG</strong>.</li><li>Pour une diapo : clic droit → <strong>Copier</strong>, puis <strong>Collage spécial → Image</strong> dans PowerPoint.</li></ul>
+    <h2 class="h"><span class="step">Bonus</span>La même chose dans Power BI</h2>
+    <p><strong>Accueil</strong> → <strong>Obtenir des données</strong> → <strong>Texte/CSV</strong> → choisissez le fichier → délimiteur <strong>Point-virgule</strong> → <strong>Charger</strong>.</p>
+    <div class="tuto-table"><table><thead><tr><th>Fichier</th><th>Visuel</th><th>Champs</th></tr></thead><tbody>
+    <tr><td><a href='ipc-france/excel/csv/ipc_smic.csv' download><code>ipc_smic.csv</code></a></td><td>Graphique en courbes</td><td>Axe X : <code>mois</code> · Axe Y : <code>ipc_global</code>, <code>ipc_alimentation</code>, <code>ipc_energie</code> (rebaser avec une mesure DAX)</td></tr>
+    </tbody></table></div>
+    <p style="color:var(--ink-soft); font-size:.92rem">Si les décimales s'affichent mal : <strong>Transformer les données</strong> → colonne → <strong>Type de données</strong> → <strong>Nombre décimal</strong> → <strong>Utilisation des paramètres régionaux</strong> → Anglais (États-Unis).</p>
+</article>
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="https://github.com/ATEYABA-K/analyse-ipc-france-covid">Retour au projet sur GitHub</a></span>
+  </footer>
+</div>
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

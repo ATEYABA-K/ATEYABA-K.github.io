@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuto Excel · Le bookmaker gagne toujours. Même au MMA. · Alvin Kouadio</title>
+<meta name="description" content="Refaire pas à pas dans Excel tous les graphiques de l'étude « Le bookmaker gagne toujours. Même au MMA. » : fichier exercice, corrigé, formules et Power BI.">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+<div class="wrap">
+<article class="article">
+  <a class="back" href="ufc-paris.html">← Retour à l'étude</a>
+  <p class="eyebrow"><b>Tuto Excel</b> · 1 h 30 environ</p>
+  <h1>Refaire l'étude <em class="mark">dans Excel.</em></h1>
+  <p class="kicker">« Le bookmaker gagne toujours. Même au MMA. » : chaque graphique de l'étude, clic par clic, avec les formules. Ouvrez l'exercice et suivez.</p>
+  <div class="tuto-files">
+      <a class="tool-file" href="ufc-paris/excel/ufc-paris-exercice.xlsx" download><b>Exercice</b><span>ufc-paris-exercice.xlsx, les données, rien n'est fait</span></a>
+      <a class="tool-file" href="ufc-paris/excel/ufc-paris-corrige.xlsx" download><b>Corrigé</b><span>ufc-paris-corrige.xlsx, la version finie, celle du site</span></a>
+      <a class="tool-file" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/ufc-paris/excel/csv" target="_blank" rel="noopener"><b>CSV pour Power BI</b><span>un fichier par graphique ↗</span></a>
+    </div>
+    <p class="tuto-learn"><b>Ce que vous allez pratiquer :</b> formules simples et recopie · SIERREUR, SOMME, COEFFICIENT.CORRELATION · histogramme empilé · colorier une seule barre · nuage de points avec une 2ᵉ série · barres d'erreur personnalisées · simulation avec ALEA.ENTRE.BORNES et INDEX · Power BI : import CSV.</p>
+    <h2 class="h"><span class="step">00 · Avant de commencer</span>Trois réglages</h2>
+    <ul class="plain"><li>Téléchargez le fichier <strong>exercice</strong> et ouvrez-le dans Excel. Les cellules <strong>jaunes</strong> sont à remplir, les graphiques sont à construire.</li><li>Le fichier <strong>corrigé</strong> contient la version finie : c'est de là que viennent les graphiques du site. Ouvrez-le à côté pour comparer.</li><li>Les formules sont écrites pour Excel en français : les arguments sont séparés par <code>;</code>. En anglais, remplacez <code>;</code> par <code>,</code> et utilisez le nom entre parenthèses.</li><li>Recopier une formule vers le bas : sélectionnez la cellule, puis double-cliquez sur le petit carré en bas à droite.</li></ul>
+    <div class="callout"><p>Les couleurs du portfolio : bleu <code>#1F3864</code>, orange <code>#D9542B</code>, gris <code>#8FA0C2</code>. Pour les appliquer : clic droit sur une série → <strong>Mettre en forme une série de données</strong> → pot de peinture <strong>Remplissage et trait</strong> → <strong>Remplissage uni</strong> → <strong>Couleur</strong> → <strong>Autres couleurs</strong> → onglet <strong>Personnalisées</strong> → champ <strong>Hex</strong>.</p></div><h2 class="h" id="etape-1"><span class="step">01 · Onglet Argent</span>Où va l&#x27;argent des paris sportifs</h2>
+<p>Calculer ce qui revient aux parieurs et ce que gardent les opérateurs, puis le montrer en histogramme empilé.</p>
+<h3 class="tuto-sub">1.1 Revenu aux parieurs</h3><ol class="tuto-steps"><li>En <strong>D5</strong>, tapez la formule ci-dessous, puis recopiez-la jusqu'à <strong>D20</strong>.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">D5</td><td><code>=B5-C5</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">1.2 Part gardée</h3><ol class="tuto-steps"><li>En <strong>E5</strong>, la part de chaque euro misé que gardent les opérateurs. SIERREUR évite une erreur si la mise vaut 0.</li><li>Recopiez jusqu'à <strong>E20</strong>, et mettez la colonne au format <strong>Pourcentage</strong> (Accueil → Nombre → %).</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">E5</td><td><code>=SIERREUR(C5/B5;0)</code></td><td>IFERROR</td></tr></tbody></table></div>
+<h3 class="tuto-sub">1.3 En milliards, pour le graphique</h3><ol class="tuto-steps"><li>En <strong>F5</strong> et <strong>G5</strong>, divisez par 1 000. Recopiez jusqu'à la ligne 20.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">F5</td><td><code>=D5/1000</code></td><td>calcul simple</td></tr><tr><td class="mono">G5</td><td><code>=C5/1000</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">1.4 Les totaux et la corrélation</h3><ol class="tuto-steps"><li>Ligne 21 : les totaux. Recopiez la formule de B21 vers C21 et D21.</li><li>En <strong>E23</strong>, la corrélation entre les mises et l'argent gardé.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">B21</td><td><code>=SOMME(B5:B20)</code></td><td>SUM</td></tr><tr><td class="mono">E21</td><td><code>=C21/B21</code></td><td>calcul simple</td></tr><tr><td class="mono">E23</td><td><code>=COEFFICIENT.CORRELATION(B5:B20;C5:C20)</code></td><td>CORREL</td></tr></tbody></table></div>
+<h3 class="tuto-sub">1.5 Le graphique</h3><ol class="tuto-steps"><li>Sélectionnez <strong>A4:A20</strong>, puis maintenez <strong>Ctrl</strong> et sélectionnez <strong>F4:G20</strong>.</li><li><strong>Insertion</strong> → <strong>Graphiques</strong> → icône histogramme → <strong>Histogramme empilé</strong>.</li><li>Couleurs : « Revenu » en bleu, « Gardé » en orange. Dans <strong>Options des séries</strong>, mettez <strong>Largeur de l'intervalle</strong> à 55 %.</li><li>Cliquez sur le titre pour l'écrire. Bouton <strong>+</strong> à côté du graphique → <strong>Légende</strong> → <strong>En bas</strong>.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Total misé en B21 : <strong>70 517</strong> M€. Part gardée en E21 : <strong>16,9 %</strong>. Corrélation en E23 : <strong>0,997</strong>.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/G1-argent.png" alt="Résultat attendu : Où va l&#x27;argent des paris sportifs" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-2"><span class="step">02 · Onglet Evenements</span>La popularité du MMA</h2>
+<p>Un histogramme simple, avec les années où le MMA est légal en France mises en avant.</p>
+<h3 class="tuto-sub">2.1 Le graphique</h3><ol class="tuto-steps"><li>Sélectionnez <strong>A4:B29</strong> → <strong>Insertion</strong> → <strong>Histogramme groupé</strong>. Supprimez la légende (cliquez dessus, touche <strong>Suppr</strong>).</li><li>Mettez toute la série en gris <code>#8FA0C2</code>.</li></ol>
+<h3 class="tuto-sub">2.2 Colorier une seule barre</h3><ol class="tuto-steps"><li>Cliquez une fois sur une barre : toute la série est sélectionnée. <strong>Cliquez une deuxième fois</strong> sur la barre 2020 : elle seule reste sélectionnée.</li><li>Clic droit → <strong>Mettre en forme le point de données</strong> → orange <code>#D9542B</code>. Recommencez pour 2021 à 2025.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Les barres 2020 à 2025 sont orange, toutes autour de 42 événements par an.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/G2-evenements.png" alt="Résultat attendu : La popularité du MMA" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-3"><span class="step">03 · Onglet Calibration</span>Les bookmakers voient-ils juste ?</h2>
+<p>Comparer la probabilité annoncée par la cote au taux de victoire réel, avec une diagonale « cote parfaite ».</p>
+<h3 class="tuto-sub">3.1 La diagonale</h3><ol class="tuto-steps"><li>En <strong>D5</strong>, recopiez simplement la probabilité annoncée. Recopiez jusqu'à <strong>D12</strong>.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">D5</td><td><code>=A5</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">3.2 Le nuage de points</h3><ol class="tuto-steps"><li>Sélectionnez <strong>A4:B12</strong> → <strong>Insertion</strong> → <strong>Nuage de points (X, Y)</strong> → <strong>Nuage de points avec lignes droites et marqueurs</strong>.</li></ol>
+<h3 class="tuto-sub">3.3 Ajouter la diagonale</h3><ol class="tuto-steps"><li>Clic droit sur le graphique → <strong>Sélectionner des données</strong> → <strong>Ajouter</strong>.</li><li>Nom : <code>Cote parfaite</code>. Valeurs X : <strong>A5:A12</strong>. Valeurs Y : <strong>D5:D12</strong>. OK.</li><li>Mettez cette série en pointillés gris, sans marqueurs (<strong>Remplissage et trait</strong> → <strong>Trait</strong> → <strong>Type de tiret</strong>, puis <strong>Marqueur</strong> → <strong>Aucun</strong>).</li><li>Clic droit sur chaque axe → <strong>Mettre en forme l'axe</strong> → Minimum 0, Maximum 1, Nombre au format <strong>Pourcentage</strong>.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Les points orange suivent la diagonale à quelques points près : les cotes sont justes.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/G3-calibration.png" alt="Résultat attendu : Les bookmakers voient-ils juste ?" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-4"><span class="step">04 · Onglet Rendement</span>Ce que rapporte 1 € misé</h2>
+<p>Un histogramme avec des valeurs négatives, des couleurs selon le résultat, et la marge d'erreur.</p>
+<h3 class="tuto-sub">4.1 Le graphique</h3><ol class="tuto-steps"><li>Sélectionnez <strong>A4:B10</strong> → <strong>Insertion</strong> → <strong>Histogramme groupé</strong>. Supprimez la légende.</li><li>Clic droit sur l'axe horizontal → <strong>Mettre en forme l'axe</strong> → <strong>Étiquettes</strong> → Position <strong>Bas</strong> : les noms de tranches passent sous le graphique.</li></ol>
+<h3 class="tuto-sub">4.2 Les couleurs</h3><ol class="tuto-steps"><li>Comme à l'étape 2.2 : barre « &lt; 1,30 » en bleu, « 1,30-1,60 », « 1,60-2 » et « 2-3 » en gris, « 3-5 » et « &gt; 5 » en orange.</li></ol>
+<h3 class="tuto-sub">4.3 Les barres d&#x27;erreur</h3><ol class="tuto-steps"><li>Bouton <strong>+</strong> → <strong>Barres d'erreur</strong> → <strong>Autres options</strong>.</li><li><strong>Valeur d'erreur</strong> → <strong>Personnalisée</strong> → <strong>Spécifier une valeur</strong>.</li><li>Valeur positive : sélectionnez <strong>C5:C10</strong>. Valeur négative : sélectionnez <strong>C5:C10</strong> aussi.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> La barre « &gt; 5 » descend à <strong>−30 %</strong>. La barre « &lt; 1,30 » est à +1,6 %, mais sa barre d'erreur passe sous zéro : le gain n'est pas sûr.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/G4-rendement.png" alt="Résultat attendu : Ce que rapporte 1 € misé" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-5"><span class="step">05 · Onglet Simulateur</span>Le simulateur de parieur</h2>
+<p>Simuler 100 paris sur de vrais combats tirés au hasard. Chaque appui sur F9 crée un nouveau parieur.</p>
+<h3 class="tuto-sub">5.1 Tirer un combat au hasard</h3><ol class="tuto-steps"><li>L'onglet <strong>Combats</strong> contient 6 916 combats, des lignes 5 à 6920. En <strong>B7</strong> :</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">B7</td><td><code>=ALEA.ENTRE.BORNES(5;6920)</code></td><td>RANDBETWEEN</td></tr></tbody></table></div>
+<h3 class="tuto-sub">5.2 Choisir un camp</h3><ol class="tuto-steps"><li>Une chance sur deux pour chaque camp :</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">C7</td><td><code>=SI(ALEA()&lt;0,5;&quot;rouge&quot;;&quot;bleu&quot;)</code></td><td>IF, RAND</td></tr></tbody></table></div>
+<h3 class="tuto-sub">5.3 Aller chercher la cote et le résultat</h3><ol class="tuto-steps"><li>INDEX va lire la cellule de la ligne tirée dans l'onglet Combats.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">D7</td><td><code>=SI(C7=&quot;rouge&quot;;INDEX(Combats!A:A;B7);INDEX(Combats!B:B;B7))</code></td><td>INDEX</td></tr><tr><td class="mono">E7</td><td><code>=SI(C7=&quot;rouge&quot;;INDEX(Combats!C:C;B7)=1;INDEX(Combats!C:C;B7)=0)</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">5.4 Le gain et la cagnotte</h3><ol class="tuto-steps"><li>Le <code>$</code> bloque la référence à la mise quand on recopie (touche <strong>F4</strong> pour l'ajouter).</li><li>Recopiez <strong>B7:H7</strong> jusqu'à la ligne <strong>106</strong>, puis en <strong>F4</strong> affichez le bilan.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">F7</td><td><code>=SI(E7;$C$4*(D7-1);-$C$4)</code></td><td>calcul simple</td></tr><tr><td class="mono">H7</td><td><code>=H6+F7</code></td><td>calcul simple</td></tr><tr><td class="mono">F4</td><td><code>=H106</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">5.5 La courbe</h3><ol class="tuto-steps"><li>Sélectionnez <strong>H5:H106</strong> → <strong>Insertion</strong> → <strong>Courbes</strong>. Couleur orange.</li><li>Appuyez sur <strong>F9</strong> : tout est retiré au hasard, la courbe change. Comptez combien de fois vous finissez au-dessus de zéro.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Sur 10 appuis sur F9, vous devriez finir positif environ 3 fois. C'est le chiffre de l'étude : 31 % de gagnants.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/G5-simulateur.png" alt="Résultat attendu : Le simulateur de parieur" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-6"><span class="step">06 · Onglet Calculatrice</span>La calculatrice de marge</h2>
+<p>Retrouver la marge du bookmaker à partir de deux cotes. Une cote, c'est une probabilité déguisée : 1 / cote.</p>
+<h3 class="tuto-sub">6.1 Les formules</h3><ol class="tuto-steps"><li>Les cellules <strong>B4</strong> et <strong>B5</strong> (jaunes vives) contiennent les deux cotes. Tout le reste en découle.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">B7</td><td><code>=1/B4</code></td><td>calcul simple</td></tr><tr><td class="mono">B8</td><td><code>=1/B5</code></td><td>calcul simple</td></tr><tr><td class="mono">B9</td><td><code>=B7+B8</code></td><td>calcul simple</td></tr><tr><td class="mono">B10</td><td><code>=B9-1</code></td><td>calcul simple</td></tr><tr><td class="mono">B11</td><td><code>=100*B10/B9</code></td><td>calcul simple</td></tr></tbody></table></div>
+<h3 class="tuto-sub">6.2 Jouer avec</h3><ol class="tuto-steps"><li>Mettez B7 à B10 au format <strong>Pourcentage</strong>. Changez les cotes : avec 1,90 et 1,90, la marge tombe à 5,3 %.</li></ol>
+<p class="tuto-check"><b>Vérifiez :</b> Avec 1,77 et 2,02 : total <strong>106,0 %</strong>, marge <strong>6,0 %</strong>, le bookmaker garde <strong>5,66 €</strong> sur 100 €.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/calculatrice.png" alt="Résultat attendu : La calculatrice de marge" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h" id="etape-7"><span class="step">07 · Onglet Paris, 1000 parieurs, Distribution</span>1 000 parieurs simulés dans Excel</h2>
+<p>Simuler 1 000 parieurs qui font chacun 100 paris de 10 €, puis compter combien finissent gagnants. C'est une simulation de Monte-Carlo, entièrement en formules.</p>
+<h3 class="tuto-sub">7.1 Le gain de chaque pari possible</h3><ol class="tuto-steps"><li>Onglet <strong>Paris</strong> : chaque camp de chaque combat est un pari possible (13 832 lignes). En <strong>C5</strong>, puis double-clic pour recopier :</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">C5</td><td><code>=SI(B5=1;10*(A5-1);-10)</code></td><td>IF</td></tr></tbody></table></div>
+<h3 class="tuto-sub">7.2 Tirer 100 paris par parieur</h3><ol class="tuto-steps"><li>Onglet <strong>1000 parieurs</strong> : en <strong>B5</strong>, un pari tiré au hasard. Recopiez vers la droite jusqu'à <strong>CW5</strong> (100 colonnes), puis vers le bas jusqu'à la ligne <strong>1004</strong>.</li><li>En <strong>CX5</strong>, le bilan du parieur, recopié jusqu'en bas. Excel recalcule 100 000 tirages : c'est normal que ça prenne une seconde.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">B5</td><td><code>=INDEX(Paris!$C$5:$C$13836;ALEA.ENTRE.BORNES(1;13832))</code></td><td>INDEX, RANDBETWEEN</td></tr><tr><td class="mono">CX5</td><td><code>=SOMME(B5:CW5)</code></td><td>SUM</td></tr></tbody></table></div>
+<h3 class="tuto-sub">7.3 Compter et tracer</h3><ol class="tuto-steps"><li>Onglet <strong>Distribution</strong> : on compte les parieurs dans chaque tranche de 50 €. Recopiez C5 jusqu'à C26.</li><li>Puis l'histogramme : sélectionnez <strong>A4:A26</strong> et <strong>C4:C26</strong> (Ctrl) → <strong>Histogramme groupé</strong>. Tranches négatives en orange, positives en bleu (étape 2.2). Largeur de l'intervalle : 15 %.</li></ol>
+<div class="tuto-table"><table><thead><tr><th>Cellule</th><th>Formule (Excel en français)</th><th>En anglais</th></tr></thead><tbody><tr><td class="mono">C5</td><td><code>=NB.SI.ENS(&#x27;1000 parieurs&#x27;!$CX$5:$CX$1004;&quot;&gt;=&quot;&amp;A5;&#x27;1000 parieurs&#x27;!$CX$5:$CX$1004;&quot;&lt;&quot;&amp;B5)</code></td><td>COUNTIFS</td></tr><tr><td class="mono">C28</td><td><code>=NB.SI(&#x27;1000 parieurs&#x27;!CX5:CX1004;&quot;&gt;0&quot;)/1000</code></td><td>COUNTIF</td></tr><tr><td class="mono">C29</td><td><code>=MEDIANE(&#x27;1000 parieurs&#x27;!CX5:CX1004)</code></td><td>MEDIAN</td></tr></tbody></table></div>
+<p class="tuto-check"><b>Vérifiez :</b> Entre <strong>27 et 35 %</strong> de gagnants selon le tirage (F9 pour relancer). Le chiffre de l'étude, 31 %, est la moyenne sur 10 000 parieurs.</p>
+<figure class="chart xl"><img src="ufc-paris/excel/graphiques/G6-distribution.png" alt="Résultat attendu : 1 000 parieurs simulés dans Excel" loading="lazy"><p class="src">Résultat attendu, exporté du fichier corrigé.</p></figure><h2 class="h"><span class="step">Bonus</span>Exporter un graphique</h2>
+    <ul class="plain"><li>Cliquez sur le bord du graphique pour le sélectionner, puis clic droit → <strong>Enregistrer en tant qu'image…</strong> → format <strong>PNG</strong>.</li><li>Pour une diapo : clic droit → <strong>Copier</strong>, puis <strong>Collage spécial → Image</strong> dans PowerPoint.</li></ul>
+    <h2 class="h"><span class="step">Bonus</span>La même chose dans Power BI</h2>
+    <p><strong>Accueil</strong> → <strong>Obtenir des données</strong> → <strong>Texte/CSV</strong> → choisissez le fichier → délimiteur <strong>Point-virgule</strong> → <strong>Charger</strong>.</p>
+    <div class="tuto-table"><table><thead><tr><th>Fichier</th><th>Visuel</th><th>Champs</th></tr></thead><tbody>
+    <tr><td><a href='ufc-paris/excel/csv/argent.csv' download><code>argent.csv</code></a></td><td>Histogramme empilé</td><td>Axe X : <code>annee</code> · Axe Y : <code>redistribue_meur</code> puis <code>garde_meur</code></td></tr><tr><td><a href='ufc-paris/excel/csv/evenements_ufc.csv' download><code>evenements_ufc.csv</code></a></td><td>Histogramme groupé</td><td>Axe X : <code>annee</code> · Axe Y : <code>evenements</code></td></tr><tr><td><a href='ufc-paris/excel/csv/calibration.csv' download><code>calibration.csv</code></a></td><td>Nuage de points</td><td>Axe X : <code>proba_annoncee</code> · Axe Y : <code>taux_victoire_reel</code> · Taille : <code>combattants</code></td></tr><tr><td><a href='ufc-paris/excel/csv/rendement_par_cote.csv' download><code>rendement_par_cote.csv</code></a></td><td>Histogramme groupé</td><td>Axe X : <code>tranche_cote</code> · Axe Y : <code>rendement</code> (format %)</td></tr>
+    </tbody></table></div>
+    <p style="color:var(--ink-soft); font-size:.92rem">Si les décimales s'affichent mal : <strong>Transformer les données</strong> → colonne → <strong>Type de données</strong> → <strong>Nombre décimal</strong> → <strong>Utilisation des paramètres régionaux</strong> → Anglais (États-Unis).</p>
+</article>
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="ufc-paris.html">Retour à l'étude</a></span>
+  </footer>
+</div>
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

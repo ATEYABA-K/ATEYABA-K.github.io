@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le bookmaker gagne toujours · Alvin Kouadio</title>
+<meta name="description" content="Le MMA est légal en France depuis 2020, les paris sportifs battent des records. Étude sur les cotes de 6 916 combats UFC : qui gagne vraiment ? Avec les fichiers Excel pour refaire chaque graphique.">
+<meta property="og:title" content="Le bookmaker gagne toujours. Même au MMA.">
+<meta property="og:description" content="6 916 combats UFC, leurs cotes, et 10 000 parieurs simulés : 69 % finissent perdants. Étude de données par Alvin Kouadio.">
+<meta property="og:image" content="https://ateyaba-k.github.io/projets/ufc-paris/excel/graphiques/G4-rendement.png">
+<meta property="og:url" content="https://ateyaba-k.github.io/projets/ufc-paris.html">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+
+<div class="wrap">
+<article class="article">
+  <a class="back" href="../index.html#projets">← Tous les projets</a>
+  <p class="eyebrow"><b>Étude</b> · Sports de combat × paris sportifs</p>
+  <h1>Le bookmaker gagne toujours. <em class="mark">Même au MMA.</em></h1>
+  <p class="kicker">Le MMA est légal en France depuis 2020, les paris sportifs battent des records chaque année. J'ai repris les cotes de 6 916 combats UFC pour voir qui gagne vraiment.</p>
+  <div class="studybox"><span><b>Graphiques :</b> faits dans Excel, refaisables avec <a href="ufc-paris-tuto.html">le tuto pas à pas</a></span><span><b>Fichiers :</b> <a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>exercice</a> · <a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>corrigé</a> · <a href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/ufc-paris/excel/csv" target="_blank" rel="noopener">CSV pour Power BI</a></span><span><b>Calcul des données :</b> Python (<a href="ufc-paris/analyse.py">analyse.py</a>)</span></div>
+  <div class="meta-row"><span>6 916 combats</span><span>2010 à 2026</span><span>1 000 parieurs simulés dans Excel</span><span>Excel · Power BI · Python pour le calcul</span></div>
+
+  <div class="kpis">
+    <div class="kpi"><b>2 sur 3</b><span>combats gagnés par le favori des bookmakers</span></div>
+    <div class="kpi"><b>3,7 %</b><span>prélevés en moyenne sur chaque combat, quoi qu'il arrive</span></div>
+    <div class="kpi"><b>69 %</b><span>des parieurs simulés finissent perdants après 100 paris</span></div>
+  </div>
+
+  <section class="tldr">
+    <h2>En 30 secondes</h2>
+    <ul>
+      <li>Deux marchés ont explosé en même temps en France : le MMA (légal depuis 2020, l'UFC à Paris chaque année depuis 2022) et les paris sportifs en ligne (<strong>10,3 milliards d'euros</strong> misés en 2024).</li>
+      <li>Les cotes UFC sont <strong>remarquablement justes</strong> : quand un combattant est donné à 65 %, il gagne 65 % du temps.</li>
+      <li>Mais chaque cote cache une marge d'environ <strong>3,7 %</strong>. Toujours le favori, toujours l'outsider, au hasard : tout perd. Seule exception, les très gros favoris, tout juste rentables, le pari que presque personne ne fait, parce qu'il ne fait pas rêver.</li>
+      <li>Sur 10 000 parieurs simulés, <strong>31 % finissent gagnants</strong>. Ce sont eux qu'on entend. C'est là que le marketing fait le reste.</li>
+    </ul>
+  </section>
+
+  <h2 class="h"><span class="step">01 · Le contexte</span>Deux courbes qui montent ensemble</h2>
+  <ol class="timeline-h">
+    <li><span class="when mono">Janv. 2020</span><b>Le MMA devient légal</b><span>en compétition en France, sous l'égide de la Fédération française de boxe.</span></li>
+    <li><span class="when mono">2021</span><b>Premiers paris MMA autorisés</b><span>par l'ANJ, le régulateur des jeux, compétition par compétition.</span></li>
+    <li><span class="when mono">Sept. 2022</span><b>Premier UFC à Paris</b><span>Gane vs Tuivasa. Il revient chaque mois de septembre depuis : 5 éditions.</span></li>
+    <li><span class="when mono">2024</span><b>Record des paris sportifs</b><span>10,3 Md€ misés en ligne (+21 %), 4,9 millions de comptes actifs.</span></li>
+  </ol>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="ufc-paris/excel/graphiques/G2-evenements.png" alt="Événements UFC par année" loading="lazy">
+    <p class="src">Source : ufcstats.com · ANJ, bilan du marché 2024 · ministère des Sports</p>
+    <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-2">Tuto étape 2</a><a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>Exercice .xlsx</a><a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Corrigé .xlsx</a></div>
+  </figure>
+  <p>Et le public des paris colle à celui du MMA : selon les données de l'ANJ, <strong>64 % des parieurs sportifs ont entre 18 et 34 ans</strong>. Un sport qui monte, une audience jeune, une offre de paris qui s'ouvre : c'est un marché. La question, c'est pour qui.</p>
+
+  <h2 class="h" id="argent"><span class="step">02 · L'argent</span>70 milliards misés. Où sont-ils passés ?</h2>
+  <p>Depuis l'ouverture du marché en 2010, les Français ont misé <strong>70,5 milliards d'euros</strong> en paris sportifs en ligne. <strong>58,6 milliards</strong> sont revenus aux parieurs sous forme de gains. Les opérateurs ont gardé le reste : <strong>11,9 milliards</strong>, soit 17 % de chaque euro misé.</p>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="ufc-paris/excel/graphiques/G1-argent.png" alt="Paris sportifs en ligne en France : ce qui revient aux parieurs et ce que gardent les opérateurs" loading="lazy">
+    <p class="src">Sources : ARJEL (2010-2018), ANJ (2020-2025) · 2019 : mises déduites de la hausse publiée en 2020 · 2024 : chiffre révisé par l'ANJ</p>
+    <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-1">Tuto étape 1</a><a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>Exercice .xlsx</a><a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Corrigé .xlsx</a></div>
+  </figure>
+  <div class="corr-tiles">
+    <div><b class="mono">r = 0,997</b><span><strong>Mises et argent gardé par les opérateurs</strong> : une corrélation quasi parfaite. Chaque euro misé en plus rapporte mécaniquement environ 16 centimes aux opérateurs. Attention, elle est en partie construite : l'argent gardé, c'est les mises moins les gains.</span></div>
+    <div><b class="mono">r = −0,78</b><span><strong>Le temps et la part gardée</strong> : la part prélevée baisse doucement, d'environ 20 % au début des années 2010 à 15,3 % en 2025. La concurrence entre opérateurs rend les cotes un peu plus généreuses. Mais le volume explose : l'argent gardé, lui, a été multiplié par 15.</span></div>
+    <div><b class="mono">r = −0,39</b><span><strong>Nombre de paris et bilan d'un parieur</strong> (simulation sur les cotes UFC) : plus on parie, plus on perd. 38 % des parieurs sont gagnants après 10 à 50 paris, seulement 18 % après 450 à 500.</span></div>
+  </div>
+  <p>« Gagné » ne veut pas dire « en bénéfice » : les 58,6 milliards redistribués comprennent les mises que les gagnants récupèrent. Collectivement, les parieurs ont perdu 11,9 milliards. Et le MMA n'a pas de ligne à lui dans ces chiffres : il est rangé avec les « autres sports », loin derrière le football, le tennis, le basket et le rugby (87,5 % des mises en 2024).</p>
+
+  <h2 class="h"><span class="step">03 · Le mécanisme</span>Où se cache la marge du bookmaker</h2>
+  <p>Une cote, c'est une probabilité déguisée : une cote de 2,00 veut dire « une chance sur deux ». Sur un combat, les deux probabilités devraient faire 100 %. Elles font toujours un peu plus. Ce qui dépasse, c'est la part du bookmaker. Dans l'onglet Calculatrice du fichier Excel, on change deux cotes et la marge se recalcule :</p>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="ufc-paris/excel/graphiques/calculatrice.png" alt="Calculatrice de marge dans Excel" loading="lazy">
+    <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-6">Tuto étape 6</a><a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Onglet Calculatrice</a></div>
+  </figure>
+  <p>Sur les 6 916 combats de l'étude, cette marge vaut <strong>3,7 %</strong> en médiane. Quel que soit le vainqueur, le bookmaker a déjà gagné.</p>
+
+  <h2 class="h"><span class="step">04 · La précision</span>Les bookmakers voient juste</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="ufc-paris/excel/graphiques/G3-calibration.png" alt="Probabilité annoncée par la cote contre taux de victoire réel" loading="lazy">
+    <p class="src">Source : Ultimate UFC Dataset · 6 916 combats, 2010 à 2026 · marge retirée</p>
+    <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-3">Tuto étape 3</a><a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>Exercice .xlsx</a><a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Corrigé .xlsx</a></div>
+  </figure>
+  <p>Les points collent à la diagonale. Le favori gagne <strong>66,6 %</strong> des combats, presque exactement ce que les cotes annoncent. Pour battre le bookmaker, il faudrait voir mieux que lui. Les données disent que c'est très rare.</p>
+
+  <h2 class="h"><span class="step">05 · Le rendement</span>Ce que rapporte 1 € misé, selon la cote</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="ufc-paris/excel/graphiques/G4-rendement.png" alt="Rendement moyen d'un pari selon la cote" loading="lazy">
+    <p class="src">Source : Ultimate UFC Dataset · trait fin = marge d'erreur à 95 %</p>
+    <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-4">Tuto étape 4</a><a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>Exercice .xlsx</a><a href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Corrigé .xlsx</a></div>
+  </figure>
+  <p>Plus la cote est haute, plus on perd : <strong>−30 %</strong> sur les gros outsiders (cote au-dessus de 5). Les parieurs surpayent l'espoir du gros coup, et les bookmakers ajustent leurs prix en conséquence.</p>
+  <p>Le revers de ce biais : les très gros favoris (cote sous 1,30) sont légèrement sous-cotés. Ils rapportent <strong>+1,6 %</strong>, et ce chiffre reste à peu près stable sur 15 ans. Mais la marge d'erreur (± 2,3 %) inclut zéro, et à une cote de 1,20, une seule surprise efface cinq victoires. C'est le pari le plus ennuyeux du catalogue. Celui que presque personne ne fait.</p>
+  <div class="strat"><div><b>−2,9 %</b><span>Toujours le favori : rendement moyen par pari</span></div><div><b>−7,6 %</b><span>Toujours l'outsider : rendement moyen par pari</span></div><div><b>−5,2 %</b><span>Au hasard : rendement moyen par pari</span></div></div>
+
+  <h2 class="h"><span class="step">06 · La simulation</span>1 000 parieurs, dans Excel</h2>
+  <p>Dans le fichier Excel, 1 000 parieurs font chacun 100 paris de 10 € sur de vrais combats tirés au hasard, avec leurs vraies cotes et leurs vrais résultats. 100 000 tirages, rien que des formules (ALEA.ENTRE.BORNES et INDEX). Chaque appui sur F9 relance tout. Le chiffre de 69 % vient d'une simulation plus large (10 000 parieurs, dans le script Python) ; dans Excel, le résultat bouge un peu à chaque F9 mais reste du même ordre.</p>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="ufc-paris/excel/graphiques/G6-distribution.png" alt="Simulation de 1 000 parieurs dans Excel" loading="lazy">
+    <img class="xl" src="ufc-paris/excel/graphiques/G5-simulateur.png" alt="Simulation de 1 000 parieurs dans Excel" loading="lazy">
+    <div class="repro"><b>Le refaire :</b><a href="ufc-paris-tuto.html#etape-7">Tuto étape 7 (1 000 parieurs)</a><a href="ufc-paris-tuto.html#etape-5">Tuto étape 5 (un parieur)</a><a href="ufc-paris/excel/ufc-paris-exercice.xlsx" download>Exercice .xlsx</a></div>
+  </figure>
+  <p>Avec assez de paris, la courbe finit presque toujours sous zéro. Avec peu de paris, la chance domine : beaucoup de joueurs gagnent au début. C'est exactement ce qui rend le produit si efficace.</p>
+
+  <h2 class="h"><span class="step">07 · Et alors ?</span>Ce que ça m'apprend sur le marketing</h2>
+  <div class="lessons">
+    <div><b>Les gagnants parlent, les perdants se taisent.</b><span>31 % des parieurs simulés gagnent, par pure chance. Ce sont eux qui postent leurs tickets. Un produit à espérance négative peut avoir l'air rentable si on n'écoute que ceux qui en parlent : c'est un biais du survivant, et le marketing des opérateurs s'en nourrit.</span></div>
+    <div><b>On ne vend pas une espérance, on vend un rêve.</b><span>Le seul pari à peu près rentable est le plus ennuyeux : miser gros sur un favori écrasant pour gagner quelques euros. Le pari qui se vend, c'est le gros coup, celui qui perd 30 % en moyenne. Et l'argument « tu connais le MMA, tu sais qui va gagner » oublie que les cotes savent aussi, et mieux.</span></div>
+    <div><b>Un sport qui monte crée une cible.</b><span>Légalisation, UFC à Paris, combattants français en vue : le MMA a gagné une audience jeune en quelques années. Pour un opérateur, c'est une nouvelle cible. Pour un régulateur, un nouveau risque. Les deux lisent les mêmes chiffres.</span></div>
+  </div>
+
+  <h2 class="h"><span class="step">08 · Limites</span>Ce que cette étude ne dit pas</h2>
+  <div class="limits">
+    <div><b>Une seule source de cotes.</b><span>Un instantané avant chaque combat, pas forcément la cote de clôture. Et la marge saute brutalement en 2015 : c'est sans doute un changement de source, pas une vraie tendance, je ne l'interprète pas.</span></div>
+    <div><b>Les vrais parieurs font pire.</b><span>Les paris combinés et les « cotes boostées » ont souvent des marges plus élevées. La simulation, avec des paris simples, est plutôt optimiste.</span></div>
+    <div><b>Des cotes de bookmakers internationaux.</b><span>Les opérateurs agréés en France fixent leurs propres cotes. Elles peuvent différer, et rien ne dit qu'elles soient plus généreuses.</span></div>
+  </div>
+
+  <div class="code-cta">
+    <a class="btn btn-main" href="ufc-paris-tuto.html">Le tuto Excel pas à pas</a>
+    <a class="btn btn-ghost" href="ufc-paris/excel/ufc-paris-corrige.xlsx" download>Le fichier Excel</a>
+    <a class="btn btn-ghost" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/ufc-paris" target="_blank" rel="noopener">Sur GitHub ↗</a>
+  </div>
+  <p class="warn">Jouer comporte des risques : endettement, dépendance… Appelez le 09 74 75 13 13 (appel non surtaxé). Cette étude n'incite pas à parier, elle fait l'inverse.</p>
+</article>
+
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="../index.html#contact">Me contacter</a></span>
+  </footer>
+</div>
+
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
