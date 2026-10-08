@@ -1,0 +1,425 @@
+{
+ "carriere": [
+  {
+   "nom": "Messi",
+   "matchs": 948,
+   "buts": 771.0,
+   "passes": 368,
+   "penalties": 87,
+   "matchs_sel": 194,
+   "buts_sel": 114,
+   "buts_total": 885.0,
+   "buts_hors_pen": 684.0,
+   "contrib_par_match": 1.11,
+   "saisons_40": 10.0,
+   "meilleure_saison": 73.0
+  },
+  {
+   "nom": "Mbappé",
+   "matchs": 445,
+   "buts": 337.0,
+   "passes": 133,
+   "penalties": 40,
+   "matchs_sel": 92,
+   "buts_sel": 52,
+   "buts_total": 389.0,
+   "buts_hors_pen": 297.0,
+   "contrib_par_match": 0.966,
+   "saisons_40": 4.0,
+   "meilleure_saison": 44.0
+  },
+  {
+   "nom": "Suárez",
+   "matchs": 845,
+   "buts": 509.0,
+   "passes": 277,
+   "penalties": 45,
+   "matchs_sel": 143,
+   "buts_sel": 69,
+   "buts_total": 578.0,
+   "buts_hors_pen": 464.0,
+   "contrib_par_match": 0.877,
+   "saisons_40": 2.0,
+   "meilleure_saison": 59.0
+  },
+  {
+   "nom": "Neymar",
+   "matchs": 611,
+   "buts": 366.0,
+   "passes": 227,
+   "penalties": 67,
+   "matchs_sel": 128,
+   "buts_sel": 79,
+   "buts_total": 445.0,
+   "buts_hors_pen": 299.0,
+   "contrib_par_match": 0.861,
+   "saisons_40": 2.0,
+   "meilleure_saison": 44.0
+  },
+  {
+   "nom": "Cristiano Ronaldo",
+   "matchs": 1057,
+   "buts": 796.0,
+   "passes": 257,
+   "penalties": 155,
+   "matchs_sel": 223,
+   "buts_sel": 141,
+   "buts_total": 937.0,
+   "buts_hors_pen": 641.0,
+   "contrib_par_match": 0.85,
+   "saisons_40": 10.0,
+   "meilleure_saison": 61.0
+  },
+  {
+   "nom": "Lewandowski",
+   "matchs": 825,
+   "buts": 610.0,
+   "passes": 155,
+   "penalties": 72,
+   "matchs_sel": 160,
+   "buts_sel": 86,
+   "buts_total": 696.0,
+   "buts_hors_pen": 538.0,
+   "contrib_par_match": 0.84,
+   "saisons_40": 8.0,
+   "meilleure_saison": 55.0
+  },
+  {
+   "nom": "Haaland",
+   "matchs": 332,
+   "buts": 262.0,
+   "passes": 57,
+   "penalties": 42,
+   "matchs_sel": 45,
+   "buts_sel": 48,
+   "buts_total": 310.0,
+   "buts_hors_pen": 220.0,
+   "contrib_par_match": 0.834,
+   "saisons_40": 3.0,
+   "meilleure_saison": 52.0
+  },
+  {
+   "nom": "Ibrahimović",
+   "matchs": 827,
+   "buts": 496.0,
+   "passes": 203,
+   "penalties": 80,
+   "matchs_sel": 122,
+   "buts_sel": 62,
+   "buts_total": 558.0,
+   "buts_hors_pen": 416.0,
+   "contrib_par_match": 0.748,
+   "saisons_40": 2.0,
+   "meilleure_saison": 50.0
+  },
+  {
+   "nom": "Benzema",
+   "matchs": 860,
+   "buts": 461.0,
+   "passes": 200,
+   "penalties": 38,
+   "matchs_sel": 97,
+   "buts_sel": 37,
+   "buts_total": 498.0,
+   "buts_hors_pen": 423.0,
+   "contrib_par_match": 0.724,
+   "saisons_40": 1.0,
+   "meilleure_saison": 44.0
+  },
+  {
+   "nom": "Kane",
+   "matchs": 614,
+   "buts": 398.0,
+   "passes": 107,
+   "penalties": 65,
+   "matchs_sel": 109,
+   "buts_sel": 74,
+   "buts_total": 472.0,
+   "buts_hors_pen": 333.0,
+   "contrib_par_match": 0.717,
+   "saisons_40": 3.0,
+   "meilleure_saison": 44.0
+  },
+  {
+   "nom": "Salah",
+   "matchs": 657,
+   "buts": 323.0,
+   "passes": 162,
+   "penalties": 44,
+   "matchs_sel": 105,
+   "buts_sel": 59,
+   "buts_total": 382.0,
+   "buts_hors_pen": 279.0,
+   "contrib_par_match": 0.671,
+   "saisons_40": 1.0,
+   "meilleure_saison": 44.0
+  },
+  {
+   "nom": "Agüero",
+   "matchs": 685,
+   "buts": 385.0,
+   "passes": 113,
+   "penalties": 46,
+   "matchs_sel": 101,
+   "buts_sel": 41,
+   "buts_total": 426.0,
+   "buts_hors_pen": 339.0,
+   "contrib_par_match": 0.66,
+   "saisons_40": 0.0,
+   "meilleure_saison": 33.0
+  },
+  {
+   "nom": "Henry",
+   "matchs": 794,
+   "buts": 360.0,
+   "passes": 177,
+   "penalties": 26,
+   "matchs_sel": 123,
+   "buts_sel": 51,
+   "buts_total": 411.0,
+   "buts_hors_pen": 334.0,
+   "contrib_par_match": 0.644,
+   "saisons_40": 0.0,
+   "meilleure_saison": 39.0
+  },
+  {
+   "nom": "Rooney",
+   "matchs": 764,
+   "buts": 313.0,
+   "passes": 167,
+   "penalties": 41,
+   "matchs_sel": 120,
+   "buts_sel": 53,
+   "buts_total": 366.0,
+   "buts_hors_pen": 272.0,
+   "contrib_par_match": 0.575,
+   "saisons_40": 0.0,
+   "meilleure_saison": 34.0
+  }
+ ],
+ "tirs": {
+  "saisons": [
+   {
+    "saison": "2004/2005",
+    "tirs": 6,
+    "buts": 1,
+    "xg": 0.57
+   },
+   {
+    "saison": "2005/2006",
+    "tirs": 38,
+    "buts": 6,
+    "xg": 4.81
+   },
+   {
+    "saison": "2006/2007",
+    "tirs": 63,
+    "buts": 14,
+    "xg": 8.12
+   },
+   {
+    "saison": "2007/2008",
+    "tirs": 61,
+    "buts": 4,
+    "xg": 5.15
+   },
+   {
+    "saison": "2008/2009",
+    "tirs": 107,
+    "buts": 20,
+    "xg": 13.79
+   },
+   {
+    "saison": "2009/2010",
+    "tirs": 160,
+    "buts": 33,
+    "xg": 20.16
+   },
+   {
+    "saison": "2010/2011",
+    "tirs": 142,
+    "buts": 27,
+    "xg": 21.04
+   },
+   {
+    "saison": "2011/2012",
+    "tirs": 187,
+    "buts": 40,
+    "xg": 27.03
+   },
+   {
+    "saison": "2012/2013",
+    "tirs": 154,
+    "buts": 42,
+    "xg": 18.86
+   },
+   {
+    "saison": "2013/2014",
+    "tirs": 155,
+    "buts": 22,
+    "xg": 18.17
+   },
+   {
+    "saison": "2014/2015",
+    "tirs": 180,
+    "buts": 38,
+    "xg": 24.42
+   },
+   {
+    "saison": "2015/2016",
+    "tirs": 151,
+    "buts": 23,
+    "xg": 15.78
+   },
+   {
+    "saison": "2016/2017",
+    "tirs": 170,
+    "buts": 31,
+    "xg": 17.45
+   },
+   {
+    "saison": "2017/2018",
+    "tirs": 194,
+    "buts": 32,
+    "xg": 20.66
+   },
+   {
+    "saison": "2018/2019",
+    "tirs": 166,
+    "buts": 32,
+    "xg": 16.96
+   },
+   {
+    "saison": "2019/2020",
+    "tirs": 154,
+    "buts": 20,
+    "xg": 13.61
+   },
+   {
+    "saison": "2020/2021",
+    "tirs": 190,
+    "buts": 27,
+    "xg": 18.95
+   }
+  ],
+  "messi": {
+   "tirs": 2278,
+   "buts": 412,
+   "xg": 265.5
+  },
+  "classement_ecart": [
+   {
+    "joueur": "Lionel Andrés Messi Cuccittini",
+    "tirs": 2278,
+    "buts": 412,
+    "xg": 265.5,
+    "ecart": 146.5
+   },
+   {
+    "joueur": "Luis Alberto Suárez Díaz",
+    "tirs": 600,
+    "buts": 128,
+    "xg": 100.0,
+    "ecart": 28.0
+   },
+   {
+    "joueur": "Samuel Eto''o Fils",
+    "tirs": 298,
+    "buts": 62,
+    "xg": 46.8,
+    "ecart": 15.2
+   },
+   {
+    "joueur": "Pedro Eliezer Rodríguez Ledesma",
+    "tirs": 256,
+    "buts": 48,
+    "xg": 36.8,
+    "ecart": 11.2
+   },
+   {
+    "joueur": "Xavier Hernández Creus",
+    "tirs": 311,
+    "buts": 36,
+    "xg": 25.1,
+    "ecart": 10.9
+   },
+   {
+    "joueur": "Alexis Alejandro Sánchez Sánchez",
+    "tirs": 118,
+    "buts": 29,
+    "xg": 18.3,
+    "ecart": 10.7
+   },
+   {
+    "joueur": "Thierry Henry",
+    "tirs": 163,
+    "buts": 33,
+    "xg": 23.9,
+    "ecart": 9.1
+   },
+   {
+    "joueur": "David Villa Sánchez",
+    "tirs": 191,
+    "buts": 32,
+    "xg": 23.1,
+    "ecart": 8.9
+   },
+   {
+    "joueur": "Ivan Rakitić",
+    "tirs": 211,
+    "buts": 25,
+    "xg": 16.4,
+    "ecart": 8.6
+   },
+   {
+    "joueur": "Neymar da Silva Santos Junior",
+    "tirs": 340,
+    "buts": 55,
+    "xg": 47.1,
+    "ecart": 7.9
+   }
+  ],
+  "nb_joueurs_100_tirs": 26,
+  "hors_surface": {
+   "messi_tirs": 946,
+   "messi_buts": 88,
+   "messi_xg": 46.9,
+   "messi_taux": 9.3,
+   "autres_taux": 3.6
+  }
+ },
+ "ballons": {
+  "Messi": [
+   2009,
+   2010,
+   2011,
+   2012,
+   2015,
+   2019,
+   2021,
+   2023
+  ],
+  "Cristiano Ronaldo": [
+   2008,
+   2013,
+   2014,
+   2016,
+   2017
+  ],
+  "Michel Platini": [
+   1983,
+   1984,
+   1985
+  ],
+  "Johan Cruyff": [
+   1971,
+   1973,
+   1974
+  ],
+  "Marco van Basten": [
+   1988,
+   1989,
+   1992
+  ]
+ }
+}
