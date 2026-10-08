@@ -642,3 +642,21 @@ svg.court rect{transition:fill-opacity .45s ease;}
 .essay p:first-child{font-family:Fraunces, Georgia, serif; font-size:1.3rem; line-height:1.45;}
 .essay p:last-child{margin-bottom:0;}
 .card-links{display:flex; flex-wrap:wrap; gap:6px 16px;}
+
+/* ---------- ajustements : citation en titre, chiffres clés, blocs compacts ---------- */
+.hero h1{font-size:clamp(2.2rem, 5.6vw, 4.2rem); max-width:16ch;}
+.hero-cite{margin:10px 0 0; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
+.hero .kicker{margin-top:22px;}
+.stats{grid-template-columns:repeat(3, 1fr);}
+.stats .stat-n{white-space:nowrap;}
+.off-compact .off{padding:20px 22px 18px;}
+.off-compact .off-num{font-size:2rem; margin:2px 0 8px;}
+.off-compact .off-stat{margin:0;}
+#parcours .pills{margin-top:18px;}
+#parcours .bio{max-width:680px;}
+@media (max-width:820px){
+  .stats{grid-template-columns:1fr;}
+  .stats > *{border-right:0; border-bottom:1px solid var(--border);}
+  .stats > *:last-child{border-bottom:0;}
+  .off-compact{grid-template-columns:1fr;}
+}

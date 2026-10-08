@@ -6,22 +6,14 @@ Alternance 12 mois · data analyst, chargé de projet digital · Master Marketin
 
 ## Les deux études phares
 
-| Étude | Données | Dans Excel |
+| Étude | Question | Données |
 |---|---|---|
-| [Le bookmaker gagne toujours. Même au MMA.](https://ateyaba-k.github.io/projets/ufc-paris.html) | 6 916 combats UFC et leurs cotes, 70,5 Md€ de paris sportifs (ARJEL/ANJ) | 1 000 parieurs simulés, calculatrice de marge |
-| [Le tir que la NBA a arrêté de financer](https://ateyaba-k.github.io/projets/nba-mi-distance.html) | 4,4 millions de tirs NBA, 2003-04 à 2024-25 | Carte de chaleur du terrain, décomposition mix / adresse |
+| [Paris sportifs et MMA](https://ateyaba-k.github.io/projets/ufc-paris.html) | Quand on parie sur le MMA, qui gagne vraiment ? | 6 916 combats UFC et leurs cotes, 70,5 Md€ de paris sportifs (ARJEL/ANJ) |
+| [NBA, le tir à mi-distance](https://ateyaba-k.github.io/projets/nba-mi-distance.html) | Pourquoi les équipes l'ont presque abandonné ? | 4,4 millions de tirs NBA, 2003-04 à 2024-25 |
 
-## Des graphiques faits dans Excel, et les tutos pour les refaire
+## Organisation
 
-Chaque étude a son dossier `projets/<étude>/` :
-
-- `TUTO.md` : le tuto pas à pas (aussi en page sur le site) ;
-- `excel/<étude>-exercice.xlsx` : les données, rien n'est fait ;
-- `excel/<étude>-corrige.xlsx` : la version finie, d'où sortent les graphiques du site ;
-- `excel/csv/` : les données pour Power BI ;
-- `analyse.py` : le calcul des données brutes (Python).
-
-Les huit projets plus courts (churn télécom, ventes de musique, scoring B2B, IA dans les PME, reporting Insee, inflation, cadrage et suivi de projet) ont le même type de dossier, sans `analyse.py` : leurs données viennent du dépôt GitHub d'origine.
+Chaque étude a son dossier `projets/<étude>/` : `analyse.py` calcule les résultats à partir des données brutes, et `excel/graphiques/` contient les graphiques du site, faits dans Excel.
 
 ## Le site
 

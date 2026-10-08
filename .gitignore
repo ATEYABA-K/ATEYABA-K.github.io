@@ -1,2 +1,7 @@
 projets/nba-mi-distance/donnees/
 __pycache__/
+# Tutos et fichiers d'entraînement : gardés en local uniquement
+projets/*-tuto.html
+projets/*/TUTO.md
+projets/*/excel/*.xlsx
+projets/*/excel/csv/
