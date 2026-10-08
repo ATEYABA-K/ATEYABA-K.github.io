@@ -628,8 +628,6 @@ if __name__ == "__main__":
         ("ufc-paris", paris, {"G1 Argent": "G1-argent.png", "G2 Evenements": "G2-evenements.png", "G3 Calibration": "G3-calibration.png",
                               "G4 Rendement": "G4-rendement.png", "G5 Simulateur": "G5-simulateur.png",
                               "Calculatrice": "calculatrice.png", "G6 Distribution": "G6-distribution.png"}),
-        ("nba-mi-distance", nba, {"G1 Parts": "G1-parts.png", "G2 Rendement": "G2-rendement.png", "G3 Correlation": "G3-correlation.png",
-                                  "Terrain 2004": "terrain-2004.png", "Terrain 2025": "terrain-2025.png"}),
     ):
         dossier = RACINE / "projets" / nom / "excel"
         dossier.mkdir(parents=True, exist_ok=True)

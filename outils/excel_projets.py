@@ -456,7 +456,7 @@ def OUT(projet):
 PROJETS = {
     "churn-telco": churn, "sql-musique": sql, "scoring-b2b": scoring,
     "ia-pme": lambda exo: insee_ia(exo, "ia-pme"), "reporting-insee": lambda exo: insee_ia(exo, "reporting-insee"),
-    "ipc-france": ipc, "cadrage-gantt": cadrage, "suivi-projet": suivi,
+    "cadrage-gantt": cadrage,
 }
 
 if __name__ == "__main__":
