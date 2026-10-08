@@ -672,3 +672,8 @@ footer{justify-content:center; text-align:center;}
 .article-wide .sub-head{margin:32px 0 20px;}
 @media (max-width:980px){ .grid-3{grid-template-columns:1fr 1fr;} }
 @media (max-width:640px){ .grid-3{grid-template-columns:1fr;} }
+/* trois projets : le dernier reste centré quand la grille passe à deux colonnes */
+.grid-3{display:flex; flex-wrap:wrap; justify-content:center;}
+.grid-3 > .card{flex:0 1 calc((100% - 2 * 24px) / 3);}
+@media (max-width:980px){ .grid-3 > .card{flex-basis:calc((100% - 24px) / 2);} }
+@media (max-width:640px){ .grid-3 > .card{flex-basis:100%;} }
