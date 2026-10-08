@@ -1,0 +1,28 @@
+{
+  "licences_boxe": [
+    {"periode": "2020-21", "valeur": 26506, "note": "fin de saison 2020-2021, marquée par le Covid", "source": "https://www.sportmag.fr/boxe-le-cap-des-60-000-licencies-depasse-par-la-ffboxe/"},
+    {"periode": "2022", "valeur": 50200, "note": "licences boxe délivrées en 2022", "source": "https://www.insee.fr/fr/statistiques/8070743"},
+    {"periode": "2023-24", "valeur": 60000, "note": "cap des 60 000 dépassé en avril 2024, une première", "source": "https://www.ffboxe.com/60-000-et-ce-nest-pas-fini/"}
+  ],
+  "licences_mma": [
+    {"periode": "2021-22", "valeur": 2056, "note": "saison de référence", "source": "https://lespharaons.com/mma-de-pratique-longtemps-bannie-a-phenomene-incontournable"},
+    {"periode": "2023-24", "valeur": 8922, "note": "doublement en un an, +334 % par rapport à 2021-22", "source": "https://immaf.org/2024/10/09/fmmaf-sees-record-growth-and-success-across-french-mma-scene/"},
+    {"periode": "2024-25", "valeur": 12000, "note": "« près de 12 000 », ordre de grandeur", "source": "https://lespharaons.com/mma-de-pratique-longtemps-bannie-a-phenomene-incontournable"}
+  ],
+  "judo_pour_10000": {"2019": 78, "2020": 76, "2021": 54, "2022": 69, "2023": 77, "2024": 80,
+    "source": "https://www.insee.fr/fr/statistiques/serie/001756153",
+    "suite": "+8,4 % de licences en 2025 (retombées des Jeux), puis environ -5 % en 2026 selon un rapport de comité"},
+  "taille_2024": [
+    {"sport": "Judo", "licences": 547700, "source": "https://www.insee.fr/fr/statistiques/2408252"},
+    {"sport": "Karaté", "licences": 249700, "source": "https://www.insee.fr/fr/statistiques/2408252"},
+    {"sport": "Kick-boxing, muay-thaï", "licences": 66300, "source": "https://www.insee.fr/fr/statistiques/2408252"},
+    {"sport": "Boxe", "licences": 60000, "source": "https://www.ffboxe.com/60-000-et-ce-nest-pas-fini/"},
+    {"sport": "Savate boxe française", "licences": 57551, "source": "https://sportmag.fr/la-savate-boxe-francaise-ce-sport-qui-bat-des-records"},
+    {"sport": "MMA", "licences": 8922, "source": "https://immaf.org/2024/10/09/fmmaf-sees-record-growth-and-success-across-french-mma-scene/"}
+  ],
+  "salles": [
+    {"evenement": "UFC Paris 2022", "spectateurs": 15405, "source": "https://www.ufc.com/news/ufc-delivers-eu334-million-economic-impact-city-paris-ufcs-first-event-france"},
+    {"evenement": "PFL Paris 2023 (Zénith)", "spectateurs": 6000, "source": "https://sortiraparis.com/en/what-to-do-in-paris/sport-wellness/articles/309964-baki-wins-fight-against-doumbe-at-arena-paris-rematch-date-announced"},
+    {"evenement": "PFL Paris 2024 (Accor Arena)", "spectateurs": 15000, "source": "https://sortiraparis.com/en/what-to-do-in-paris/sport-wellness/articles/309964-baki-wins-fight-against-doumbe-at-arena-paris-rematch-date-announced"}
+  ]
+}

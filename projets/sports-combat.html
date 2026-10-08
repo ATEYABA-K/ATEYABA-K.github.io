@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les sports de combat en France · Alvin Kouadio</title>
+<meta name="description" content="Licences, pics et stratégies marketing : comment le MMA, la boxe et le judo ont gagné du terrain en France depuis 2020. Étude de données par Alvin Kouadio.">
+<meta property="og:title" content="MMA, boxe, judo : comment les sports de combat ont conquis la France">
+<meta property="og:description" content="8 922 licenciés en MMA, 60 fois moins qu'en judo, et pourtant des salles de 15 000 places pleines. Ce que les chiffres disent de la croissance des sports de combat.">
+<meta property="og:image" content="https://ateyaba-k.github.io/projets/sports-combat/excel/graphiques/G1-taille.png">
+<meta property="og:url" content="https://ateyaba-k.github.io/projets/sports-combat.html">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+
+<div class="wrap">
+<article class="article">
+  <a class="back" href="../index.html#projets">← Tous les projets</a>
+  <p class="eyebrow"><b>Étude</b> · Sports de combat × marketing</p>
+  <h1>MMA, boxe, judo : comment les sports de combat <em class="mark">ont conquis la France.</em></h1>
+  <p class="kicker">Depuis 2020, les sports de combat attirent plus de monde que jamais en France. Mais ils ne grandissent pas tous pour les mêmes raisons. J'ai rassemblé les chiffres de licences et d'affluence pour repérer les pics, puis comparé les stratégies des organisateurs.</p>
+  <div class="meta-row"><span>6 disciplines</span><span>2019 à 2025</span><span>Insee, fédérations, organisateurs</span><span>Graphiques faits dans Excel</span></div>
+
+  <div class="kpis">
+    <div class="kpi"><b>×4,3</b><span>licences de MMA en deux saisons (2 056 puis 8 922)</span></div>
+    <div class="kpi"><b>60 000</b><span>licenciés en boxe en 2024, une première pour la fédération</span></div>
+    <div class="kpi"><b>15 405</b><span>spectateurs au premier UFC Paris, en 2022</span></div>
+  </div>
+
+  <section class="tldr">
+    <h2>En 30 secondes</h2>
+    <ul>
+      <li>Le MMA compte <strong>60 fois moins de licenciés que le judo</strong>, mais il remplit l'Accor Arena. Sa croissance passe d'abord par le spectacle, pas par les clubs.</li>
+      <li>Il y a deux sortes de hausse : les pics liés à un événement (le creux du Covid, puis l'effet des Jeux pour le judo), qui retombent, et une <strong>croissance de fond</strong>, celle du MMA, qui continue.</li>
+      <li>Chaque organisateur joue une carte différente : l'UFC mise sur un <strong>rendez-vous fixe et des héros français</strong>, la PFL sur <strong>une star et sa communauté</strong>, Ares sur <strong>la proximité</strong>.</li>
+    </ul>
+  </section>
+
+  <h2 class="h"><span class="step">01 · La taille</span>Un petit sport qui fait beaucoup de bruit</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="sports-combat/excel/graphiques/G1-taille.png" alt="Licences par discipline de combat en France" loading="lazy">
+    <p class="src">Sources : Insee (judo, karaté, kick-boxing, 2024) · FFBoxe (2024) · FFSavate (2023-24) · IMMAF (MMA, 2023-24)</p>
+  </figure>
+  <p>En nombre de licenciés, le judo écrase tout : <strong>547 700</strong>. Le MMA, lui, en compte <strong>8 922</strong>. Pourtant, c'est lui qui remplit les plus grandes salles de Paris. Ce décalage est le point de départ de l'étude : si l'on ne regarde que les licences, on passe à côté de ce qui se joue vraiment. Pour le MMA, la pratique en club et le public sont deux marchés différents.</p>
+
+  <h2 class="h"><span class="step">02 · La croissance</span>Le MMA grandit deux fois plus vite que la boxe</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="sports-combat/excel/graphiques/G2-croissance.png" alt="Croissance des licences de boxe et de MMA, base 100" loading="lazy">
+    <p class="src">Sources : FFBoxe, Insee, IMMAF, Les Pharaons · base 100 = première saison connue de chaque discipline</p>
+  </figure>
+  <p>Pour comparer deux sports de tailles si différentes, je ramène chacun à 100 lors de sa première saison connue. La boxe passe de 26 506 licenciés (2020-21, saison Covid) à plus de 60 000 en 2024 : elle fait <strong>×2,3</strong>. Le MMA passe de 2 056 à 8 922 en deux saisons, <strong>×4,3</strong>, et approche 12 000 en 2024-25 selon la presse spécialisée. Ce dernier chiffre est un ordre de grandeur, pas une donnée officielle.</p>
+
+  <h2 class="h"><span class="step">03 · Les pics</span>Un événement crée un pic, pas une tendance</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="sports-combat/excel/graphiques/G3-judo.png" alt="Licences de judo pour 10 000 habitants, 2019 à 2024" loading="lazy">
+    <p class="src">Source : Insee, licences de judo pour 10 000 habitants</p>
+  </figure>
+  <p>Le judo montre bien la différence. Le Covid fait chuter les licences à 54 pour 10 000 habitants en 2021, puis elles remontent jusqu'à 80 en 2024. Les Jeux de Paris ajoutent encore +8,4 % en 2025, mais un rapport de comité fait état d'une baisse d'environ 5 % en 2026. L'effet d'un événement retombe. Le MMA, lui, n'a pas eu de Jeux : sa hausse s'appuie sur des soirées qui reviennent chaque année.</p>
+  <ol class="timeline-h">
+    <li><span class="when mono">Début 2020</span><b>Le MMA devient légal</b><span>Le ministère confie sa gestion à la Fédération française de boxe.</span></li>
+    <li><span class="when mono">Sept. 2022</span><b>Premier UFC Paris</b><span>15 405 spectateurs, 3,4 M€ de billetterie, un record pour la salle selon l'UFC.</span></li>
+    <li><span class="when mono">2023-24</span><b>Les licences de MMA doublent</b><span>et la boxe passe la barre des 60 000 licenciés.</span></li>
+    <li><span class="when mono">2024</span><b>La PFL change de salle</b><span>de 6 000 places au Zénith à 15 000 à l'Accor Arena, vendues très vite.</span></li>
+  </ol>
+
+  <h2 class="h"><span class="step">04 · Le marketing</span>Trois stratégies, trois façons de remplir une salle</h2>
+  <div class="lessons">
+    <div><b>UFC : un rendez-vous fixe et des héros français.</b><span>Paris chaque mois de septembre depuis 2022, avec un Français en tête d'affiche : Ciryl Gane en 2022 et 2023, Benoît Saint-Denis en 2024, Nassourdine Imavov en 2025. La première édition passe aussi en clair sur la chaîne L'Équipe, en plus de RMC Sport. Ensuite, retour au payant : RMC Sport signe un contrat de cinq ans en 2023, entre 19 et 25 € par mois. On recrute large, puis on fait payer.</span></div>
+    <div><b>PFL : une star et sa communauté.</b><span>Tout repose sur Cédric Doumbè, suivi par plus de 900 000 personnes sur X, et sur ses provocations avant chaque combat. Résultat : 6 000 spectateurs au Zénith en 2023, puis 15 000 billets vendus en un temps record à l'Accor Arena. La PFL lui fait signer un contrat d'exclusivité de plusieurs années.</span></div>
+    <div><b>Ares : la proximité.</b><span>Une organisation française, des soirées régulières et une tournée des villes : Paris, Nice, puis Bordeaux et ses 15 000 places en 2026. Canal+ s'engage sur le long terme et publie les résumés sur son application. On construit un public local, ville par ville.</span></div>
+  </div>
+  <p>Côté fédérations, la boxe lance une licence en ligne en 2023-24 pour simplifier l'inscription, et le MMA obtient sa propre structure, la FMMAF, toujours rattachée à la boxe. Le judo, lui, profite surtout de l'exposition des Jeux.</p>
+
+  <h2 class="h"><span class="step">05 · Et alors ?</span>Ce que ça m'apprend sur le marketing</h2>
+  <div class="lessons">
+    <div><b>Un seul indicateur ne suffit pas.</b><span>Avec les licences seules, le MMA paraît marginal. Avec l'affluence, il paraît énorme. Il faut mesurer la pratique et l'attention séparément, sinon on se trompe de marché.</span></div>
+    <div><b>Un pic n'est pas une tendance.</b><span>Les Jeux ont fait monter le judo, puis l'effet s'est tassé. Avant de prendre une décision sur un chiffre en hausse, il faut savoir s'il vient d'un événement ou d'un mouvement de fond.</span></div>
+    <div><b>La stratégie dépend de ce qu'on possède.</b><span>L'UFC a une marque, la PFL a une star, Ares a un territoire. Chacun construit sa croissance sur son meilleur actif.</span></div>
+  </div>
+
+  <h2 class="h"><span class="step">06 · Limites</span>Ce que cette étude ne dit pas</h2>
+  <div class="limits">
+    <div><b>Des sources hétérogènes.</b><span>Licences annuelles d'un côté, saisons sportives de l'autre, chiffres de l'Insee et chiffres des fédérations. Les comparaisons donnent des ordres de grandeur, pas une mesure exacte.</span></div>
+    <div><b>Des chiffres d'organisateurs.</b><span>L'affluence et la billetterie viennent de l'UFC et de la PFL elles-mêmes. Je n'ai pas trouvé de mesure indépendante.</span></div>
+    <div><b>Pas d'audiences télé publiques.</b><span>RMC Sport, DAZN et Canal+ ne publient pas leurs audiences de combat. C'est la donnée qui manque le plus pour mesurer l'attention.</span></div>
+  </div>
+
+  <h2 class="h"><span class="step">Sources</span>Où j'ai trouvé les chiffres</h2>
+  <ul class="sources">
+    <li><a href="https://www.insee.fr/fr/statistiques/2408252" target="_blank" rel="noopener">Insee, licences sportives par fédération (2024)</a> et <a href="https://www.insee.fr/fr/statistiques/serie/001756153" target="_blank" rel="noopener">série judo pour 10 000 habitants</a></li>
+    <li><a href="https://www.insee.fr/fr/statistiques/8070743" target="_blank" rel="noopener">Insee Première n° 1992, licences des fédérations olympiques</a></li>
+    <li><a href="https://www.ffboxe.com/60-000-et-ce-nest-pas-fini/" target="_blank" rel="noopener">FFBoxe, 60 000 licenciés</a> · <a href="https://www.sportmag.fr/boxe-le-cap-des-60-000-licencies-depasse-par-la-ffboxe/" target="_blank" rel="noopener">Sportmag</a></li>
+    <li><a href="https://immaf.org/2024/10/09/fmmaf-sees-record-growth-and-success-across-french-mma-scene/" target="_blank" rel="noopener">IMMAF, croissance de la FMMAF</a> · <a href="https://lespharaons.com/mma-de-pratique-longtemps-bannie-a-phenomene-incontournable" target="_blank" rel="noopener">Les Pharaons</a></li>
+    <li><a href="https://sportmag.fr/la-savate-boxe-francaise-ce-sport-qui-bat-des-records" target="_blank" rel="noopener">Sportmag, savate boxe française</a></li>
+    <li><a href="https://www.ufc.com/news/ufc-delivers-eu334-million-economic-impact-city-paris-ufcs-first-event-france" target="_blank" rel="noopener">UFC, bilan du premier UFC Paris</a> · <a href="https://www.ozap.com/actu/rmc-sport-prolonge-ses-droits-de-l-ufc-pour-5-ans/626900" target="_blank" rel="noopener">Ozap, droits RMC Sport</a></li>
+    <li><a href="https://sortiraparis.com/en/what-to-do-in-paris/sport-wellness/articles/309964-baki-wins-fight-against-doumbe-at-arena-paris-rematch-date-announced" target="_blank" rel="noopener">Sortiraparis, PFL Paris</a> · <a href="https://pflmma.com/news/cedric-doumbe-signs-exclusive-multiyear-contract-extension-with-professional-fighters-league-will-fight-at-bellator-champions-series-paris-on-may-17" target="_blank" rel="noopener">PFL, contrat de Cédric Doumbè</a></li>
+    <li><a href="https://sportbusiness.com/news/canal-plus-makes-long-term-commitment-to-french-mma-promotion-ares-fighting" target="_blank" rel="noopener">SportBusiness, Canal+ et Ares</a> · <a href="https://www.nrmagazine.com/ares-39-ou-voir-jbalia-vs-diatta-ce-soir-heure-et-carte-complete/" target="_blank" rel="noopener">NR Magazine, Ares à Bordeaux</a></li>
+    <li><a href="https://immaf.org/2020/02/07/french-ministry-decision-for-mma-to-be-housed-within-french-boxing-mma-governing-bodies-respond/" target="_blank" rel="noopener">IMMAF, légalisation du MMA en France</a></li>
+  </ul>
+
+  <div class="code-cta">
+    <a class="btn btn-main" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/sports-combat" target="_blank" rel="noopener">Sur GitHub ↗</a>
+  </div>
+</article>
+
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="../index.html#contact">Me contacter</a></span>
+  </footer>
+</div>
+
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
