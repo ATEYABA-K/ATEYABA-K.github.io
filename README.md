@@ -4,12 +4,13 @@
 
 Alternance 12 mois · data analyst, chargé de projet digital · Master Marketing Digital, Big Data & IA (INSEEC).
 
-## Les deux études phares
+## Les études complètes
 
 | Étude | Question | Données |
 |---|---|---|
+| [Messi](https://ateyaba-k.github.io/projets/messi.html) | Est-il le meilleur joueur de l'histoire ? | Transfermarkt (14 attaquants), StatsBomb (2 278 tirs en Liga) |
+| [Sports de combat en France](https://ateyaba-k.github.io/projets/sports-combat.html) | Comment ont-ils conquis la France ? | Insee, fédérations, organisateurs |
 | [Paris sportifs et MMA](https://ateyaba-k.github.io/projets/ufc-paris.html) | Quand on parie sur le MMA, qui gagne vraiment ? | 6 916 combats UFC et leurs cotes, 70,5 Md€ de paris sportifs (ARJEL/ANJ) |
-| [NBA, le tir à mi-distance](https://ateyaba-k.github.io/projets/nba-mi-distance.html) | Pourquoi les équipes l'ont presque abandonné ? | 4,4 millions de tirs NBA, 2003-04 à 2024-25 |
 
 ## Organisation
 
