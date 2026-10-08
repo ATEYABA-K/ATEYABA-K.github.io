@@ -23,18 +23,13 @@ Cette étude reprend les cotes de 6 916 combats UFC (2010-2026) pour voir qui ga
 
 Sources : rapports ARJEL (2010-2018) et ANJ (2020-2025). Mises 2019 déduites ; PBJ 2024 révisé par l'ANJ.
 
-## Refaire les graphiques (Excel)
+## Graphiques
 
-Tous les graphiques de l'étude sont faits dans Excel. Le tuto pas à pas est dans [TUTO.md](TUTO.md).
-
-- `excel/ufc-paris-exercice.xlsx` : les données, rien n'est fait, pour s'entraîner.
-- `excel/ufc-paris-corrige.xlsx` : la version finie (formules + graphiques).
-- `excel/graphiques/` : les graphiques exportés depuis le corrigé (ceux du site).
-- `excel/csv/` : les données pour Power BI.
+Tous les graphiques de l'étude sont faits dans Excel, à partir des résultats calculés par `analyse.py`. Ils sont dans `excel/graphiques/`.
 
 ## Calcul des données
 
-`analyse.py` (Python) télécharge les données brutes et calcule `resultats.json`. `outils/excel.py` construit ensuite les fichiers Excel, et `outils/tutos.py` les tutos.
+`analyse.py` (Python) télécharge les données brutes et calcule `resultats.json`. Les graphiques sont ensuite construits dans Excel.
 
 
 ## Données

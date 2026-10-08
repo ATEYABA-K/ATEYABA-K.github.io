@@ -38,8 +38,7 @@
   <a class="back" href="../index.html#projets">← Tous les projets</a>
   <p class="eyebrow"><b>Étude</b> · Basket × allocation de ressources</p>
   <h1>Le tir que la NBA a arrêté de <em class="mark">financer.</em></h1>
-  <p class="kicker">Pendant 22 saisons, sans exception, le tir à mi-distance a rapporté moins qu'un 3 points. Les équipes ont mis près de dix ans à couper le budget. Ce que ça raconte de la façon dont on alloue ses ressources, au basket comme en marketing.</p>
-  <div class="studybox"><span><b>Graphiques :</b> faits dans Excel, refaisables avec <a href="nba-mi-distance-tuto.html">le tuto pas à pas</a></span><span><b>Fichiers :</b> <a href="nba-mi-distance/excel/nba-mi-distance-exercice.xlsx" download>exercice</a> · <a href="nba-mi-distance/excel/nba-mi-distance-corrige.xlsx" download>corrigé</a> · <a href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/nba-mi-distance/excel/csv" target="_blank" rel="noopener">CSV pour Power BI</a></span><span><b>Calcul des données :</b> Python (<a href="nba-mi-distance/analyse.py">analyse.py</a>)</span></div>
+  <p class="kicker">Pourquoi les équipes NBA ont-elles presque abandonné le tir à mi-distance ? Parce qu'il rapporte moins de points que les autres. Sur 4 441 452 tirs, je mesure ce que rapporte chaque zone du terrain, et comment les équipes ont déplacé leurs tirs vers les plus rentables. Le même raisonnement qu'un budget marketing : on investit là où ça rapporte.</p>
   <div class="meta-row"><span>4 441 452 tirs</span><span>22 saisons</span><span>2003-04 → 2024-25</span><span>Excel · Power BI · Python pour le calcul</span></div>
 
   <div class="kpis">
@@ -64,7 +63,6 @@
     <span class="made-in">▦ Fait dans Excel</span>
     <img class="xl" src="nba-mi-distance/excel/graphiques/terrain-2004.png" alt="Carte des tirs 2003-04 et 2024-25 en carte de chaleur Excel" loading="lazy">
     <img class="xl" src="nba-mi-distance/excel/graphiques/terrain-2025.png" alt="Carte des tirs 2003-04 et 2024-25 en carte de chaleur Excel" loading="lazy">
-    <div class="repro"><b>Le refaire :</b><a href="nba-mi-distance-tuto.html#etape-5">Tuto étape 5 (mise en forme conditionnelle)</a><a href="nba-mi-distance/excel/nba-mi-distance-corrige.xlsx" download>Onglets Terrain</a></div>
   </figure>
 
   <h2 class="h"><span class="step">02 · Le rendement</span>Cinq canaux, cinq rendements</h2>
@@ -73,7 +71,6 @@
     <span class="made-in">▦ Fait dans Excel</span>
     <img class="xl" src="nba-mi-distance/excel/graphiques/G2-rendement.png" alt="Points rapportés par tir selon la zone, 2003-04 et 2024-25" loading="lazy">
     <p class="src">Source : NBA.com · 4 441 452 tirs, lancers francs exclus</p>
-    <div class="repro"><b>Le refaire :</b><a href="nba-mi-distance-tuto.html#etape-2">Tuto étape 2</a><a href="nba-mi-distance/excel/nba-mi-distance-exercice.xlsx" download>Exercice .xlsx</a><a href="nba-mi-distance/excel/nba-mi-distance-corrige.xlsx" download>Corrigé .xlsx</a></div>
   </figure>
   <p>Le mi-distance rapporte 0,83 point par tir. Un 3 points dans le coin, 1,16. L'écart est là depuis 2004, saison après saison. Seul le petit tir dans la raquette (le floater) fait aussi mal, et sa part a même augmenté, de 14 % à 20 % : c'est souvent ce qui reste quand une attaque vers le panier est freinée. Le coin, c'est la niche rentable : le 3 points le plus court du terrain (6,70 m contre 7,24 m dans l'axe), donc le plus réussi.</p>
 
@@ -82,7 +79,6 @@
     <span class="made-in">▦ Fait dans Excel</span>
     <img class="xl" src="nba-mi-distance/excel/graphiques/G1-parts.png" alt="Part des tirs par grande zone, 2003-04 à 2024-25" loading="lazy">
     <p class="src">Source : NBA.com · 2003-04 à 2024-25</p>
-    <div class="repro"><b>Le refaire :</b><a href="nba-mi-distance-tuto.html#etape-1">Tuto étape 1</a><a href="nba-mi-distance/excel/nba-mi-distance-exercice.xlsx" download>Exercice .xlsx</a><a href="nba-mi-distance/excel/nba-mi-distance-corrige.xlsx" download>Corrigé .xlsx</a></div>
   </figure>
   <p>Rien ne bouge pendant huit ans : le mi-distance perd à peine 5 points. Puis tout s'accélère à partir de 2012-13, la saison où les Houston Rockets deviennent l'équipe qui en prend le moins. Ils le resteront huit saisons de suite. Les données étaient disponibles pour tout le monde. Une équipe a décidé de s'en servir.</p>
 
@@ -97,7 +93,6 @@
     <div class="eq">−</div>
     <div><b class="mono">0,008</b><span>interaction</span></div>
   </div>
-  <div class="repro"><b>Le refaire :</b><a href="nba-mi-distance-tuto.html#etape-3">Tuto étape 3 (SOMMEPROD)</a><a href="nba-mi-distance/excel/nba-mi-distance-exercice.xlsx" download>Exercice .xlsx</a></div>
   <p>Sans qu'un seul joueur ne progresse, déplacer les tirs aurait suffi à gagner 0,053 point par tir. Sur les quelque 89 tirs d’une équipe par match, c’est environ <strong>4,7 points par match</strong>, offerts par une décision d'allocation. Le reste vient d'une meilleure adresse, surtout sous le panier.</p>
 
   <h2 class="h"><span class="step">05 · Le retournement</span>Quand tout le monde quitte un canal</h2>
@@ -105,7 +100,6 @@
     <span class="made-in">▦ Fait dans Excel</span>
     <img class="xl" src="nba-mi-distance/excel/graphiques/G3-correlation.png" alt="Corrélation entre part de mi-distance et rendement des équipes" loading="lazy">
     <p class="src">Source : NBA.com · 30 équipes par saison</p>
-    <div class="repro"><b>Le refaire :</b><a href="nba-mi-distance-tuto.html#etape-4">Tuto étape 4</a><a href="nba-mi-distance/excel/nba-mi-distance-exercice.xlsx" download>Exercice .xlsx</a><a href="nba-mi-distance/excel/nba-mi-distance-corrige.xlsx" download>Corrigé .xlsx</a></div>
   </figure>
   <p>Jusqu'en 2015, les équipes qui tiraient le moins à mi-distance étaient nettement plus efficaces. Depuis 2019, ce lien a disparu, il s'inverse même légèrement. Le mi-distance ne s'est pas amélioré par magie : ceux qui le prennent encore sont des spécialistes, et les défenses ne le protègent plus.</p>
 
@@ -124,9 +118,7 @@
   </div>
 
   <div class="code-cta">
-    <a class="btn btn-main" href="nba-mi-distance-tuto.html">Le tuto Excel pas à pas</a>
-    <a class="btn btn-ghost" href="nba-mi-distance/excel/nba-mi-distance-corrige.xlsx" download>Le fichier Excel</a>
-    <a class="btn btn-ghost" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/nba-mi-distance" target="_blank" rel="noopener">Sur GitHub ↗</a>
+    <a class="btn btn-main" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/nba-mi-distance" target="_blank" rel="noopener">Sur GitHub ↗</a>
   </div>
   <p style="color:var(--ink-soft); font-size:.92rem;">Le calcul tient dans un seul script Python, relançable : il télécharge les 4 441 452 tirs et refait tous les calculs. Les graphiques, eux, sont construits dans Excel à partir de ces résultats.</p>
 </article>
