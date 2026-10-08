@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messi, le meilleur de l'histoire ? · Alvin Kouadio</title>
+<meta name="description" content="Messi a-t-il mérité ses 8 Ballons d'Or ? Comparaison avec 13 grands attaquants et analyse de ses tirs en Liga. Étude de données par Alvin Kouadio.">
+<meta property="og:title" content="Messi est-il le meilleur joueur de l'histoire ? Ce que disent les données">
+<meta property="og:description" content="Ronaldo a marqué plus. Mais sans les penalties et avec les passes, Messi apporte 1,11 but ou passe décisive par match, plus que tous les grands attaquants.">
+<meta property="og:image" content="https://ateyaba-k.github.io/projets/messi/excel/graphiques/G2-par-match.png">
+<meta property="og:url" content="https://ateyaba-k.github.io/projets/messi.html">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231F3864'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="progress-read" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Alvin Kouadio<span>.</span></a>
+    <div class="nav-right"><nav class="nav-links">
+      <a href="../index.html#projets">Projets</a>
+      <a href="../maintenant.html">Maintenant</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Changer de thème" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg></button></div>
+  </div>
+</div>
+
+<div class="wrap">
+<article class="article">
+  <a class="back" href="../index.html#projets">← Tous les projets</a>
+  <p class="eyebrow"><b>Étude</b> · Football × analyse de performance</p>
+  <h1>Messi est-il le meilleur joueur <em class="mark">de l'histoire ?</em></h1>
+  <p class="kicker">Huit Ballons d'Or, un record. Mais un trophée reste un vote. J'ai voulu vérifier avec les données : je compare Messi à 13 des plus grands attaquants de son époque, puis j'analyse chacun de ses tirs en Liga pour voir s'il marque plus que ses occasions ne le laissent prévoir.</p>
+  <div class="meta-row"><span>14 attaquants comparés</span><span>2 278 tirs de Messi en Liga</span><span>Transfermarkt · StatsBomb</span><span>Python pour le calcul · Excel pour les graphiques</span></div>
+
+  <div class="kpis">
+    <div class="kpi"><b>1,11</b><span>but hors penalty ou passe décisive par match de club, le meilleur chiffre des 14</span></div>
+    <div class="kpi"><b>+146</b><span>buts de plus que ses occasions n'en valaient, en Liga de 2004 à 2021</span></div>
+    <div class="kpi"><b>8</b><span>Ballons d'Or, record absolu</span></div>
+  </div>
+
+  <section class="tldr">
+    <h2>En 30 secondes</h2>
+    <ul>
+      <li>En buts bruts, <strong>Cristiano Ronaldo est devant</strong> : 937 contre 885. Mais Ronaldo a marqué 155 penalties en club, Messi 87.</li>
+      <li>Sans les penalties et avec les passes décisives, Messi apporte <strong>1,11 but ou passe par match</strong>, contre 0,85 pour Ronaldo. Aucun des 14 attaquants ne fait mieux.</li>
+      <li>En Liga, il a marqué <strong>412 buts pour 266 attendus</strong> (hors penalty) : 16 saisons sur 17 au-dessus de ses occasions. Ce n'est pas de la chance, c'est un talent qui se répète.</li>
+    </ul>
+  </section>
+
+  <h2 class="h"><span class="step">01 · Les buts</span>Le total donne l'avantage à Ronaldo</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="messi/excel/graphiques/G1-totaux.png" alt="Buts au total en club et en sélection, 14 attaquants" loading="lazy">
+    <p class="src">Source : Transfermarkt, jeu de données de salimt (octobre 2025) · club toutes compétitions + sélection A</p>
+  </figure>
+  <p>Si l'on s'arrête au nombre de buts, le débat est vite tranché : Cristiano Ronaldo est devant. Mais ce chiffre mélange des choses très différentes. Il compte les penalties, il récompense la longévité, et il ignore tout ce qu'un joueur fait pour faire marquer les autres. Pour comparer des joueurs, il faut d'abord rendre les chiffres comparables.</p>
+
+  <h2 class="h"><span class="step">02 · La correction</span>Sans les penalties, avec les passes : Messi devant tout le monde</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="messi/excel/graphiques/G2-par-match.png" alt="Buts hors penalty et passes décisives par match de club" loading="lazy">
+    <p class="src">Source : Transfermarkt · club toutes compétitions · (buts hors penalty + passes décisives) ÷ matchs joués</p>
+  </figure>
+  <p>Trois corrections suffisent. On retire les penalties, qui dépendent surtout de qui est désigné tireur. On ajoute les passes décisives, parce qu'un but offert compte autant qu'un but marqué pour l'équipe. Et on divise par le nombre de matchs, pour ne pas récompenser seulement la durée de carrière.</p>
+  <p>Résultat : Messi apporte <strong>1,11</strong> but ou passe décisive par match. Mbappé suit avec 0,97, Ronaldo est à 0,85. Messi a aussi donné <strong>368 passes décisives</strong> en club, 111 de plus que Ronaldo. Et il compte 10 saisons à plus de 40 buts, dont une à 73 buts (2011-12), le record de l'échantillon.</p>
+
+  <h2 class="h"><span class="step">03 · La finition</span>Il marque plus que ses occasions ne le permettent</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="messi/excel/graphiques/G3-xg.png" alt="Buts réels et buts attendus de Messi en Liga, saison par saison" loading="lazy">
+    <p class="src">Source : StatsBomb, données ouvertes · Liga 2004-05 à 2020-21 · hors penalty</p>
+  </figure>
+  <p>Les buts attendus (xG) donnent la probabilité qu'un tir finisse au fond, selon sa position, l'angle ou la partie du corps utilisée. Un joueur moyen marque à peu près autant que ses xG. Messi a marqué <strong>412 buts</strong> pour <strong>266 attendus</strong>, soit 146 de plus, et cela 16 saisons sur 17.</p>
+  <p>Sur les 26 joueurs qui ont tiré au moins 100 fois dans ces matchs, c'est le plus grand écart, loin devant le deuxième, Luis Suárez (+28). L'écart vient surtout des tirs de loin : hors de la surface, Messi a converti <strong>9,3 %</strong> de ses tentatives, contre 3,6 % pour les autres joueurs de ces mêmes matchs.</p>
+
+  <h2 class="h"><span class="step">04 · Les Ballons d'Or</span>Une reconnaissance qui suit les chiffres</h2>
+  <figure class="chart">
+    <span class="made-in">▦ Fait dans Excel</span>
+    <img class="xl" src="messi/excel/graphiques/G4-ballons.png" alt="Nombre de Ballons d'Or par joueur" loading="lazy">
+    <p class="src">Source : France Football, liste des lauréats publiée par Sports Illustrated</p>
+  </figure>
+  <p>Messi a gagné le Ballon d'Or en 2009, 2010, 2011, 2012, 2015, 2019, 2021 et 2023. Les quatre premiers correspondent à ses saisons les plus prolifiques, dont les 73 buts de 2011-12. Le dernier suit la Coupe du monde 2022, gagnée avec l'Argentine, où il est élu meilleur joueur du tournoi. Les données ne votent pas, mais elles montrent que ces trophées récompensent une domination mesurable, sur la durée.</p>
+
+  <h2 class="h"><span class="step">05 · Et alors ?</span>Ce que ça m'apprend sur l'analyse de performance</h2>
+  <div class="lessons">
+    <div><b>Un total ne compare rien.</b><span>Comparer des joueurs, des vendeurs ou des campagnes sur un chiffre brut, c'est souvent comparer leur durée ou leurs conditions. Il faut ramener à une même base : par match, par client, par euro dépensé.</span></div>
+    <div><b>Retirer ce qui ne dépend pas de la personne.</b><span>Les penalties dépendent d'un choix de l'entraîneur. En entreprise, c'est pareil : un commercial qui hérite des gros comptes n'est pas forcément le meilleur.</span></div>
+    <div><b>Comparer au résultat attendu.</b><span>Les xG séparent le talent de la chance. C'est la même logique qu'un objectif de ventes : ce qui compte, c'est l'écart à ce qu'on pouvait raisonnablement espérer.</span></div>
+  </div>
+
+  <h2 class="h"><span class="step">06 · Limites</span>Ce que cette étude ne dit pas</h2>
+  <div class="limits">
+    <div><b>Des époques et des championnats différents.</b><span>Un but en Liga dans les années 2010 ne se compare pas parfaitement à un but en Premier League ou en Arabie saoudite. Le calcul par match atténue l'écart sans le supprimer.</span></div>
+    <div><b>Les xG ne couvrent que la Liga avec Barcelone.</b><span>StatsBomb a publié tous les matchs de Messi en Liga, pas ceux des autres joueurs dans leurs championnats. La comparaison des xG porte donc sur les joueurs présents dans ces matchs.</span></div>
+    <div><b>Le football ne se résume pas aux buts.</b><span>Le pressing, le placement ou le travail défensif n'apparaissent pas ici. Les attaquants comparés ont des rôles différents.</span></div>
+  </div>
+
+  <h2 class="h"><span class="step">Sources</span>D'où viennent les chiffres</h2>
+  <ul class="sources">
+    <li><a href="https://github.com/salimt/football-datasets" target="_blank" rel="noopener">salimt/football-datasets</a> : données Transfermarkt, mises à jour en octobre 2025</li>
+    <li><a href="https://github.com/statsbomb/open-data" target="_blank" rel="noopener">StatsBomb, données ouvertes</a> et <a href="https://blogarchive.statsbomb.com/news/statsbomb-release-free-messi-data-all-seasons-from-2004-05-2020-21-now-available/" target="_blank" rel="noopener">la publication de la carrière de Messi en Liga</a></li>
+    <li><a href="https://www.si.com/soccer/men-s-ballon-d-or-full-list-of-winners" target="_blank" rel="noopener">Sports Illustrated, liste des Ballons d'Or</a></li>
+    <li>Pour aller plus loin : <a href="https://dtai.cs.kuleuven.be/sports/blog/a-%22messi-vs-all%22-analysis-of-the-xg-metric" target="_blank" rel="noopener">KU Leuven, « Messi vs all »</a> et <a href="https://blogarchive.statsbomb.com/news/messi-data-biography-analysis-and-data-release-2012-13-to-2015-16/" target="_blank" rel="noopener">StatsBomb, analyse 2012-13 à 2015-16</a></li>
+  </ul>
+
+  <div class="code-cta">
+    <a class="btn btn-main" href="https://github.com/ATEYABA-K/ATEYABA-K.github.io/tree/main/projets/messi" target="_blank" rel="noopener">Le code sur GitHub ↗</a>
+  </div>
+</article>
+
+  <footer>
+    <span>Alvin Kouadio · Nanterre, Île-de-France</span>
+    <span><a href="../index.html#contact">Me contacter</a></span>
+  </footer>
+</div>
+
+<script src="../assets/fond.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
