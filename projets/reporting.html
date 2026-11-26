@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../assets/favicon.png">
+<meta name="description" content="Le nombre attendu dans le fichier traité par le script.">
+<title>Comment éviter de refaire le même rapport à la main ? · Alvin Kouadio</title>
+<link rel="stylesheet" href="../assets/portfolio-carnet.css">
+</head><body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="top"><div class="nav wrap"><a class="brand" href="../index.html">Alvin Kouadio</a>
+<nav aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#parcours">Parcours</a><a href="../assets/Alvin_Kouadio_CV_Quebec.pdf">CV PDF</a></nav></div><div class="case-top wrap">
+<a class="back" href="../index.html#projets">← Tous les projets</a><p class="eyebrow">Automatisation</p>
+<h1>Comment éviter de refaire le même rapport à la main ?</h1><p class="lede">Après l’étude sur l’IA, je me suis demandé ce que je devrais refaire à la prochaine publication de l’Insee. Le téléchargement, le nettoyage et les graphiques suivaient déjà les mêmes étapes.</p></div></header>
+<main id="contenu" class="wrap case-layout"><article class="case-content">
+<section><h2>Le contrôle que j’ai ajouté</h2><p>J’ai repris ces étapes dans un script Python et programmé son exécution mensuelle avec GitHub Actions. J’ai ajouté un contrôle avant l’enregistrement : le script attend 78 lignes dans le fichier traité.</p></section><section><h2>Quand le script s’arrête</h2><p>Si le nombre de lignes change, le traitement s’arrête. Je peux alors regarder ce qui a changé dans le fichier au lieu de découvrir l’erreur une fois le rapport mis à jour.</p></section><section><h2>Ce que j’automatiserais ensuite</h2><p>Un nouveau fichier peut contenir plus de lignes pour une bonne raison. J’ajouterais un contrôle des colonnes et des identifiants, ainsi qu’une notification en cas d’échec.</p></section><section><h2>Un fichier peut avoir 78 lignes et être faux</h2><p>Le nombre de lignes est un premier signal. Si une ligne manque et qu’une autre est dupliquée, le total peut rester identique. Je vérifierais donc aussi la présence des colonnes attendues, l’unicité des identifiants, les années couvertes et la cohérence des taux. Je garderais la dernière version valide lorsqu’un contrôle échoue.</p></section><section><h2>Quand le fichier change sans que les données changent</h2><p>Le script peut être lancé chaque mois même si la source n’a rien publié de nouveau. Je distinguerais trois résultats dans le journal : aucune mise à jour détectée, nouvelle version contrôlée, ou échec à examiner. Une nouvelle version devrait garder la date de la source et laisser une trace des écarts avec la précédente.</p></section><section><h2>Le gain que je chercherais à mesurer</h2><p>L’intérêt se mesure sur plusieurs mises à jour. Je chronométrerais le temps nécessaire pour refaire le rapport à la main, puis le temps de relecture et de maintenance du script. Si le contrôle humain reste rapide et que les erreurs sont plus faciles à repérer, l’automatisation mérite d’être conservée.</p></section>
+</article><aside class="sidebar"><strong>78 lignes</strong><p>Le nombre attendu dans le fichier traité par le script.</p>
+<p class="small">Python · GitHub Actions</p><a href="https://github.com/ATEYABA-K/automatisation-reporting-insee">Voir le projet et ses sources ↗</a></aside></main>
+<footer class="footer"><div class="wrap"><span>Alvin Kouadio · Nanterre, France</span>
+<nav aria-label="Liens personnels"><a href="mailto:alvinkouadio1@icloud.com">Courriel</a><a href="https://www.linkedin.com/in/alvin-kouadio-4757281ba">LinkedIn</a><a href="https://github.com/ATEYABA-K">GitHub</a></nav></div></footer>
+</body></html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ateyaba-k.github.io/</loc><priority>1.0</priority></url>
   <url><loc>https://ateyaba-k.github.io/projets/ufc-paris.html</loc><priority>0.9</priority></url>
@@ -6,4 +6,4 @@
   <url><loc>https://ateyaba-k.github.io/maintenant.html</loc><priority>0.6</priority></url>
   <url><loc>https://ateyaba-k.github.io/projets/messi.html</loc></url>
   <url><loc>https://ateyaba-k.github.io/projets/sports-combat.html</loc></url>
-</urlset>
+<url><loc>https://ateyaba-k.github.io/projets/cadrage.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/combats.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/football.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/ia-entreprises.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/musique-sql.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/paris-sportifs.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/prevision-velos.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/reporting.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/scoring.html</loc></url><url><loc>https://ateyaba-k.github.io/projets/telco.html</loc></url></urlset>

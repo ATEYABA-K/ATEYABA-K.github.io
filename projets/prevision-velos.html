@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../assets/favicon.png">
+<meta name="description" content="Portfolio analytique d’Alvin Kouadio.">
+<title>Peut-on prévoir les locations de vélos du lendemain ? · Alvin Kouadio</title>
+<link rel="stylesheet" href="../assets/portfolio-carnet.css">
+</head><body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="top"><div class="nav wrap"><a class="brand" href="../index.html">Alvin Kouadio</a>
+<nav aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#parcours">Parcours</a><a href="../assets/Alvin_Kouadio_CV_Quebec.pdf">CV PDF</a></nav></div><div class="wrap case-top">
+<a class="back" href="../index.html#projets">← Tous les projets</a>
+<p class="eyebrow">Prévision · Étude en cours de relecture</p><h1>Peut-on prévoir les locations de vélos du lendemain ?</h1>
+<p class="lede">À Washington, le réseau Capital Bikeshare publie ses données de location. Sur 731 jours d’historique, cette étude compare deux façons d’estimer combien de vélos seront loués demain.</p>
+</div></header><main id="contenu" class="wrap case-layout">
+<article class="case-content">
+<section><h2>Prendre la semaine dernière comme point de départ</h2><p>Si je dois prévoir les locations d’un mardi, je commencerais par regarder le mardi précédent. C’est une règle simple à appliquer. Pour savoir si une régression linéaire vaut le travail supplémentaire, il faut la comparer à cette règle sur les mêmes journées.</p></section>
+<section><h2>Vérifier le fichier avant de prévoir</h2><p>Le fichier va du 1er janvier 2011 au 31 décembre 2012. Avant les calculs, le script vérifie que chaque jour apparaît une seule fois et que les locations des deux catégories d’usagers s’additionnent bien au total. Le modèle écarte ces deux nombres, qui ne sont connus qu’une fois la journée passée.</p></section>
+<section><h2>Se placer au moment de la prévision</h2>
+<p>La régression utilise le calendrier, la période de l’année, la tendance et les volumes observés la veille, une semaine et deux semaines plus tôt. Pour que la prévision soit utilisable, les chiffres de la veille doivent déjà être disponibles. La météo réellement observée le jour à prévoir, elle, ne l’est pas encore.</p>
+<p>Le premier modèle apprend sur 2011 et passe une validation de janvier à juin 2012. Il est ensuite ajusté de nouveau avec les données disponibles jusqu’à fin juin. De juillet à décembre, les coefficients restent fixes. À chaque nouvelle date, le modèle peut utiliser les volumes déjà observés pour prévoir le lendemain.</p></section>
+<section><h2>Ce que montre le test</h2><p>Sur les 184 jours de test, l’erreur absolue moyenne passe de 1 130 à 869 locations par jour, soit une baisse de 23,1 %. Le RMSE baisse aussi, de 1 648 à 1 193. En août, le repère hebdomadaire reste légèrement meilleur.</p>
+<div class="results"><table>
+<caption>Erreurs en locations par jour</caption>
+<thead><tr><th scope="col">Période</th><th scope="col">Jours</th><th scope="col">MAE J−7</th><th scope="col">MAE modèle</th><th scope="col">RMSE J−7</th><th scope="col">RMSE modèle</th></tr></thead>
+<tbody><tr><th scope='row'>Janv.–juin 2012</th><td>182</td><td>1 091</td><td>850</td><td>1 469</td><td>1 092</td></tr><tr><th scope='row'>Juil.–déc. 2012</th><td>184</td><td>1 130</td><td>869</td><td>1 648</td><td>1 193</td></tr></tbody></table></div>
+<figure><img src="../assets/erreurs-mensuelles.png" width="940" height="432"
+alt="Le modèle a une erreur moyenne plus faible sur cinq mois sur six. En août, la référence est légèrement meilleure.">
+<figcaption class="small">Plus une barre est courte, plus la prévision est proche du volume observé. La MAE mesure la taille moyenne de l’erreur. Le RMSE donne davantage de poids aux gros écarts.</figcaption></figure>
+</section>
+<section><h2>Pourquoi je regarderais le week-end à part</h2><p>Sur la période de test, l’erreur moyenne du modèle est d’environ 751 locations en semaine et 1 161 le week-end. Une moyenne sur le semestre masque cet écart. Je regarderais quelles dates l’expliquent, notamment les jours fériés et les journées très atypiques, avant de décider si le même modèle convient à tous les jours.</p></section><section><h2>Une erreur faible peut encore poser problème</h2><p>La moyenne absolue compte les surestimations et les sous-estimations de la même façon. Pour un exploitant, prévoir trop peu peut laisser des clients sans vélo. Prévoir trop peut mobiliser des moyens pour rien. Je ferais donc évaluer les deux types d’erreur séparément par l’équipe terrain, avec les coûts propres à chaque décision.</p></section><section><h2>Ma conclusion</h2><p>Sur l’échantillon testé, la régression améliore le repère hebdomadaire sur cinq mois sur six. Le mois d’août rappelle pourquoi je garderais les deux prévisions côte à côte lors d’un premier pilote. Je testerais ensuite une référence hebdomadaire plus robuste, sur des dates récentes, et je ne passerais à une décision par station qu’avec des données à cette échelle.</p></section>
+</article><aside class="sidebar"><strong>23,1 %</strong><p>de baisse de l’erreur absolue moyenne sur le semestre de test.</p>
+<p class="small">Python · NumPy · validation chronologique</p>
+<a href="../assets/Etude_prevision_velos.zip">Télécharger le dossier reproductible</a>
+<a href="https://doi.org/10.24432/C5W894">Données UCI et licence ↗</a></aside></main>
+<footer class="footer"><div class="wrap"><span>Alvin Kouadio · Nanterre, France</span>
+<nav aria-label="Liens personnels"><a href="mailto:alvinkouadio1@icloud.com">Courriel</a><a href="https://www.linkedin.com/in/alvin-kouadio-4757281ba">LinkedIn</a><a href="https://github.com/ATEYABA-K">GitHub</a></nav></div></footer>
+</body></html>
